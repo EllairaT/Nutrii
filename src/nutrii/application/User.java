@@ -20,7 +20,7 @@ public abstract class User {
     
     public User(){
         System.out.println("user");
-       
+        System.out.println("can i do this?");
        
     }
     
