@@ -11,7 +11,6 @@ public class NutriiApplication {
      */
     public static void main(String[] args) {
         System.out.println("thing");
-        System.out.println("newthing");
     }
     
 }
