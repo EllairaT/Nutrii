@@ -11,6 +11,7 @@ public class NutriiApplication {
      */
     public static void main(String[] args) {
         System.out.println("Nutrii");
+        System.out.println("Nutrition tracking app");
     }
     
 }
