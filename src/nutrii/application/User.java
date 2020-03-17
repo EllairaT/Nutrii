@@ -19,7 +19,8 @@ public abstract class User {
     protected LocalDate startDate; //the day the user creates their account.
     
     public User(){
-        
+        System.out.println("user");
+       
        
     }
     
