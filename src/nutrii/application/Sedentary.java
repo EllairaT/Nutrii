@@ -7,7 +7,8 @@ package nutrii.application;
 public class Sedentary extends User{
     
     public Sedentary(){
+       super();
+       modifier = 1.2f;
         
     }
-    
 }
