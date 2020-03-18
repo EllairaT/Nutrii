@@ -22,7 +22,7 @@ public class NutriiApplication {
         System.out.println();
         User blake = new ModeratelyActive("Blake", 'm', LocalDate.of(2000, Month.AUGUST, 13), 180f, 53f);
         System.out.println(blake);
-       // System.out.println(u);
+
         
     }
     
