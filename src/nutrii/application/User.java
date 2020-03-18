@@ -19,13 +19,17 @@ public abstract class User {
     protected LocalDate startDate; //the day the user creates their account.
     
     public User(){
-        System.out.println("user");
-        System.out.println("can i do this?");
+        System.out.println("");
+        System.out.println("");
        
     }
     
     public int getAge(){
         return 0;
+    }
+    
+    public String getName(){
+        return name;
     }
     /*
         class calculateBMR() :
