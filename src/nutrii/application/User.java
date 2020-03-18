@@ -8,7 +8,7 @@ import java.time.Period;
  *
  * @author Ellaira
  */
-public class User {
+public abstract class User {
     
     protected String name;
     protected char gender;

@@ -12,7 +12,5 @@ public class ModeratelyActive extends User {
        super(n,g,d,h,w);
        modifier = 1.55f;
     }
-    
-    
-    
+
 }

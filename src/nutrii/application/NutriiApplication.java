@@ -2,6 +2,8 @@ package nutrii.application;
 
 import java.time.LocalDate;
 import java.time.Month;
+import java.util.HashMap;
+import java.util.NoSuchElementException;
 
 /**
  *
@@ -22,8 +24,28 @@ public class NutriiApplication {
         System.out.println();
         User blake = new ModeratelyActive("Blake", 'm', LocalDate.of(2000, Month.AUGUST, 13), 180f, 53f);
         System.out.println(blake);
-
         
+        Vitamins vit = new Vitamins();
+
+        vit.returnList().forEach((key, value)-> {System.out.println(key + " : " + value );});
+        
+        try {
+            vit.update("Vitamin asfd", 12.0f);
+        } catch (NoSuchElementException e) {
+            System.err.println(e.getMessage());
+        }
+        
+        
+        System.out.println("\nMINERALS:\n");
+        Compounds min = new Minerals();
+        
+        try {
+            min.update("dsfbdfsjbkdsgjkdgsfjbk", 12.0f);
+        } catch (NoSuchElementException ex) {
+            System.err.println(ex.getMessage());
+        }
+        
+        min.returnList().forEach((key, value)-> {System.out.println(key + " : " + value);});
     }
     
 }
