@@ -4,7 +4,7 @@ import java.util.Comparator;
 
 /**
  *
- * @author Ellaira
+ * @author Blake
  */
 public abstract class FoodItem implements Comparator<FoodItem> {
     public FoodItem(){
