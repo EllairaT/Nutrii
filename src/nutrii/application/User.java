@@ -73,8 +73,13 @@ public class User {
         return totalBMR;
     }   
     
+    @Override
     public String toString(){
-        return name + ", " + getAge() + ": BMR: " + calculateBMR();
+        return name + ", " + getAge() + ": BMR: " + calculateBMR() + "\nTotal Calories needed for lifestyle: " + calculateCalNeeded();
     }
     
+    public float calculateCalNeeded(){
+       System.out.println("modifier: " + modifier);
+       return calculateBMR() * modifier;           
+    }
 }
