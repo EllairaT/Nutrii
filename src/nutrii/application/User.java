@@ -1,32 +1,56 @@
 package nutrii.application;
 
 import java.time.LocalDate;
+import java.time.Month;
+import java.time.Period;
 
 /**
  *
  * @author Ellaira
  */
-public abstract class User {
+public class User {
     
     protected String name;
     protected char gender;
     protected float modifier;
-    protected LocalDate DOB;
-    protected int thing;
+    protected LocalDate DOB; // immutable, no setter 
     protected float height;
     protected float weight;
     protected float BMR;
     protected LocalDate startDate; //the day the user creates their account.
     
-    public User(){
-        System.out.println("user");
-        System.out.println("can i do this?");
-       
+    public User(String n, char g, LocalDate d, float h, float w){
+        startDate = LocalDate.now();
+        setName(n);
+        gender = g;
+        DOB = d;
+        height = h;
+        weight = w;       
     }
     
     public int getAge(){
-        return 0;
+        Period age = Period.between(DOB, startDate);
+        int years = age.getYears();
+        
+        return years;
     }
+    
+    public char getGender(){
+        return gender;
+    }
+    
+    public LocalDate getDOB(){
+        return DOB;
+    }
+    
+    public String getName(){
+        return name;
+    }
+    
+    public void setName(String n){
+        name = n;
+    }
+    
     /*
         class calculateBMR() :
         - uses the Revised Harris-Benedict Equation.
@@ -47,7 +71,15 @@ public abstract class User {
                 break;
         }
         return totalBMR;
+    }   
+    
+    @Override
+    public String toString(){
+        return name + ", " + getAge() + ": BMR: " + calculateBMR() + "\nTotal Calories needed for lifestyle: " + calculateCalNeeded();
     }
     
-    
+    public float calculateCalNeeded(){
+       System.out.println("modifier: " + modifier);
+       return calculateBMR() * modifier;           
+    }
 }
