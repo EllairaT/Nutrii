@@ -51,11 +51,13 @@ public abstract class User {
         name = n;
     }
     
-    /*
-        class calculateBMR() :
-        - uses the Revised Harris-Benedict Equation.
-        
-    */
+  /**
+   * This class calculates the BMR (Basal Metabolic Rate) of the user.
+   * This shows the user the minimum amount of calories they require. 
+   * - uses the Revised Harris-Benedict Equation.
+   * 
+   * @return total BMR of user.
+   */
     public float calculateBMR(){
         
         float totalBMR = 0.0f;

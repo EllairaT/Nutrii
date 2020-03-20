@@ -30,17 +30,19 @@ public class NutriiApplication {
         
         Vitamins vit = new Vitamins();
 
-        vit.returnList().forEach((key, value)-> {System.out.println(key + " : " + value );});
+//        vit.returnList().forEach((key, value)-> {System.out.println(key + " : " + value );});
         
-        try {
-            vit.update("Vitamin asfd", 12.0f);
-        } catch (NoSuchElementException e) {
-            System.err.println(e.getMessage());
-        }
-        
+//        try {
+//            vit.update("Vitamin asfd", 12.0f);
+//        } catch (NoSuchElementException e) {
+//            System.err.println(e.getMessage());
+//        }
+//        
         
         System.out.println("\nMINERALS:\n");
         Compounds min = new Minerals();
+        
+        min.returnList().forEach((key, value)-> {System.out.println(key + " : " + value);});
         
         try {
             min.update("dsfbdfsjbkdsgjkdgsfjbk", 12.0f);
@@ -48,7 +50,7 @@ public class NutriiApplication {
             System.err.println(ex.getMessage());
         }
         
-        min.returnList().forEach((key, value)-> {System.out.println(key + " : " + value);});
+     
     }
     
     public ArrayList<FoodItemDatabase> recordFoodItems(FoodItemDatabase fdb){
@@ -61,6 +63,7 @@ public class NutriiApplication {
     
     public User createNewUser(){
        //make user, return user
+       return null; //placeholder 
     }
     
     public void updateUserDetails(User u){
