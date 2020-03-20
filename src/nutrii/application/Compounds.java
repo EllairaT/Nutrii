@@ -8,7 +8,8 @@ import java.util.NoSuchElementException;
 import java.util.Set;
 
 /**
- *
+ * This class is the superclass for Vitamins and Minerals.
+ * Contains the methods used by both the subclasses.
  * @author Ellaira
  */
 public abstract class Compounds {
@@ -21,6 +22,13 @@ public abstract class Compounds {
         compoundHashMap = new HashMap<>();      
     }
     
+    /**
+     * Adds the list from the subclass into the compounds array attribute, 
+     * this enables the subclass to use the methods in the superclass
+     * with their appropriate compound list. 
+     * 
+     * @param s the string array to be passed. 
+     */
     public void addComponents(String[] s){
         compoundSet = new HashSet<>(Arrays.asList(s)); //ensures there are no duplicates
         Iterator<String> itr = compoundSet.iterator();
@@ -32,6 +40,11 @@ public abstract class Compounds {
         }
     }
     
+    /**
+     * 
+     * @param v
+     * @param f 
+     */
     public void update(String v, float f){
         if(compoundSet.contains(v)){
             compoundHashMap.put(v, f);
@@ -42,9 +55,16 @@ public abstract class Compounds {
         }  
     }
     
+    /**
+     * 
+     * @return 
+     */
     public HashMap<String, Float> returnList(){
         return compoundHashMap;
     }
     
+    /**
+     * 
+     */
     public abstract void printInformation();
 }
