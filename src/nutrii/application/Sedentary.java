@@ -13,6 +13,6 @@ public class Sedentary extends User{
        modifier = 1.2f;
        //oh look a new line!
         System.out.println("sdajfkhds");
-        System.out.println("dsfg");
+        System.out.println("dsggggggfg");
     }
 }
