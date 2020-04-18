@@ -32,4 +32,5 @@ public class Vitamins extends Compounds{
     public void printInformation() {
         System.out.println("");
     }
+    
 }

@@ -1,7 +1,6 @@
 package nutrii.application;
 
 import java.time.LocalDate;
-import java.time.Month;
 import java.time.Period;
 
 /**
@@ -11,77 +10,148 @@ import java.time.Period;
 public abstract class User {
     
     protected String name;
-    protected char gender;
+    private char gender;
     protected float modifier;
-    protected LocalDate DOB; // immutable, no setter 
-    protected float height;
-    protected float weight;
-    protected float BMR;
-    protected LocalDate startDate; //the day the user creates their account.
+    private final LocalDate DOB; 
+    private float height;
+    private float weight;
+    private float BMR;
+    private final LocalDate START_DATE; //the day the user creates their account.
     
     public User(String n, char g, LocalDate d, float h, float w){
-        startDate = LocalDate.now();
-        setName(n);
-        gender = g;
-        DOB = d;
-        height = h;
-        weight = w;       
+        this.setName(n);
+        this.setGender(g);   
+        this.setHeight(h);
+        this.setWeight(w);
+        this.START_DATE = LocalDate.now();
+        this.DOB = d;
+        this.setBMR(calculateBMR());
     }
     
+    /**
+     * @return the user's age in years.
+     */
+    
     public int getAge(){
-        Period age = Period.between(DOB, startDate);
-        int years = age.getYears();
+        Period p = Period.between(DOB, LocalDate.now()); 
+        int years = p.getYears();
         
         return years;
     }
     
-    public char getGender(){
-        return gender;
-    }
-    
-    public LocalDate getDOB(){
-        return DOB;
-    }
-    
-    public String getName(){
-        return name;
-    }
-    
-    public void setName(String n){
-        name = n;
-    }
-    
   /**
-   * This class calculates the BMR (Basal Metabolic Rate) of the user.
-   * This shows the user the minimum amount of calories they require. 
+   * This class calculates the BMR (Basal Metabolic Rate) of the user, 
+   * - i.e. the minimum amount of calories they require per day. 
    * - uses the Revised Harris-Benedict Equation.
    * 
    * @return total BMR of user.
    */
-    public float calculateBMR(){
-        
-        float totalBMR = 0.0f;
-        
+    protected final float calculateBMR(){
+
         switch(gender){
             case 'm':
-                totalBMR = (13.397f * weight) +(4.799f * height ) - (5.677f * getAge()) + 88.362f;
+                BMR = (13.397f * weight) +(4.799f * height) - (5.677f * getAge()) + 88.362f;
                 break;
             case 'f':
-                totalBMR = (9.247f * weight) +(3.098f * height ) - (4.330f * getAge()) + 447.593f;
+                BMR = (9.247f * weight) +(3.098f * height) - (4.330f * getAge()) + 447.593f;
                 break;
             default: 
                 break;
         }
-        return totalBMR;
+        return BMR;
+        
     }   
     
     @Override
     public String toString(){
-        return name + ", " + getAge() + ": BMR: " + calculateBMR() + "\nTotal Calories needed for lifestyle: " + calculateCalNeeded();
+        return name + ", DOB: " + DOB + " ("+  getAge() + ")" + "\nBMR: " + BMR + 
+               "\nLifestyle: " + getClass().getSimpleName() +
+               "\nTotal Calories needed for lifestyle: " + 
+              calculateCalNeeded() + "\nAccount created on: " + START_DATE;
+    }
+    
+    public String toWrite(){
+        return name + "," + gender + "," + DOB + "," + height + "," + weight + "," + START_DATE + "," + getClass().getSimpleName();
     }
     
     public float calculateCalNeeded(){
-       System.out.println("modifier: " + modifier);
-       return calculateBMR() * modifier;           
+       return BMR * modifier;           
+    }
+
+    /**
+     * @return the height
+     */
+    public float getHeight() {
+        return height;
+    }
+
+    /**
+     * @param height the height to set
+     */
+    public final void setHeight(float height) {
+        this.height = height;
+    }
+
+    /**
+     * @return the weight
+     */
+    public float getWeight() {
+        return weight;
+    }
+
+    /**
+     * @param weight the weight to set
+     */
+    public final void setWeight(float weight) {
+        this.weight = weight;
+    }
+
+    /**
+     * @param BMR the BMR to set
+     */
+    public final void setBMR(float BMR) {
+        this.BMR = BMR;
+    }
+
+    /**
+     * @return the name
+     */
+    public String getName() {
+        return name;
+    }
+
+    /**
+     * @param name the name to set
+     */
+    public final void setName(String name) {
+        this.name = name;
+    }
+
+    /**
+     * @return the startDate
+     */
+    public LocalDate getStartDate() {
+        return START_DATE;
+    }
+
+    /**
+     * @param gender the gender to set
+     */
+    public final void setGender(char gender) {
+        this.gender = gender;
+    }
+    
+    /**
+     *@return the gender
+     */
+    public char getGender() {
+        return gender;
+    }
+
+    /**
+     * @return the DOB
+     */
+    public LocalDate getDOB() {
+        return DOB;
     }
 }

@@ -4,11 +4,26 @@ package nutrii.application;
  *
  * @author Ellaira
  */
-public class Drink extends FoodItem{
-
-    @Override
-    public int compare(FoodItem o1, FoodItem o2) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+public class Drink extends FoodItem {
     
+    private float amountInML;
+
+    public Drink(String name, float amount) {
+        super(name);
+        this.setAmountInML(amount);
+    }
+
+    /**
+     * @return the amountInML
+     */
+    public float getAmountInML() {
+        return amountInML;
+    }
+
+    /**
+     * @param amountInML the amountInML to set
+     */
+    public void setAmountInML(float amountInML) {
+        this.amountInML = amountInML;
+    }    
 }
