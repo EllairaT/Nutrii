@@ -42,10 +42,11 @@ public abstract class Compounds {
     
     /**
      * 
-     * @param v
-     * @param f 
+     * @param v value
+     * @param f float
      */
     public void update(String v, float f){
+        
         if(compoundSet.contains(v)){
             compoundHashMap.put(v, f);
         }
@@ -62,7 +63,11 @@ public abstract class Compounds {
     public HashMap<String, Float> returnList(){
         return compoundHashMap;
     }
-    
+   
+    @Override
+    public String toString(){
+       return compoundHashMap.toString();
+    }
     /**
      * 
      */

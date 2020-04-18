@@ -1,12 +1,18 @@
 package nutrii.application;
 
+import java.io.FileWriter;
+import java.io.IOException;
 import java.time.LocalDate;
 import java.time.Month;
 import java.util.ArrayList;
 import java.util.NoSuchElementException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
- *
+ * this class handles all the application functions 
+ * i.e. adding users, editing users, getting reports and recording of 
+ * food items.
  * @author Ellaira
  */
 public class NutriiApplication {
@@ -17,40 +23,29 @@ public class NutriiApplication {
     private Nutrii nutrii;
     private FoodItemDatabase fdb;
     
-    public static void main(String[] args) {
-//        System.out.println("Nutrii");
-//        System.out.println("Nutrition tracking app");
-//        
-//        User u = new Sedentary("Ellaira", 'f', LocalDate.of(2000, Month.MAY, 23), 150f, 47.2f);
-//        
-//        System.out.println(u);
-//        System.out.println();
-//        User blake = new ModeratelyActive("Blake", 'm', LocalDate.of(2000, Month.AUGUST, 13), 180f, 53f);
-//        System.out.println(blake);
-        
-        Vitamins vit = new Vitamins();
+    public static void main(String[] args) { 
+       
+       User un = new Sedentary("Ellaira", 'f', LocalDate.of(2000, Month.MAY, 23),150f, 47.2f);
+       User aw = new VeryActive("Blake", 'm', LocalDate.of(2000, Month.AUGUST, 13),180f, 52f);
+       System.out.println(un.toString());
 
-//        vit.returnList().forEach((key, value)-> {System.out.println(key + " : " + value );});
-        
-//        try {
-//            vit.update("Vitamin asfd", 12.0f);
-//        } catch (NoSuchElementException e) {
-//            System.err.println(e.getMessage());
-//        }
-//        
-        
-        System.out.println("\nMINERALS:\n");
-        Compounds min = new Minerals();
-        
-        min.returnList().forEach((key, value)-> {System.out.println(key + " : " + value);});
-        
         try {
-            min.update("dsfbdfsjbkdsgjkdgsfjbk", 12.0f);
-        } catch (NoSuchElementException ex) {
-            System.err.println(ex.getMessage());
+            saveUser(un);
+            saveUser(aw);
+        } catch (IOException ex) {
+            System.err.println("something went wrong rip: " + ex);
         }
         
-     
+        //this shit works ok 
+//        System.out.println("\nMINERALS:\n");
+//        Compounds min = new Nutrients();
+// 
+//        try {
+//            min.update("Protein", 12.0f);
+//        } catch (NoSuchElementException ex) {
+//            System.err.println(ex.getMessage());
+//        }
+   //   min.returnList().forEach((key, value)-> {System.out.println(key + ": " + value);});
     }
     
     public ArrayList<FoodItemDatabase> recordFoodItems(FoodItemDatabase fdb){
@@ -63,9 +58,18 @@ public class NutriiApplication {
     
     public User createNewUser(){
        //make user, return user
+       //make sure user doesnt try to create a duplicate user
        return null; //placeholder 
     }
     
+    public static void saveUser(User user) throws IOException{
+        //im not gonna write code to remove dupes. ill just stop that when user tries to make a dupe user lmao
+        
+        try (FileWriter fw = new FileWriter("NUTRII_USERS.txt", true)) {
+            fw.write(user.toWrite()+"\n");
+        }
+    }
+     
     public void updateUserDetails(User u){
         //update user details here
     }
