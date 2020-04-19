@@ -1,5 +1,9 @@
 package nutrii.application;
 
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
 import java.time.LocalDate;
 import java.time.Period;
 
@@ -28,12 +32,24 @@ public abstract class User {
         this.setBMR(calculateBMR());
     }
     
+    public User(String userString){
+        String[] user = userString.split(",");
+        this.setName(user[0]);
+        this.setGender(user[1].charAt(0));
+        this.setHeight(Float.parseFloat(user[3]));
+        this.setWeight(Float.parseFloat(user[4]));
+        this.START_DATE = LocalDate.parse(user[5]);
+        this.DOB = LocalDate.parse(user[2]);
+        this.setBMR(calculateBMR());       
+    }
+    
     /**
      * @return the user's age in years.
      */
     
     public int getAge(){
-        Period p = Period.between(DOB, LocalDate.now()); 
+        Period p; 
+        p = Period.between(DOB, LocalDate.now());
         int years = p.getYears();
         
         return years;
@@ -71,7 +87,7 @@ public abstract class User {
     }
     
     public String toWrite(){
-        return name + "," + gender + "," + DOB + "," + height + "," + weight + "," + START_DATE + "," + getClass().getSimpleName();
+        return name + "," + gender + "," + DOB + "," + height + "," + weight + "," + START_DATE + "," + getClass().getCanonicalName();
     }
     
     public float calculateCalNeeded(){
@@ -154,4 +170,5 @@ public abstract class User {
     public LocalDate getDOB() {
         return DOB;
     }
+    
 }
