@@ -92,7 +92,19 @@ public class NutriiApplication {
         //update user details here
     }
     
-    public static ArrayList<User> readUserFile() throws ClassNotFoundException, NoSuchMethodException, InstantiationException, IllegalAccessException,  InvocationTargetException{
+    /**
+     * reads the text file of users information
+     * also instantiates the correct type of user object (sedentary, veryactive, etc)
+     * based on the information given from the text file
+     * 
+     * @return arraylist of User objects
+     * @throws ClassNotFoundException
+     * @throws NoSuchMethodException
+     * @throws InstantiationException
+     * @throws IllegalAccessException
+     * @throws InvocationTargetException 
+     */
+    public static ArrayList<User> readUserFile() throws ClassNotFoundException, NoSuchMethodException, InstantiationException, IllegalAccessException, InvocationTargetException{
         ArrayList<User> userList = new ArrayList<>();
         try{
             String line;
