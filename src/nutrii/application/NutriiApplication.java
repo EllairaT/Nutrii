@@ -24,36 +24,40 @@ public class NutriiApplication {
     /**
      * @param args the command line arguments
      */
-    private Nutrii nutrii;
-    private FoodItemDatabase fdb;
+    //private Nutrii nutrii;
+    private static FoodItemDatabase fdb;
     private static final String USER_FILE = "NUTRII_USERS.txt";
     
     public static void main(String[] args) { 
-       
-       User un = new ExtraActive("Ellaira", 'f', LocalDate.of(2000, Month.MAY, 23),150f, 47.2f);
-       User aw = new VeryActive("Blake", 'm', LocalDate.of(2000, Month.AUGUST, 13),180f, 52f);
-      // System.out.println(un.toString());
-
-        try {
-            saveUser(un);
-            saveUser(aw);
-            readUserFile();
-
-        } catch (IOException ex) {
-            System.err.println("something went wrong rip: " + ex);
-        } catch (ClassNotFoundException ex) {
-            Logger.getLogger(NutriiApplication.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (NoSuchMethodException ex) {
-            Logger.getLogger(NutriiApplication.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            Logger.getLogger(NutriiApplication.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            Logger.getLogger(NutriiApplication.class.getName()).log(Level.SEVERE, null, ex);
-        }catch (InvocationTargetException ex) {
-            Logger.getLogger(NutriiApplication.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        System.out.println("hi?");
+        fdb = new FoodItemDatabase("Foods.csv");
+        ArrayList<FoodItem> f = fdb.getDB();
         
-        //this shit works ok 
+        fdb.getItem("Apple").printNutritionInfo();
+       
+
+//       User un = new ExtraActive("Ellaira", 'f', LocalDate.of(2000, Month.MAY, 23),150f, 47.2f);
+//       User aw = new VeryActive("Blake", 'm', LocalDate.of(2000, Month.AUGUST, 13),180f, 52f);
+// System.out.println(un.toString());
+//        try {
+//            saveUser(un);
+//            saveUser(aw);
+//            readUserFile();
+//
+//        } catch (IOException ex) {
+//            System.err.println("something went wrong rip: " + ex);
+//        } catch (ClassNotFoundException ex) {
+//            Logger.getLogger(NutriiApplication.class.getName()).log(Level.SEVERE, null, ex);
+//        } catch (NoSuchMethodException ex) {
+//            Logger.getLogger(NutriiApplication.class.getName()).log(Level.SEVERE, null, ex);
+//        } catch (InstantiationException ex) {
+//            Logger.getLogger(NutriiApplication.class.getName()).log(Level.SEVERE, null, ex);
+//        } catch (IllegalAccessException ex) {
+//            Logger.getLogger(NutriiApplication.class.getName()).log(Level.SEVERE, null, ex);
+//        }catch (InvocationTargetException ex) {
+//            Logger.getLogger(NutriiApplication.class.getName()).log(Level.SEVERE, null, ex);
+//        }
+//this shit works ok 
 //        System.out.println("\nMINERALS:\n");
 //        Compounds min = new Nutrients();
 // 
@@ -62,7 +66,9 @@ public class NutriiApplication {
 //        } catch (NoSuchElementException ex) {
 //            System.err.println(ex.getMessage());
 //        }
-   //   min.returnList().forEach((key, value)-> {System.out.println(key + ": " + value);});
+//   ;
+      
+      
         
     }
     
@@ -113,12 +119,12 @@ public class NutriiApplication {
             
             while((line = reader.readLine()) != null){
                 String[] s = line.split(","); 
-                Class<?> className = Class.forName(s[s.length-1]);//find the classname, which is the last item in each line
+                //find the classname, which is the last item in each line
+                Class<?> className = Class.forName(s[s.length-1]);
                 Constructor con = className.getConstructor(String.class);
                 
                 Object userObj = con.newInstance(line);
-               
-                
+                 
                 System.out.println("\n heya this is what i read : " + userObj.toString());
                 if(userObj instanceof VeryActive){ //check to make sure its an actual object now aye
                     System.out.println("ayyy");

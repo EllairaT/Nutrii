@@ -8,12 +8,15 @@ import java.util.Comparator;
  */
 public class FoodItem implements Comparator<FoodItem>, ItemActions { 
     protected String foodName;
-    protected Nutrients nutrients;
-    protected Minerals minerals;
-    protected Vitamins vitamins;
+    private Nutrients nutrients;
+    private Minerals minerals;
+    private Vitamins vitamins;
    
     public FoodItem(String name){
         this.setFoodName(name);
+        nutrients = new Nutrients();
+        minerals = new Minerals();
+        vitamins= new Vitamins();
     }
     
     @Override
@@ -55,7 +58,7 @@ public class FoodItem implements Comparator<FoodItem>, ItemActions {
     /**
      * @param minerals the minerals to set
      */
-    public void setMinerals(Minerals minerals) {
+    public void setMinerals(Minerals c) {
         this.minerals = minerals;
     }
 
@@ -69,7 +72,7 @@ public class FoodItem implements Comparator<FoodItem>, ItemActions {
     /**
      * @param nutrients the nutrients to set
      */
-    public void setNutrients(Nutrients nutrients) {
+    public void setNutrients(Nutrients c) {
         this.nutrients = nutrients;
     }
 
@@ -83,7 +86,7 @@ public class FoodItem implements Comparator<FoodItem>, ItemActions {
     /**
      * @param vitamins the vitamins to set
      */
-    public void setVitamins(Vitamins vitamins) {
+    public void setVitamins(Vitamins c) {
         this.vitamins = vitamins;
     }
     
@@ -91,10 +94,12 @@ public class FoodItem implements Comparator<FoodItem>, ItemActions {
         String className = getClass().getSimpleName();
         System.out.println(className + ": " + foodName + "\n");
         
-        System.out.println(nutrients.toString());
-        System.out.println(vitamins.toString());
-        System.out.println(minerals.toString());
-        
+        nutrients.toString();
+        System.out.println("");
+        minerals.toString();
+        System.out.println("");
+        vitamins.toString();
     }
+
    
 }

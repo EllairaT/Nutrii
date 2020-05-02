@@ -8,9 +8,8 @@ public class Food extends FoodItem{
 
     private float serving;
     
-    public Food(String name, float s) {
+    public Food(String name) {
         super(name);
-        this.setServing(s);
     }
 
     /**
@@ -26,6 +25,4 @@ public class Food extends FoodItem{
     public void setServing(float serving) {
         this.serving = serving;
     }
-
-    
 }

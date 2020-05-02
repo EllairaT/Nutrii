@@ -66,10 +66,13 @@ public abstract class Compounds {
    
     @Override
     public String toString(){
-       return compoundHashMap.toString();
+       compoundHashMap.forEach((key, value)-> {System.out.println(key + " : " + value);});
+       return "";
     }
     /**
      * 
      */
-    public abstract void printInformation();
+    public void printInformation(){
+        
+    }
 }

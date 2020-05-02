@@ -15,9 +15,7 @@ public class NutritionTracker {
     }
     
     public void calcDailyNutrition(){
-        //get the arraylist of things the user ate, add everything up
-        
-        //call the recommender after adding things
+       //use the meal addAll() method to add everything up
     }
     
     
