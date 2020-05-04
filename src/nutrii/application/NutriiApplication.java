@@ -35,8 +35,8 @@ public class NutriiApplication {
       
         System.out.println("");
         
-        for(FoodItem f : fdb.getDB()){
-            System.out.println(f);
+        for(FoodItem f : fdb.getDrinkDB()){
+            f.printNutritionInfo();
         }
         //BEFORE ADDING ANY FOODITEM OBJECT IN A MEAL OBJECT, 
         //ASK IF THE USER WANTS TO REMOVE A FOOD ITEM FROM THE CURRENT ARRAYLIST
