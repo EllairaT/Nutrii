@@ -9,6 +9,8 @@ import java.lang.reflect.InvocationTargetException;
 import java.time.LocalDate;
 import java.time.Month;
 import java.util.ArrayList;
+import java.util.Arrays;
+import static java.util.Collections.sort;
 import java.util.NoSuchElementException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -29,48 +31,21 @@ public class NutriiApplication {
     private static final String USER_FILE = "NUTRII_USERS.txt";
     
     public static void main(String[] args) { 
-        System.out.println("hi?");
-        fdb = new FoodItemDatabase("Foods.csv");
-        ArrayList<FoodItem> f = fdb.getDB();
-        
-        fdb.getItem("Apple").printNutritionInfo();
-       
-
-//       User un = new ExtraActive("Ellaira", 'f', LocalDate.of(2000, Month.MAY, 23),150f, 47.2f);
-//       User aw = new VeryActive("Blake", 'm', LocalDate.of(2000, Month.AUGUST, 13),180f, 52f);
-// System.out.println(un.toString());
-//        try {
-//            saveUser(un);
-//            saveUser(aw);
-//            readUserFile();
-//
-//        } catch (IOException ex) {
-//            System.err.println("something went wrong rip: " + ex);
-//        } catch (ClassNotFoundException ex) {
-//            Logger.getLogger(NutriiApplication.class.getName()).log(Level.SEVERE, null, ex);
-//        } catch (NoSuchMethodException ex) {
-//            Logger.getLogger(NutriiApplication.class.getName()).log(Level.SEVERE, null, ex);
-//        } catch (InstantiationException ex) {
-//            Logger.getLogger(NutriiApplication.class.getName()).log(Level.SEVERE, null, ex);
-//        } catch (IllegalAccessException ex) {
-//            Logger.getLogger(NutriiApplication.class.getName()).log(Level.SEVERE, null, ex);
-//        }catch (InvocationTargetException ex) {
-//            Logger.getLogger(NutriiApplication.class.getName()).log(Level.SEVERE, null, ex);
-//        }
-//this shit works ok 
-//        System.out.println("\nMINERALS:\n");
-//        Compounds min = new Nutrients();
-// 
-//        try {
-//            min.update("Protein", 12.0f);
-//        } catch (NoSuchElementException ex) {
-//            System.err.println(ex.getMessage());
-//        }
-//   ;
+       fdb = new FoodItemDatabase("Foods.csv", "Drinks.csv");
       
-      
+        System.out.println("");
         
+        for(FoodItem f : fdb.getDB()){
+            System.out.println(f);
+        }
+        //BEFORE ADDING ANY FOODITEM OBJECT IN A MEAL OBJECT, 
+        //ASK IF THE USER WANTS TO REMOVE A FOOD ITEM FROM THE CURRENT ARRAYLIST
+        //IF YES, ASSIGN A BOOLEAN FALSE TO THE .isConsumed() METHOD
+        //ALL FOODITEMS WILL HAVE A TRUE VALUE BY DEFAULT.
+        //THIS IS DONE SO WE CAN GIVE THE USER THE OPTION TO "BRING BACK" FOOD TO THE MEAL
+        //(in case they feel guilty about lying about their fattiness lmao)
     }
+         
     
     public ArrayList<FoodItemDatabase> recordFoodItems(FoodItemDatabase fdb){
         return new ArrayList<FoodItemDatabase>();

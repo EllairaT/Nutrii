@@ -18,6 +18,7 @@ public class Meal {
         vitaminsCount = new Vitamins();
         nutrientsCount = new Nutrients();
         thisMeal = arr;
+        addAll();
     }
     
     public ArrayList<FoodItem> getMeal(){
@@ -29,21 +30,29 @@ public class Meal {
             Minerals m = f.getMinerals();
             Vitamins v = f.getVitamins();
             Nutrients n = f.getNutrients();
-            m.returnList().forEach((key, value)-> {mineralsCount.update(key, value);});
-            v.returnList().forEach((key, value)-> {vitaminsCount.update(key, value);});
-            n.returnList().forEach((key, value)-> {nutrientsCount.update(key, value);});
+
+            m.returnList().forEach(
+                    (key, val) -> mineralsCount.returnList().merge(key, val, (v1, v2) -> v1 + v2));
+            v.returnList().forEach(
+                    (key, val)-> vitaminsCount.returnList().merge(key, val, (v1, v2) -> v1 + v2));
+            n.returnList().forEach(
+                    (key, val)-> nutrientsCount.returnList().merge(key, val, (v1, v2) -> v1 + v2));
         }
     }
         
     public void printVitamins(){
-        vitaminsCount.returnList().forEach((key, value)-> {System.out.println(key + ": " + value);});
+        vitaminsCount.toString();
     }
     
-    public void printNutrents(){
-        nutrientsCount.returnList().forEach((key, value)-> {System.out.println(key + ": " + value);});
+    public void printNutrients(){
+        nutrientsCount.toString();
     }  
     
      public void printMinerals(){
-        mineralsCount.returnList().forEach((key, value)-> {System.out.println(key + ": " + value);});
+        mineralsCount.toString();
     }  
+     
+     public String toString(){
+        return "This meal is a total of: " + nutrientsCount.returnList().get("Calories") + " calories.";     
+     }
 }

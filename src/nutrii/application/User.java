@@ -75,7 +75,6 @@ public abstract class User {
                 break;
         }
         return BMR;
-        
     }   
     
     @Override

@@ -1,37 +1,36 @@
 package nutrii.application;
 
-import java.util.Comparator;
-
 /**
  *
  * @author Ellaira
  */
-public class FoodItem implements Comparator<FoodItem>, ItemActions { 
+public class FoodItem implements Comparable<FoodItem>, ItemActions { 
     protected String foodName;
     private Nutrients nutrients;
     private Minerals minerals;
     private Vitamins vitamins;
+    protected String className;
+    protected boolean isEaten;
    
     public FoodItem(String name){
+        className = getClass().getSimpleName();
         this.setFoodName(name);
         nutrients = new Nutrients();
         minerals = new Minerals();
-        vitamins= new Vitamins();
+        vitamins = new Vitamins();
+        isEaten = true;
     }
     
     @Override
-    public boolean isConsumed(){ 
-      return false;  
+    public boolean isConsumed(boolean b){ 
+      isEaten = b;
+      return b;  
     }
-    
+
     @Override
-    public boolean isDiscarded(){
-        return false;
-    }
-    
-    @Override
-    public int compare(FoodItem f1, FoodItem f2){
-        return 0;
+    public int compareTo(FoodItem f1){
+        //compare by calorie amount
+        return(int) (nutrients.returnList().get("Calories") - f1.getNutrients().returnList().get("Calories")) ;
     }
 
     /**
@@ -90,16 +89,19 @@ public class FoodItem implements Comparator<FoodItem>, ItemActions {
         this.vitamins = vitamins;
     }
     
+    @Override
+    public String toString(){
+        return className + ": " + foodName + " (" + nutrients.returnList().get("Calories") + " cal)";
+    }
+    
     public void printNutritionInfo(){
-        String className = getClass().getSimpleName();
+
         System.out.println(className + ": " + foodName + "\n");
-        
+     
         nutrients.toString();
         System.out.println("");
         minerals.toString();
         System.out.println("");
         vitamins.toString();
     }
-
-   
 }

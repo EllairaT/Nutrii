@@ -1,0 +1,42 @@
+Item,V Energy Drink(can),Sprite (can),Coca Cola (can),Glaceau Vita Water,Coffee 1 cup
+*nCalories,165,146,140,0,1
+*nTotal Fat,0g,0.1g,0g,0g,0g
+*nSaturated Fat,0g,0g,null,null,0g
+*nTrans Fat,null,0g,null,null,0g
+*nPolyunsaturated Fat,null,null,null,null,0g
+*nMonounsaturated Fat,null,0g,null,null,0g
+*nCholesterol,null,0mg,0mg,0mg,0mg
+*nTotal Carbohydrate,29.2g,37g,39g,4g,0g
+*nDietary Fiber,null,0g,null,null,0g
+*nSugars,29.2g,33g,39g,0g,0g
+*nAdded Sugars,null,null,39g,null,null
+*nProtein,1g,0.2g,0g,null,0.3g
+Vitamin A,null,0%,null,null,0%
+Vitamin B1 (Thiamine),null,null,null,null,null
+Vitamin B2 (Riboflavin),1.3mg,null,null,null,null
+Vitamin B3 (Niacin),8.0mg,null,null,null,null
+Vitamin B5 (Pantothenic acid),1.9mg,null,null,100%,null
+Vitamin B6 (Pyridoxine),1.3mg,0%,null,100%,0%
+Vitamin B7 (Biotin),null,null,null,null,null
+Vitamin B9 (Folate),null,null,null,null,null
+Vitamin B12 (cobalamin),1.6g,0%,null,100%,0%
+Vitamin C,null,0%,null,150%,0%
+Vitamin D,null,0%,0%,0%,0%
+Vitamin E,null,null,null,null,null
+Vitamin K,null,null,null,null,null
+*mCalcium,null,0%,0%,0%,0%
+*mPhosphorus,null,null,null,null,null
+*mPotassium,null,3.7mg,0%,0%,116.1mg
+*mSodium,290mg,33.2mg,45mg,null,4.7mg
+*mMagnesium,null,0%,null,2%,1%
+*mSulfur,null,null,null,null,null
+*mIron,null,2%,0%,0%,0%
+*mChromium,null,null,null,null,null
+*mCobolt,null,null,null,null,null
+*mCopper,null,null,null,null,null
+*mZinc,null,null,null,25%,null
+*mManganese,null,null,null,null,null
+*mMolybdenum,null,null,null,null,null
+*mIodine,null,null,null,null,null
+*mSelenium,null,null,null,null,null
+*mFluoride,null,null,null,null,null

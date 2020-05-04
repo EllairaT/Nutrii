@@ -8,9 +8,8 @@ public class Drink extends FoodItem {
     
     private float amountInML;
 
-    public Drink(String name, float amount) {
+    public Drink(String name) {
         super(name);
-        this.setAmountInML(amount);
     }
 
     /**
