@@ -1,34 +1,39 @@
 package nutrii.application;
 
-import java.util.Comparator;
-
 /**
- *
- * @author Ellaira
+ * This class is the superclass for both types of items: food and drink
+ * @author Blake & Ellaira
  */
-public class FoodItem implements Comparator<FoodItem>, ItemActions { 
+public class FoodItem implements Comparable<FoodItem>, ItemActions { 
     protected String foodName;
-    protected Nutrients nutrients;
-    protected Minerals minerals;
-    protected Vitamins vitamins;
+    private Nutrients nutrients;
+    private Minerals minerals;
+    private Vitamins vitamins;
+    protected String className;
+    protected boolean isEaten;
    
     public FoodItem(String name){
+        className = getClass().getSimpleName();
         this.setFoodName(name);
+        nutrients = new Nutrients();
+        minerals = new Minerals();
+        vitamins = new Vitamins();
+        isEaten = true;
     }
     
+    //this is not being used for the CLI
+    //for the next phase of the program, this will be used to remove items from the meal list 
+    //in case the user makes a mistake in entering a food item.
     @Override
-    public boolean isConsumed(){ 
-      return false;  
+    public boolean isConsumed(boolean b){ 
+      isEaten = b; //fooditem is assumed to be consumed by default
+      return b;  
     }
-    
+
     @Override
-    public boolean isDiscarded(){
-        return false;
-    }
-    
-    @Override
-    public int compare(FoodItem f1, FoodItem f2){
-        return 0;
+    public int compareTo(FoodItem f1){
+        //compare by calorie amount
+        return(int) (nutrients.returnList().get("Calories") - f1.getNutrients().returnList().get("Calories")) ;
     }
 
     /**
@@ -55,7 +60,7 @@ public class FoodItem implements Comparator<FoodItem>, ItemActions {
     /**
      * @param minerals the minerals to set
      */
-    public void setMinerals(Minerals minerals) {
+    public void setMinerals(Minerals c) {
         this.minerals = minerals;
     }
 
@@ -69,7 +74,7 @@ public class FoodItem implements Comparator<FoodItem>, ItemActions {
     /**
      * @param nutrients the nutrients to set
      */
-    public void setNutrients(Nutrients nutrients) {
+    public void setNutrients(Nutrients c) {
         this.nutrients = nutrients;
     }
 
@@ -83,18 +88,28 @@ public class FoodItem implements Comparator<FoodItem>, ItemActions {
     /**
      * @param vitamins the vitamins to set
      */
-    public void setVitamins(Vitamins vitamins) {
+    public void setVitamins(Vitamins c) {
         this.vitamins = vitamins;
     }
     
-    public void printNutritionInfo(){
-        String className = getClass().getSimpleName();
-        System.out.println(className + ": " + foodName + "\n");
-        
-        System.out.println(nutrients.toString());
-        System.out.println(vitamins.toString());
-        System.out.println(minerals.toString());
-        
+    @Override
+    public String toString(){
+        return className + ": " + foodName + " (" + nutrients.returnList().get("Calories") + " cal)";
     }
-   
+    
+    public void printNutritionInfo(){
+        System.out.println(className + ": " + foodName + "\n");
+     
+        nutrients.toString();
+        System.out.println("");
+        minerals.toString();
+        System.out.println("");
+        vitamins.toString();
+    }
+
+    public boolean equals(String f){
+        String st = f;
+        return foodName.equals(st);
+    }
+    
 }

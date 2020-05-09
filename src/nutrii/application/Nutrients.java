@@ -2,19 +2,24 @@ package nutrii.application;
 
 /**
  *
- * @author Ellaira
+ * @author Blake & Ellaira
  */
 public class Nutrients extends Compounds {
-    
+
     public Nutrients() {
         compounds = new String[]{
             "Calories",
-            "Sugar",
-            "Fat",
-            "Trans Fat",
+            "Total Fat",
             "Saturated Fat",
-            "Protein",
-        };
+            "Trans Fat",
+            "Polyunsaturated Fat",
+            "Monounsaturated Fat",
+            "Cholesterol",
+            "Total Carbohydrate",
+            "Dietary Fiber",
+            "Sugars",
+            "Added Sugars",
+            "Protein",};
 
         addComponents(compounds);
 

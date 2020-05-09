@@ -4,11 +4,9 @@ import java.time.LocalDate;
 
 /**
  *
- * @author Ellaira
+ * @author Blake & Ellaira
  */
 public class LightlyActive extends User {
-    
-
     public LightlyActive(String n, char g, LocalDate d, float h, float w) {
         super(n, g, d, h, w);
      

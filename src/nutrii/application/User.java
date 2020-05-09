@@ -9,7 +9,7 @@ import java.time.Period;
 
 /**
  *
- * @author Ellaira
+ * @author Ellaira & Blake
  */
 public abstract class User {
     
@@ -75,7 +75,6 @@ public abstract class User {
                 break;
         }
         return BMR;
-        
     }   
     
     @Override
@@ -90,6 +89,10 @@ public abstract class User {
         return name + "," + gender + "," + DOB + "," + height + "," + weight + "," + START_DATE + "," + getClass().getCanonicalName();
     }
     
+    /**
+     * calculates the total calories needed by the user
+     * @return the calories recommended for the user
+     */
     public float calculateCalNeeded(){
        return BMR * modifier;           
     }
@@ -169,6 +172,12 @@ public abstract class User {
      */
     public LocalDate getDOB() {
         return DOB;
+    }
+    
+    @Override
+    public boolean equals(Object o){
+        String st = (String) o;
+        return name.equals(st);
     }
     
 }

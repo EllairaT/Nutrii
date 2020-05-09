@@ -1,0 +1,42 @@
+Item,Apple,Orange,Banana,Pear,Tomato,FrozenBlue Berries 100g,Peanuts 100g,Cucumber 70g,Carrots,Fried Eggs,Peas,Corn,Brocolli,Cauliflower,Scotch Fillet Steak
+*nCalories,95,62,105,100,27,51,567,11,16,90,null,null,null,null,298
+*nTotal Fat,0g,0.2g,0.4g,0g,0g,0.6g,49g,0.1g,0.1g,7g,null,null,null,null,null
+*nSaturated Fat,0g,0g,0.1g,0g,0g,0.1g,7g,0g,null,2g,null,null,null,null,null
+*nTrans Fat,0g,null,null,0g,0g,null,null,0g,null,0g,null,null,null,null,null
+*nPolyunsaturated Fat,null,0g,0.1g,null,null,null,16g,null,null,1.5g,null,null,null,null,null
+*nMonounsaturated Fat,null,0g,0g,null,null,null,24g,null,null,2.8g,null,null,null,null,null
+*nCholesterol,0g,0mg,0mg,0mg,0g,null,0mg,0mg,null,184.5mg,null,null,null,null,null
+*nTotal Carbohydrate,25g,15g,27g,26g,6g,12g,16g,2.5g,3.8g,null,null,null,null,null,null
+*nDietary Fiber,4g,3.1g,3.1g,6g,2g,2.7g,9g,0.3g,1.4g,0.4g,null,null,null,null,null
+*nSugars,19g,12g,14g,16g,4g,8.5g,4g,1.2g,1.6g,0.2g,null,null,null,null,null
+*nAdded Sugars,null,null,null,0g,null,null,null,null,null,null,null,null,null,null,null
+*nProtein,2,1.2g,1.3g,1g,1g,0.4g,26g,0.5g,0.4g,6g,null,null,null,null,null
+Vitamin A,2%,5%,1%,null,25%,null,0%,1.50%,null,7%,null,null,null,null,null
+Vitamin B1 (Thiamine),null,null,null,null,null,null,null,null,null,null,null,null,null,null,null
+Vitamin B2 (Riboflavin),null,null,null,null,null,null,null,null,null,null,null,null,null,null,null
+Vitamin B3 (Niacin),null,null,null,null,null,null,null,null,null,null,null,null,null,null,null
+Vitamin B5 (Pantothenic acid),null,null,null,null,null,null,null,null,null,null,null,null,null,null,null
+Vitamin B6 (Pyridoxine),null,5%,null,null,null,null,15%,null,null,5%,null,null,null,null,null
+Vitamin B7 (Biotin),null,null,null,null,null,null,null,null,null,null,null,null,null,null,null
+Vitamin B9 (Folate),null,null,null,null,null,null,null,null,null,null,null,null,null,null,null
+Vitamin B12 (cobalamin),null,0%,0%,null,null,null,0%,null,null,6%,null,null,null,null,null
+Vitamin C,14%,116%,17%,10%,32%,null,0%,3.30%,null,0%,null,null,null,null,null
+Vitamin D,null,0%,0%,0%,null,0%,0%,null,0%,10%,null,null,null,null,null
+Vitamin E,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null
+Vitamin K,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null
+*mCalcium,1%,5%,0%,2%,1%,1%,9%,1.10%,1%,2%,null,null,null,null,null
+*mPhosphorus,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null
+*mPotassium,null,237.1mg,422.4mg,0%,null,1%,705mg,100mg,2%,69.9mg,null,null,null,null,null
+*mSodium,2mg,0mg,1.2mg,0mg,7mg,1mg,18mg,1.4g,27mg,95.2mg,null,null,null,null,null
+*mMagnesium,null,3%,7%,null,null,null,42%,null,null,1%,null,null,null,null,null
+*mSulfur,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null
+*mIron,1%,0%,1%,0%,2%,1%,25%,1.10%,1%,4%,null,null,null,null,null
+*mChromium,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null
+*mCobolt,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null
+*mCopper,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null
+*mZinc,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null
+*mManganese,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null
+*mMolybdenum,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null
+*mIodine,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null
+*mSelenium,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null
+*mFluoride,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null

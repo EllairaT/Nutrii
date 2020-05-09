@@ -1,10 +1,9 @@
 package nutrii.application;
 
 /**
- *
- * @author Ellaira
+ * interface for food items 
+ * @author Blake & Ellaira
  */
 public interface ItemActions {
-    public boolean isConsumed();
-    public boolean isDiscarded();
+    public boolean isConsumed(boolean b);
 }
