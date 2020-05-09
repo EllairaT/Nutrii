@@ -4,7 +4,7 @@ import java.time.LocalDate;
 
 /**
  *
- * @author Ellaira
+ * @author Blake & Ellaira
  */
 public class VeryActive extends User {
 

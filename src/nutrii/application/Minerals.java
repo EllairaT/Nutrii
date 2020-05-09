@@ -2,7 +2,7 @@ package nutrii.application;
 
 /**
  *
- * @author Ellaira
+ * @author Blake & Ellaira
  */
 public class Minerals extends Compounds {
 

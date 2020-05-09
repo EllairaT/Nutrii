@@ -10,7 +10,7 @@ import java.util.Set;
 /**
  * This class is the superclass for Vitamins and Minerals.
  * Contains the methods used by both the subclasses.
- * @author Ellaira
+ * @author Blake & Ellaira
  */
 public abstract class Compounds {
     
@@ -37,7 +37,7 @@ public abstract class Compounds {
         Iterator<String> itr = compoundSet.iterator();
     
         //initial float values for each key is null. 
-        //This shall be updated as files containing food items are read or user manually enters values.
+        //This will be updated as files containing food items are read or user manually enters values.
         while(itr.hasNext()){
             compoundHashMap.put(itr.next(), 0.0f);
         }
@@ -45,11 +45,10 @@ public abstract class Compounds {
     
     /**
      * 
-     * @param v value
-     * @param f float
+     * @param v value String name for the compound
+     * @param f float float value for the compound
      */
-    public void update(String v, float f){
-        
+    public void update(String v, float f){    
         if(compoundSet.contains(v)){
             compoundHashMap.put(v, f);
         }
@@ -60,7 +59,7 @@ public abstract class Compounds {
     
     /**
      * 
-     * @return 
+     * @return compoundHashMap
      */
     public HashMap<String, Float> returnList(){
         return compoundHashMap;
@@ -73,10 +72,6 @@ public abstract class Compounds {
        compoundHashMap.forEach((key, value)-> {System.out.println(key + " : " + value);});
        return "";
     }
-    /**
-     * 
-     */
-    public void printInformation(){
-        
-    }
+  
+    public abstract  void printInformation();
 }

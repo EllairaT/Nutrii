@@ -6,19 +6,16 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
-import javax.swing.undo.CompoundEdit;
 
 /**
  * This class is responsible for reading files that contain the information
  * about different foods.
  *
- * @author Blake
+ * @author Blake & Ellaira
  */
 public final class FoodItemDatabase {
-
     private static ArrayList<FoodItem> DB;
     private static String[][] foodMatrix;
     private static String[][] drinkMatrix;
@@ -48,7 +45,7 @@ public final class FoodItemDatabase {
             setFoodItemDetails(drinkMatrix, drinks);
 
         } catch (IOException ex) {
-
+            System.err.println("Something went wrong.");
         }
     }
 
@@ -56,26 +53,32 @@ public final class FoodItemDatabase {
         return DB;
     }
 
-    public ArrayList<FoodItem> getDrinkDB() {
-        ArrayList<FoodItem> drink = new ArrayList<>();
+    //get arraylist of only drinks
+    public ArrayList<Drink> getDrinkDB() {
+        ArrayList<Drink> drink = new ArrayList<>();
         for (FoodItem d : getDB()) {
             if (d instanceof Drink) {
-                drink.add(d);
+                drink.add((Drink) d);
             }
         }
         return drink;
     }
-
-    public ArrayList<FoodItem> getFoodDB() {
-        ArrayList<FoodItem> foodOnly = new ArrayList<>();
+    //get arraylist of only food
+    public ArrayList<Food> getFoodDB() {
+        ArrayList<Food> foodOnly = new ArrayList<>();
         for (FoodItem f : getDB()) {
             if (f instanceof Food) {
-                foodOnly.add(f);
+                foodOnly.add((Food) f);
             }
         }
         return foodOnly;
     }
 
+    /**
+     * searches through the arraylist to find the food that matches the user's input
+     * @param i String for the food name
+     * @return the food item that matches the food name
+     */
     public FoodItem getItem(String i) {
         FoodItem item = null;
         for (FoodItem f : DB) {
@@ -85,7 +88,13 @@ public final class FoodItemDatabase {
         }
         return item;
     }
-
+    
+/**
+ * creates a string array containing all the food names
+ * @param f the food/drink file passed into the method
+ * @return string array of food names
+ * @throws IOException 
+ */
     public String[] setFoodItemsList(File f) throws IOException {
         String[] itemList = null;
 
@@ -119,6 +128,12 @@ public final class FoodItemDatabase {
         return list.toArray(new String[0]);
     }
 
+    /**
+     * creates a matrix that details all of the food nutrition information
+     * @param f the file passed to the method
+     * @return a matrix of food items and their information
+     * @throws IOException 
+     */
     public static String[][] createMatrix(File f) throws IOException {
         FileReader fr = new FileReader(f);
 
@@ -144,18 +159,25 @@ public final class FoodItemDatabase {
         return matrix;
     }
 
+    /**
+     * this method turns each food item string in the matrix into an actual FoodItem object
+     * @param m the matrix passed into the method
+     * @param f the food/drink file, determines if a food or drink item is being read
+     */
     public void setFoodItemDetails(String[][] m, File f) {
-
         boolean isItFood = f.getName().equals("Foods.csv");
         int items = isItFood ? foodItems.length : drinkItems.length;
 
+        //skip the first column, as it only contains the compound names
         for (int col = 0; col < items; col++) {
             if (col == 0) {
                 continue;
             }
 
+            //create fooditem/drinkitem
             FoodItem foodItem = isItFood ? new Food(m[0][col]) : new Drink(m[0][col]);
 
+            //skip first row, as it only contains the food names
             for (String[] foodMatrix1 : m) {
                 if (foodMatrix1 == m[0]) {
                     continue;
@@ -170,9 +192,10 @@ public final class FoodItemDatabase {
                 } else {
                     value = Float.parseFloat(val);
                 }
-
+                //read the compound name in the first column (that was skipped earlier)
                 String compound = foodMatrix1[0];
-
+                
+                //then assign the proper value to that compound
                 if (compound.contains("*n")) {
                     compound = compound.replace("*n", "");
                     foodItem.getNutrients().update(compound, value);

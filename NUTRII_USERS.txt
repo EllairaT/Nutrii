@@ -1,2 +1,7 @@
-Ellaira,f,2000-05-23,150.0,47.2,2020-04-19,nutrii.application.ExtraActive
+Ellaira,f,2000-05-23,150.0,47.2,2020-04-19,nutrii.application.Sedentary
 Blake,m,2000-08-13,180.0,52.0,2020-04-19,nutrii.application.VeryActive
+e,f,2000-05-23,150.0,47.0,2020-05-08,nutrii.application.ModeratelyActive
+blah,f,2000-06-04,160.0,50.0,2020-05-08,nutrii.application.ExtraActive
+Big D,m,2000-05-23,50.0,50.0,2020-05-08,nutrii.application.VeryActive
+Ellaira Torio,f,0200-05-23,150.0,48.0,2020-05-08,nutrii.application.ExtraActive
+y,m,2003-06-08,900.0,900.0,2020-05-10,nutrii.application.Sedentary

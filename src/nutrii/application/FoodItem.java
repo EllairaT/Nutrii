@@ -1,8 +1,8 @@
 package nutrii.application;
 
 /**
- *
- * @author Ellaira
+ * This class is the superclass for both types of items: food and drink
+ * @author Blake & Ellaira
  */
 public class FoodItem implements Comparable<FoodItem>, ItemActions { 
     protected String foodName;
@@ -21,9 +21,12 @@ public class FoodItem implements Comparable<FoodItem>, ItemActions {
         isEaten = true;
     }
     
+    //this is not being used for the CLI
+    //for the next phase of the program, this will be used to remove items from the meal list 
+    //in case the user makes a mistake in entering a food item.
     @Override
     public boolean isConsumed(boolean b){ 
-      isEaten = b;
+      isEaten = b; //fooditem is assumed to be consumed by default
       return b;  
     }
 
@@ -95,7 +98,6 @@ public class FoodItem implements Comparable<FoodItem>, ItemActions {
     }
     
     public void printNutritionInfo(){
-
         System.out.println(className + ": " + foodName + "\n");
      
         nutrients.toString();
@@ -104,4 +106,10 @@ public class FoodItem implements Comparable<FoodItem>, ItemActions {
         System.out.println("");
         vitamins.toString();
     }
+
+    public boolean equals(String f){
+        String st = f;
+        return foodName.equals(st);
+    }
+    
 }
