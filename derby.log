@@ -1,0 +1,13 @@
+----------------------------------------------------------------
+Fri May 29 01:38:56 NZST 2020:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.14.2.0 - (1828579): instance a816c00e-0172-5b81-db29-00001f688188 
+on database directory E:\Nutrii-master\Nutrii with class loader jdk.internal.loader.ClassLoaders$AppClassLoader@4e0e2f2a 
+Loaded from file:/E:/Nutrii-master/lib/derby.jar
+java.vendor=Oracle Corporation
+java.runtime.version=13.0.2+8
+user.dir=E:\Nutrii-master
+os.name=Windows 10
+os.arch=amd64
+os.version=10.0
+derby.system.home=null
+Database Class Loader started - derby.database.classpath=''

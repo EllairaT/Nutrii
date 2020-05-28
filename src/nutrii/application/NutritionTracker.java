@@ -1,5 +1,9 @@
 package nutrii.application;
 
+import nutrii.application.model.User;
+import nutrii.application.model.Report;
+import nutrii.application.model.Meal;
+import nutrii.application.model.FoodItem;
 import java.util.ArrayList;
 
 /**

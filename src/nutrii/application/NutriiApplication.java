@@ -1,5 +1,9 @@
 package nutrii.application;
 
+import nutrii.application.other.FoodItemDatabase;
+import nutrii.application.other.HibernateUtil;
+import nutrii.application.model.User;
+import nutrii.application.other.CLIView;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -8,76 +12,98 @@ import java.io.IOException;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
+import org.hibernate.cfg.*;
+import org.hibernate.tool.hbm2ddl.*;
 
 /**
  * the entry point of the application
- * 
+ *
  * @author Blake & Ellaira
  */
 public class NutriiApplication {
 
+    private static DBConnect dbconn;
     private static FoodItemDatabase fdb;
     private static final String USER_FILE = "NUTRII_USERS.txt";
     public static CLIView cli;
     public static Nutrii nutrii;
-    
-    public static void main(String[] args) { 
+
+    public static void main(String[] args) {
+
+        dbconn = new DBConnect();
+        System.out.println(dbconn.getConnection());
+
+        dbconn.closeConnections();
+
         try {
             fdb = new FoodItemDatabase("Foods.csv", "Drinks.csv");
-
             ArrayList<User> users = readUserFile();
-         
+
             nutrii = new Nutrii(users, fdb, USER_FILE);
-       
+
             cli = new CLIView(nutrii);
-            
-            cli.CLIStartPoint(); //start the program
-            
-        } catch (Exception e){
+            cli.CLIStartPoint();
+
+        } catch (Exception e) {
             System.err.println(e);
         }
-    }     
+        HibernateUtil.shutdown();
+    }
 
+    public static void initializeDatabase() {
+        /**
+         * Read Hibernate XML File Initialize Database
+         */
+        Configuration config = new Configuration().configure();
+        SchemaExport export = new SchemaExport(config);
+        export.create(true, true);
+        //TODO create java file to initialise db
+//        try {
+//            DatabaseInit.initData();
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//        }
+        HibernateUtil.shutdown();
+    }
     //user stuff
 
     /**
      *
-     * @return
-     * @throws ClassNotFoundException
+     * @return @throws ClassNotFoundException
      * @throws NoSuchMethodException
      * @throws InstantiationException
      * @throws IllegalAccessException
      * @throws InvocationTargetException
      */
-    public static ArrayList<User> readUserFile() throws ClassNotFoundException, NoSuchMethodException, InstantiationException, IllegalAccessException, InvocationTargetException{
+    public static ArrayList<User> readUserFile() throws ClassNotFoundException, NoSuchMethodException, InstantiationException, IllegalAccessException, InvocationTargetException {
         ArrayList<User> userList = new ArrayList<>();
-        try{
+        try {
             String line;
-            
+
             BufferedReader reader = new BufferedReader(new FileReader(USER_FILE));
-            
-            while((line = reader.readLine()) != null){
-                String[] s = line.split(","); 
+
+            while ((line = reader.readLine()) != null) {
+                String[] s = line.split(",");
                 //find the classname, which is the last item in each line
-                Class<?> className = Class.forName(s[s.length-1]);
+                Class<?> className = Class.forName(s[s.length - 1]);
                 Constructor con = className.getConstructor(String.class);
-                
+
                 Object userObj = con.newInstance(line);
 
                 userList.add((User) userObj);
-            }  
-            
-        } catch (FileNotFoundException e){
-           createEmptyFile();
+            }
+
+        } catch (FileNotFoundException e) {
+            createEmptyFile();
         } catch (IOException e) {
             System.err.println("Something went wrong.");
             e.printStackTrace();
         }
         return userList;
     }
-    
-    public static void createEmptyFile(){
-         File file = new File(USER_FILE);
+
+    public static void createEmptyFile() {
+        File file = new File(USER_FILE);
         try {
             file.createNewFile();
         } catch (IOException ex) {
@@ -85,6 +111,5 @@ public class NutriiApplication {
             ex.printStackTrace();
         }
     }
-    
-    
+
 }
