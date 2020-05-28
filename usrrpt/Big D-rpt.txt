@@ -1,2 +1,0 @@
-2020-05-10,2020-05-10T00:02:47.474753600,Breakfast,Pear,FrozenBlue Berries 100g
-2020-05-10,2020-05-10T00:03:05.910257200,yyy,Glaceau Vita Water,Coffee 1 cup,Coca Cola (can)

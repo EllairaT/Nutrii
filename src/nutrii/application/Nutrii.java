@@ -1,5 +1,13 @@
 package nutrii.application;
 
+import nutrii.application.other.FoodItemDatabase;
+import nutrii.application.model.User;
+import nutrii.application.model.Meal;
+import nutrii.application.model.ModeratelyActive;
+import nutrii.application.model.ExtraActive;
+import nutrii.application.model.VeryActive;
+import nutrii.application.model.Sedentary;
+import nutrii.application.model.LightlyActive;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
