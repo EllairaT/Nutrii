@@ -1,17 +1,34 @@
 package nutrii.application.model;
 
+import javax.persistence.*;
 import nutrii.application.ItemActions;
+import org.hibernate.annotations.Type;
+
 
 /**
  * This class is the superclass for both types of items: food and drink
  * @author Blake & Ellaira
  */
-public class FoodItem implements Comparable<FoodItem>, ItemActions { 
+@Entity
+@Table(name="Food_Item")
+public class FoodItem implements Comparable<FoodItem>, ItemActions{ 
+    
+    @Id
+    private int id;
+    
+    @Column(name="name")
     protected String foodName;
-    private Nutrients nutrients;
-    private Minerals minerals;
-    private Vitamins vitamins;
+   
+    @Embedded private Nutrients nutrients;
+    
+    @Embedded private Minerals minerals;
+
+    @Embedded private Vitamins vitamins;
+    
+    @Column(name="class_name")
     protected String className;
+    
+    @Column(name="is_eaten")
     protected boolean isEaten;
    
     public FoodItem(String name){
@@ -21,6 +38,24 @@ public class FoodItem implements Comparable<FoodItem>, ItemActions {
         minerals = new Minerals();
         vitamins = new Vitamins();
         isEaten = true;
+    }
+    
+    public FoodItem(){}
+    
+    public String getClassName() {
+        return className;
+    }
+
+    public void setClassName(String className) {
+        this.className = className;
+    }
+
+    public boolean isIsEaten() {
+        return isEaten;
+    }
+
+    public void setIsEaten(boolean isEaten) {
+        this.isEaten = isEaten;
     }
     
     //this is not being used for the CLI
@@ -45,6 +80,13 @@ public class FoodItem implements Comparable<FoodItem>, ItemActions {
         return foodName;
     }
 
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
     /**
      * @param foodName the foodName to set
      */

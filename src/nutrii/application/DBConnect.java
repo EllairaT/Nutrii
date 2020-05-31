@@ -4,8 +4,6 @@ import java.sql.Statement;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import java.sql.ResultSet;
 
 /**
@@ -21,7 +19,8 @@ public final class DBConnect {
     Connection conn;
 
     public DBConnect() {
-        establishConnection();     
+        establishConnection();
+        System.out.println("hi");
        // this.update("SET CURRENT SCHEMA Nutrii");
     }
 

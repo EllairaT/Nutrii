@@ -1,13 +1,15 @@
 package nutrii.application.model;
-
+import javax.persistence.*;
 /**
  *
  * @author Blake & Ellaira
  */
+@Entity
+@Table(name = "Minerals")
 public class Minerals extends Compounds {
 
     public Minerals() {
-        compounds = new String[]{ // Elements with '*' indicates a Trace Mineral 
+        compounds = new String[]{
 
             "Calcium",
             "Phosphorus",

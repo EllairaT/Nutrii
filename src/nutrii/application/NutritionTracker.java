@@ -1,5 +1,6 @@
 package nutrii.application;
 
+import nutrii.application.model.Nutrii;
 import nutrii.application.model.User;
 import nutrii.application.model.Report;
 import nutrii.application.model.Meal;

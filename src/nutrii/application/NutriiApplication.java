@@ -1,8 +1,9 @@
 package nutrii.application;
 
+import nutrii.application.model.Nutrii;
 import nutrii.application.other.FoodItemDatabase;
 import nutrii.application.other.HibernateUtil;
-import nutrii.application.model.User;
+import nutrii.application.model.*;
 import nutrii.application.other.CLIView;
 import java.io.BufferedReader;
 import java.io.File;
@@ -12,7 +13,9 @@ import java.io.IOException;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
+import org.hibernate.SessionFactory;
 import org.hibernate.cfg.*;
+import org.hibernate.service.ServiceRegistry;
 import org.hibernate.tool.hbm2ddl.*;
 
 /**
@@ -27,43 +30,49 @@ public class NutriiApplication {
     private static final String USER_FILE = "NUTRII_USERS.txt";
     public static CLIView cli;
     public static Nutrii nutrii;
+    private static SessionFactory factory;
+    private static ServiceRegistry serviceRegistry;
 
     public static void main(String[] args) {
-
-        dbconn = new DBConnect();
-        System.out.println(dbconn.getConnection());
-
-        dbconn.closeConnections();
-
-        try {
-            fdb = new FoodItemDatabase("Foods.csv", "Drinks.csv");
-            ArrayList<User> users = readUserFile();
-
-            nutrii = new Nutrii(users, fdb, USER_FILE);
-
-            cli = new CLIView(nutrii);
-            cli.CLIStartPoint();
-
-        } catch (Exception e) {
-            System.err.println(e);
-        }
-        HibernateUtil.shutdown();
+        initialize();
+        
+//        EntityManagerFactory emf = Persistence.createEntityManagerFactory("NutriiPU");
+//        EntityManager em = emf.createEntityManager();
+        
+        System.out.println("hi?");
+        System.exit(0);
     }
 
-    public static void initializeDatabase() {
+    private static SessionFactory getSessionFactory() {
+        return new Configuration()
+                .configure()
+                .buildSessionFactory(serviceRegistry);
+    }
+
+    public static void initialize() {
+        Configuration config = new Configuration().configure();
+
         /**
          * Read Hibernate XML File Initialize Database
          */
-        Configuration config = new Configuration().configure();
-        SchemaExport export = new SchemaExport(config);
-        export.create(true, true);
+        try {
+            SchemaExport export = new SchemaExport(config);
+
+            export.create(true, true);         
+            export.setOutputFile("out.txt");        
+            export.execute(true,false, false, false);
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        HibernateUtil.shutdown();
+        System.out.println("out");
         //TODO create java file to initialise db
 //        try {
 //            DatabaseInit.initData();
 //        } catch (Exception e) {
 //            e.printStackTrace();
 //        }
-        HibernateUtil.shutdown();
     }
     //user stuff
 
@@ -111,5 +120,4 @@ public class NutriiApplication {
             ex.printStackTrace();
         }
     }
-
 }

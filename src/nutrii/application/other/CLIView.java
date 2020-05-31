@@ -8,7 +8,7 @@ import nutrii.application.model.Drink;
 import nutrii.application.model.Food;
 import nutrii.application.model.FoodItem;
 import nutrii.application.model.Meal;
-import nutrii.application.Nutrii;
+import nutrii.application.model.Nutrii;
 import nutrii.application.model.User;
 
 /**

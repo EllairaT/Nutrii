@@ -12,7 +12,7 @@ public class PreparedStatement {
     DBConnect dbconn;
     
     public PreparedStatement(){
-        dbconn = new DBConnect();
+//        dbconn = new DBConnect();
     }
     
 

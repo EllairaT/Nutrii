@@ -1,9 +1,13 @@
 package nutrii.application.model;
 
+import javax.persistence.*;
+
 /**
  *
  * @author Blake & Ellaira
  */
+@Entity
+@Table(name = "Vitamins")
 public class Vitamins extends Compounds {
 
     public Vitamins() {
