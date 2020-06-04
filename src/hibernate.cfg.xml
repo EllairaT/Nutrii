@@ -7,25 +7,25 @@
         <property name="hibernate.dialect">org.hibernate.dialect.DerbyTenSevenDialect</property>       
         <property name="hibernate.connection.url">jdbc:derby:Nutrii;create=true</property>
 
-<!--    <property name="hibernate.connection.username">Nutrii</property>
-        <property name="hibernate.connection.password">Nutrii</property>-->
-         <property name="hibernate.default_schema">Nutrii</property>
+        <property name="hibernate.default_schema">Nutrii</property>
       
-<!--    <property name="hibernate.connection.driver_class">org.apache.derby.jdbc.EmbeddedDriver</property>--> 
+        <property name="hibernate.connection.driver_class">org.apache.derby.jdbc.EmbeddedDriver</property>
         <property name="current_session_context_class">thread</property>
-       
-<!--    <property name="hibernate.hbm2ddl.auto">update</property>
-        <property name="hibernate.show_sql">true</property>     
-        <property name="hibernate.format_sql">true</property>-->
+        <property name="hibernate.jdbc.batch_size">30</property>
+        <!--<property name="hibernate.show_sql">true</property>-->     
+        <property name="hibernate.format_sql">true</property>
+        <property name="hibernate.connection.autocommit">true</property> 
+        <!--<property name="use_sql_comments">true</property>-->
+        <property name="hibernate.hbm2ddl.auto">create</property>
         
+      
         <mapping class="nutrii.application.model.User"/>
         <mapping class="nutrii.application.model.FoodItem"/>
         <mapping class="nutrii.application.model.Compounds"/>
         <mapping class="nutrii.application.model.Meal"/>
+        <mapping class="nutrii.application.model.Minerals"/>
         <mapping class="nutrii.application.model.Vitamins"/>
         <mapping class="nutrii.application.model.Nutrients"/>
-        <mapping class="nutrii.application.model.Minerals"/>
-        <mapping class="nutrii.application.model.Sedentary"/>
-        <mapping class="nutrii.application.model.VeryActive"/>
+       
     </session-factory>
 </hibernate-configuration>

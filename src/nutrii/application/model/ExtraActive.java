@@ -17,4 +17,5 @@ public class ExtraActive extends User {
         super(s);
         modifier = 1.9f;
     }
+   
 }

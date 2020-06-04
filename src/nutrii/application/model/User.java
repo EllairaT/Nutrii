@@ -12,7 +12,6 @@ import javax.persistence.*;
  */
 @Entity
 @Table(name = "User_Table")
-@Inheritance(strategy = InheritanceType.JOINED)
 public abstract class User implements Serializable {
 
     @Id
@@ -60,6 +59,22 @@ public abstract class User implements Serializable {
     public User() {
     }
 
+    public User(String userString) {
+        String[] user = userString.split(",");
+        this.setName(user[0]);
+        this.setGender(user[1].charAt(0));
+        this.setHeight(Float.parseFloat(user[3]));
+        this.setWeight(Float.parseFloat(user[4]));
+        this.START_DATE = LocalDate.parse(user[5]);
+        this.DOB = LocalDate.parse(user[2]);
+
+        String lifestyleclass = user[6];
+        String[] u = lifestyleclass.split("\\.");
+
+        this.lifestyle = u[u.length - 1];
+        this.setBMR(calculateBMR());
+    }
+
     public String getLifestyle() {
         return lifestyle;
     }
@@ -90,22 +105,6 @@ public abstract class User implements Serializable {
 
     public float getBMR() {
         return this.BMR;
-    }
-
-    public User(String userString) {
-        String[] user = userString.split(",");
-        this.setName(user[0]);
-        this.setGender(user[1].charAt(0));
-        this.setHeight(Float.parseFloat(user[3]));
-        this.setWeight(Float.parseFloat(user[4]));
-        this.START_DATE = LocalDate.parse(user[5]);
-        this.DOB = LocalDate.parse(user[2]);
-
-        String lifestyleclass = user[6];
-        String[] u = lifestyleclass.split("\\.");
-
-        this.lifestyle = u[u.length - 1];
-        this.setBMR(calculateBMR());
     }
 
     /**
