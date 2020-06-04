@@ -15,27 +15,59 @@ import javax.persistence.*;
  * @author Blake & Ellaira
  */
 @Entity
-@Table(name="Compounds")
-@Inheritance(strategy = InheritanceType.JOINED)
+@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
 public abstract class Compounds {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.TABLE)
     @Column(name = "id", updatable = false, nullable = false)
-    protected Long id;
+    protected int id;
+
+    @Transient
     protected String[] compounds;
-      
-    @ElementCollection(targetClass=String.class)
+
+    @Transient
     protected Set<String> compoundSet;
-    
+
+    @Transient
     protected HashMap<String, Float> compoundHashMap;
-    
-    @Column(name="name")
+
+    @Column(name = "Value")
+    private float value;
+
+    @Transient
     protected String compoundName;
+
+    @Column(name = "name")
+    private String keyname;
+
+    public String getKeyname() {
+        return keyname;
+    }
+
+    public void setKeyname(String keyname) {
+        this.keyname = keyname;
+    }
 
     public Compounds() {
         compoundHashMap = new HashMap<>();
         compoundName = getClass().getSimpleName();
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getCompoundName() {
+        return compoundName;
+    }
+
+    public void setCompoundName(String compoundName) {
+        this.compoundName = compoundName;
     }
 
     /**
@@ -85,6 +117,14 @@ public abstract class Compounds {
             System.out.println(key + " : " + value);
         });
         return "";
+    }
+
+    public float getValue() {
+        return value;
+    }
+
+    public void setValue(float value) {
+        this.value = value;
     }
 
     public abstract void printInformation();

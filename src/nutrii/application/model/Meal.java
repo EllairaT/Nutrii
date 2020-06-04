@@ -1,12 +1,8 @@
 package nutrii.application.model;
 
-import nutrii.application.model.FoodItem;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
-import java.util.Arrays;
-import nutrii.application.other.FoodItemDatabase;
 import javax.persistence.*;
 /**
  * A meal is an object containing an arraylist of food items
@@ -59,6 +55,8 @@ public class Meal {
         
         addAll(); 
     }
+    
+    public Meal(){}
 
     public ArrayList<FoodItem> getMeal() {
         return thisMeal;

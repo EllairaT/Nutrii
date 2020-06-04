@@ -13,10 +13,13 @@ import java.io.IOException;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
+import javax.persistence.EntityManager;
+import javax.persistence.Query;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.*;
 import org.hibernate.service.ServiceRegistry;
 import org.hibernate.tool.hbm2ddl.*;
+import nutrii.application.other.DBInit;
 
 /**
  * the entry point of the application
@@ -32,21 +35,14 @@ public class NutriiApplication {
     public static Nutrii nutrii;
     private static SessionFactory factory;
     private static ServiceRegistry serviceRegistry;
+    private static DBInit db;
+    private static ArrayList<User> tempUserList;
 
     public static void main(String[] args) {
         initialize();
-        
-//        EntityManagerFactory emf = Persistence.createEntityManagerFactory("NutriiPU");
-//        EntityManager em = emf.createEntityManager();
-        
+
         System.out.println("hi?");
         System.exit(0);
-    }
-
-    private static SessionFactory getSessionFactory() {
-        return new Configuration()
-                .configure()
-                .buildSessionFactory(serviceRegistry);
     }
 
     public static void initialize() {
@@ -57,22 +53,21 @@ public class NutriiApplication {
          */
         try {
             SchemaExport export = new SchemaExport(config);
-
-            export.create(true, true);         
-            export.setOutputFile("out.txt");        
-            export.execute(true,false, false, false);
+            db = new DBInit();
+            System.out.println("--------INITIALISE ALL COMPOUNDS");
+            db.initCompounds();
+            System.out.println("--------END INITIALISATION");
+            export.create(true, true);
+            //printing the SQL queries to file to make sure everything works
+            export.setOutputFile("out.txt");
+            export.execute(true, false, false, false);
 
         } catch (Exception e) {
             e.printStackTrace();
         }
         HibernateUtil.shutdown();
         System.out.println("out");
-        //TODO create java file to initialise db
-//        try {
-//            DatabaseInit.initData();
-//        } catch (Exception e) {
-//            e.printStackTrace();
-//        }
+        
     }
     //user stuff
 

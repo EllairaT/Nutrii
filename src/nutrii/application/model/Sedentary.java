@@ -1,15 +1,12 @@
 package nutrii.application.model;
 
 import java.time.LocalDate;
-import javax.persistence.*;
+
 
 /**
  *
  * @author Blake & Ellaira
  */
-@Entity
-@Table(name="Sedentary")
-@PrimaryKeyJoinColumn(name="id")
 public class Sedentary extends User{
     public Sedentary(String n, char g, LocalDate d, float h, float w){
        super(n,g,d,h,w);
@@ -19,5 +16,4 @@ public class Sedentary extends User{
         super(s);
         modifier = 1.2f;
     }
-     public Sedentary(){}
 }
