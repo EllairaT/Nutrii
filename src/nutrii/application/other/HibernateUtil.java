@@ -24,8 +24,6 @@ public class HibernateUtil {
         serviceRegistry = new StandardServiceRegistryBuilder()
                 .applySettings(config.getProperties()).build();
 
-     
-
         try {
             factory = config.buildSessionFactory(serviceRegistry);
             

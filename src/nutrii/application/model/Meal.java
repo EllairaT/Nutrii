@@ -18,10 +18,13 @@ public class Meal {
     @Column(name="id")
     private String name;
    
+    @Column 
     private LocalDate date;
+    
+    @Column
     private LocalDateTime time;
     
-  
+    @Convert(converter = StringListConverter.class)
     private ArrayList<FoodItem> thisMeal;
     
     @Embedded private Minerals mineralsCount;

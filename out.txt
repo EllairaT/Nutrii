@@ -7,9 +7,11 @@
 
     drop table Nutrii.Nutrients
 
-    drop table Nutrii.User_Table
+    drop table Nutrii.Users
 
     drop table Nutrii.Vitamins
+
+    drop sequence Nutrii.hibernate_sequence restrict
 
     drop table Nutrii.hibernate_sequences
 
@@ -43,15 +45,16 @@
         primary key (id)
     )
 
-    create table Nutrii.User_Table (
+    create table Nutrii.Users (
+        lifestyle integer not null,
         id integer not null,
         BMR float,
         dob varchar(255) for bit data,
         date_joined varchar(255) for bit data,
         gender char(1),
         height float,
-        lifestyle varchar(255),
         name varchar(20),
+        password varchar(255),
         weight float,
         primary key (id)
     )
@@ -62,6 +65,8 @@
         Value float,
         primary key (id)
     )
+
+    create sequence Nutrii.hibernate_sequence
 
     create table Nutrii.hibernate_sequences (
          sequence_name varchar(255),
