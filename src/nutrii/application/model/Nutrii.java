@@ -62,7 +62,7 @@ public class Nutrii {
     public ArrayList<User> getUserList() {
         return allUsers;
     }
-
+/*
     public void createNewUser() {
         User newUser;
 
@@ -166,7 +166,7 @@ public class Nutrii {
             System.err.println("Enter a valid value: " + e);
         }
     }
-
+*/
     /**
      * reads the text file of users information also instantiates the correct
      * type of user object (sedentary, very active, etc) based on the

@@ -1,21 +1,29 @@
 package nutrii.application.model;
 
 import java.time.LocalDate;
+import javax.persistence.Column;
+import javax.persistence.DiscriminatorValue;
+import javax.persistence.Entity;
 
 /**
  *
  * @author Blake & Ellaira
  */
+@Entity
+@DiscriminatorValue("2")
 public class LightlyActive extends User {
-    public LightlyActive(String n, char g, LocalDate d, float h, float w) {
-        super(n, g, d, h, w);
-     
+    
+    public LightlyActive() {
+    }
+    
+    public LightlyActive(String n, String p, char g, LocalDate d, float h, float w) {
+        super(n, p, g, d, h, w);
         modifier = 1.375f;
     }
 
-    public LightlyActive(String s) {
-        super(s);
-        modifier = 1.375f;
-    }
+//    public LightlyActive(String s) {
+//        super(s);
+//        modifier = 1.375f;
+//    }
 
 }

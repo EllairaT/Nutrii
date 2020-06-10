@@ -1,35 +1,45 @@
 package nutrii.application.model;
 
-import java.io.Serializable;
 import java.time.LocalDate;
 import java.time.Period;
-import java.util.Arrays;
 import javax.persistence.*;
 
 /**
  *
  * @author Ellaira & Blake
  */
-@Entity
-@Table(name = "User_Table")
-@Inheritance(strategy = InheritanceType.JOINED)
-public abstract class User implements Serializable {
+
+//to make use of the polymorphism, we're using single_table to access
+//only one table when making a query. 
+@Entity(name = "Users")
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
+@DiscriminatorColumn(discriminatorType = DiscriminatorType.INTEGER, name = "Lifestyle")
+public abstract class User {
 
     @Id
-    @Column(name = "id")
-    private int id;
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @Column(name = "id", updatable = false, nullable = false)
+    protected int id;
 
     @Column(name = "name", length = 20)
-    protected String name;
+    private String name;
 
     @Column(name = "gender")
     private char gender;
 
+    @Column(name = "password")
+    private String password;
+
     @Transient
     protected float modifier;
 
-    @Column(name = "dob")
+  
+    @Column
     private LocalDate DOB;
+    
+
+    @Column
+    private LocalDate START_DATE; 
 
     @Column(name = "height")
     private float height;
@@ -40,34 +50,50 @@ public abstract class User implements Serializable {
     @Column(name = "BMR")
     private float BMR;
 
-    @Column(name = "lifestyle")
-    private String lifestyle;
+//    @Column(name = "lifestyle")
+//    private String lifestyle;
+    public User() {
+    }
 
-    @Column(name = "date_joined")
-    private LocalDate START_DATE; //the day the user creates their account.
-
-    public User(String n, char g, LocalDate d, float h, float w) {
+    public User(String n, String p, char g, LocalDate d, float h, float w) {
         this.setName(n);
+        this.setPassword(p);
         this.setGender(g);
         this.setHeight(h);
         this.setWeight(w);
         this.setStartDate(LocalDate.now());
         this.setDOB(d);
         this.setBMR(calculateBMR());
-        this.lifestyle = getClass().getSimpleName();
+        //this.lifestyle = getClass().getSimpleName();
     }
 
-    public User() {
+//    public User(String userString) {
+//        String[] user = userString.split(",");
+//        this.setName(user[0]);
+//        this.setPassword(user[1]);
+//        this.setGender(user[2].charAt(0));
+//        this.setHeight(Float.parseFloat(user[4]));
+//        this.setWeight(Float.parseFloat(user[5]));
+//        this.START_DATE = LocalDate.parse(user[6]);
+//        this.DOB = LocalDate.parse(user[3]);
+//        this.setBMR(calculateBMR());
+//    }
+
+    public String getPassword() {
+        return password;
     }
 
-    public String getLifestyle() {
-        return lifestyle;
+    public void setPassword(String password) {
+        this.password = password;
     }
 
-    public void setLifestyle(String lifestyle) {
-        this.lifestyle = lifestyle;
-    }
-
+//    public String getLifestyle() {
+//        return lifestyle;
+//    }
+//
+//    public void setLifestyle(String lifestyle) {
+//        this.lifestyle = lifestyle;
+//    }
     public int getId() {
         return id;
     }
@@ -90,22 +116,6 @@ public abstract class User implements Serializable {
 
     public float getBMR() {
         return this.BMR;
-    }
-
-    public User(String userString) {
-        String[] user = userString.split(",");
-        this.setName(user[0]);
-        this.setGender(user[1].charAt(0));
-        this.setHeight(Float.parseFloat(user[3]));
-        this.setWeight(Float.parseFloat(user[4]));
-        this.START_DATE = LocalDate.parse(user[5]);
-        this.DOB = LocalDate.parse(user[2]);
-
-        String lifestyleclass = user[6];
-        String[] u = lifestyleclass.split("\\.");
-
-        this.lifestyle = u[u.length - 1];
-        this.setBMR(calculateBMR());
     }
 
     /**
@@ -149,8 +159,9 @@ public abstract class User implements Serializable {
                 + calculateCalNeeded() + "\nAccount created on: " + START_DATE;
     }
 
+    //format to write to file
     public String toWrite() {
-        return name + "," + gender + "," + DOB + "," + height + "," + weight + "," + START_DATE + "," + getClass().getCanonicalName();
+        return name + "," + password + "," + gender + "," + DOB + "," + height + "," + weight + "," + START_DATE + "," + getClass().getCanonicalName();
     }
 
     /**
