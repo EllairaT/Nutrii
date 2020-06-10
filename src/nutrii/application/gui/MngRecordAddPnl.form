@@ -1,0 +1,1204 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<Form version="1.3" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JPanelFormInfo">
+  <NonVisualComponents>
+    <Component class="javax.swing.JLabel" name="jLabel14">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Vitamin B7(Biotin)"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabel18">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Vitamin C"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabel26">
+      <Properties>
+        <Property name="horizontalAlignment" type="int" value="4"/>
+        <Property name="text" type="java.lang.String" value="%"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabel33">
+      <Properties>
+        <Property name="horizontalAlignment" type="int" value="4"/>
+        <Property name="text" type="java.lang.String" value="%"/>
+      </Properties>
+    </Component>
+  </NonVisualComponents>
+  <AuxValues>
+    <AuxValue name="FormSettings_autoResourcing" type="java.lang.Integer" value="0"/>
+    <AuxValue name="FormSettings_autoSetComponentName" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_generateFQN" type="java.lang.Boolean" value="true"/>
+    <AuxValue name="FormSettings_generateMnemonicsCode" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_i18nAutoMode" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_layoutCodeTarget" type="java.lang.Integer" value="1"/>
+    <AuxValue name="FormSettings_listenerGenerationStyle" type="java.lang.Integer" value="0"/>
+    <AuxValue name="FormSettings_variablesLocal" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_variablesModifier" type="java.lang.Integer" value="2"/>
+  </AuxValues>
+
+  <Layout>
+    <DimensionLayout dim="0">
+      <Group type="103" groupAlignment="0" attributes="0">
+          <Component id="AddItemToRecordTitleLbl" alignment="0" max="32767" attributes="0"/>
+          <Group type="102" alignment="0" attributes="0">
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="MRAP" max="32767" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+          </Group>
+      </Group>
+    </DimensionLayout>
+    <DimensionLayout dim="1">
+      <Group type="103" groupAlignment="0" attributes="0">
+          <Group type="102" alignment="0" attributes="0">
+              <Component id="AddItemToRecordTitleLbl" min="-2" pref="30" max="-2" attributes="0"/>
+              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+              <Component id="MRAP" max="32767" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+          </Group>
+      </Group>
+    </DimensionLayout>
+  </Layout>
+  <SubComponents>
+    <Component class="javax.swing.JLabel" name="AddItemToRecordTitleLbl">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Segoe UI" size="18" style="1"/>
+        </Property>
+        <Property name="horizontalAlignment" type="int" value="0"/>
+        <Property name="text" type="java.lang.String" value="Add Item To Record"/>
+      </Properties>
+    </Component>
+    <Container class="javax.swing.JPanel" name="MRAP">
+      <Properties>
+        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="66" green="66" red="66" type="rgb"/>
+        </Property>
+      </Properties>
+
+      <Layout>
+        <DimensionLayout dim="0">
+          <Group type="103" groupAlignment="0" attributes="0">
+              <Group type="102" attributes="0">
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" alignment="0" attributes="0">
+                          <Component id="SelectRecordToAddToLbl" max="32767" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="ItemNamePnl" min="-2" pref="296" max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="102" alignment="0" attributes="0">
+                          <Component id="SelectRecordComboBox" min="-2" pref="175" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="127" max="-2" attributes="0"/>
+                          <Component id="ItemNameTxtField" max="32767" attributes="0"/>
+                      </Group>
+                      <Group type="102" alignment="1" attributes="0">
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="102" attributes="0">
+                                  <Component id="VitaminsLbl" min="-2" pref="296" max="-2" attributes="0"/>
+                                  <EmptySpace max="32767" attributes="0"/>
+                              </Group>
+                              <Group type="102" alignment="1" attributes="0">
+                                  <Group type="103" groupAlignment="1" attributes="0">
+                                      <Component id="AddItemToRecordBtn" alignment="0" max="32767" attributes="0"/>
+                                      <Group type="102" attributes="0">
+                                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                              <Group type="102" alignment="0" attributes="0">
+                                                  <Component id="VitaminKLbl" min="-2" max="-2" attributes="0"/>
+                                                  <EmptySpace min="105" pref="105" max="-2" attributes="0"/>
+                                              </Group>
+                                              <Group type="102" alignment="1" attributes="0">
+                                                  <Component id="VitaminELbl" min="-2" max="-2" attributes="0"/>
+                                                  <EmptySpace min="106" pref="106" max="-2" attributes="0"/>
+                                              </Group>
+                                              <Group type="102" alignment="1" attributes="0">
+                                                  <Component id="VitaminDLbl" min="-2" max="-2" attributes="0"/>
+                                                  <EmptySpace min="104" pref="104" max="-2" attributes="0"/>
+                                              </Group>
+                                              <Group type="102" alignment="1" attributes="0">
+                                                  <Component id="VitaminCLbl" min="-2" max="-2" attributes="0"/>
+                                                  <EmptySpace min="104" pref="104" max="-2" attributes="0"/>
+                                              </Group>
+                                              <Group type="102" alignment="1" attributes="0">
+                                                  <Component id="VitaminB12Lbl" min="-2" max="-2" attributes="0"/>
+                                                  <EmptySpace min="27" pref="27" max="-2" attributes="0"/>
+                                              </Group>
+                                              <Group type="102" alignment="1" attributes="0">
+                                                  <Component id="VitaminB9Lbl" min="-2" max="-2" attributes="0"/>
+                                                  <EmptySpace min="59" pref="59" max="-2" attributes="0"/>
+                                              </Group>
+                                              <Group type="102" alignment="1" attributes="0">
+                                                  <Component id="VitaminB7Lbl" min="-2" max="-2" attributes="0"/>
+                                                  <EmptySpace min="60" pref="60" max="-2" attributes="0"/>
+                                              </Group>
+                                              <Group type="102" alignment="1" attributes="0">
+                                                  <Component id="VitaminB6Lbl" min="-2" max="-2" attributes="0"/>
+                                                  <EmptySpace min="35" pref="35" max="-2" attributes="0"/>
+                                              </Group>
+                                              <Component id="VitaminB5Lbl" alignment="1" min="-2" max="-2" attributes="0"/>
+                                              <Group type="102" alignment="1" attributes="0">
+                                                  <Component id="VitaminB3Lbl" min="-2" max="-2" attributes="0"/>
+                                                  <EmptySpace min="57" pref="57" max="-2" attributes="0"/>
+                                              </Group>
+                                              <Group type="102" alignment="1" attributes="0">
+                                                  <Component id="VitaminB2Lbl" min="-2" max="-2" attributes="0"/>
+                                                  <EmptySpace min="38" pref="38" max="-2" attributes="0"/>
+                                              </Group>
+                                              <Group type="102" alignment="1" attributes="0">
+                                                  <Component id="VitaminB1Lbl" min="-2" max="-2" attributes="0"/>
+                                                  <EmptySpace min="42" pref="42" max="-2" attributes="0"/>
+                                              </Group>
+                                              <Group type="102" alignment="1" attributes="0">
+                                                  <Component id="VitaminALbl" min="-2" max="-2" attributes="0"/>
+                                                  <EmptySpace min="104" pref="104" max="-2" attributes="0"/>
+                                              </Group>
+                                          </Group>
+                                          <EmptySpace max="32767" attributes="0"/>
+                                          <Group type="103" groupAlignment="0" attributes="0">
+                                              <Component id="VitaminKTxtField" alignment="1" min="-2" max="-2" attributes="0"/>
+                                              <Component id="VitaminETxtField" alignment="1" min="-2" max="-2" attributes="0"/>
+                                              <Component id="VitaminDTxtField" alignment="1" min="-2" max="-2" attributes="0"/>
+                                              <Component id="VitaminCTxtField" alignment="1" min="-2" max="-2" attributes="0"/>
+                                              <Component id="VitaminB12TxtField" alignment="1" min="-2" max="-2" attributes="0"/>
+                                              <Component id="VitaminB9TxtField" alignment="1" min="-2" max="-2" attributes="0"/>
+                                              <Component id="VitaminB7TxtField" alignment="1" min="-2" max="-2" attributes="0"/>
+                                              <Component id="VitaminB6TxtField" alignment="1" min="-2" max="-2" attributes="0"/>
+                                              <Component id="VitaminB5TxtField" alignment="1" min="-2" max="-2" attributes="0"/>
+                                              <Component id="VitaminB3TxtField" alignment="1" min="-2" max="-2" attributes="0"/>
+                                              <Component id="VitaminB2TxtField" alignment="1" min="-2" max="-2" attributes="0"/>
+                                              <Component id="VitaminB1TxtField" alignment="1" min="-2" max="-2" attributes="0"/>
+                                              <Component id="VitaminATxtField" alignment="1" min="-2" max="-2" attributes="0"/>
+                                          </Group>
+                                          <EmptySpace max="-2" attributes="0"/>
+                                          <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                                              <Component id="PercntageLbl13" alignment="1" min="-2" pref="20" max="-2" attributes="0"/>
+                                              <Component id="PercntageLbl12" alignment="1" min="-2" pref="20" max="-2" attributes="0"/>
+                                              <Component id="PercntageLbl11" alignment="1" min="-2" pref="20" max="-2" attributes="0"/>
+                                              <Component id="PercntageLbl10" alignment="1" min="-2" pref="20" max="-2" attributes="0"/>
+                                              <Component id="PercntageLbl9" alignment="1" min="-2" pref="20" max="-2" attributes="0"/>
+                                              <Component id="PercntageLbl8" alignment="1" min="-2" pref="20" max="-2" attributes="0"/>
+                                              <Component id="PercntageLbl7" alignment="1" min="-2" pref="20" max="-2" attributes="0"/>
+                                              <Component id="PercntageLbl6" alignment="1" min="-2" pref="20" max="-2" attributes="0"/>
+                                              <Component id="PercntageLbl3" alignment="1" min="-2" pref="20" max="-2" attributes="0"/>
+                                              <Component id="PercntageLbl2" alignment="1" min="-2" pref="20" max="-2" attributes="0"/>
+                                              <Component id="PercntageLbl1" alignment="0" min="-2" pref="20" max="-2" attributes="0"/>
+                                              <Component id="PercntageLbl4" alignment="1" min="-2" pref="20" max="-2" attributes="0"/>
+                                              <Component id="PercntageLbl5" alignment="1" min="-2" pref="20" max="-2" attributes="0"/>
+                                          </Group>
+                                      </Group>
+                                  </Group>
+                                  <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
+                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                              <Component id="MineralsLbl" min="-2" pref="296" max="-2" attributes="0"/>
+                              <Group type="102" attributes="0">
+                                  <Component id="PhosphorusLbl" min="-2" pref="95" max="-2" attributes="0"/>
+                                  <EmptySpace max="32767" attributes="0"/>
+                                  <Component id="MineralPhosphorusTxtField" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
+                              </Group>
+                              <Group type="102" attributes="0">
+                                  <Component id="MagnesiumLbl" min="-2" pref="95" max="-2" attributes="0"/>
+                                  <EmptySpace max="32767" attributes="0"/>
+                                  <Component id="MineralMagnesiumTxtField" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
+                              </Group>
+                              <Group type="102" attributes="0">
+                                  <Component id="SulfurLbl" min="-2" pref="95" max="-2" attributes="0"/>
+                                  <EmptySpace max="32767" attributes="0"/>
+                                  <Component id="MineralSulfurTxtField" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
+                              </Group>
+                              <Group type="102" attributes="0">
+                                  <Component id="IronLbl" min="-2" pref="95" max="-2" attributes="0"/>
+                                  <EmptySpace max="32767" attributes="0"/>
+                                  <Component id="MineralIronTxtField" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
+                              </Group>
+                              <Group type="102" attributes="0">
+                                  <Component id="ChromiumLbl" min="-2" pref="95" max="-2" attributes="0"/>
+                                  <EmptySpace max="32767" attributes="0"/>
+                                  <Component id="MineralChromiumTxtField" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
+                              </Group>
+                              <Group type="102" attributes="0">
+                                  <Component id="CoboltLbl" min="-2" pref="95" max="-2" attributes="0"/>
+                                  <EmptySpace max="32767" attributes="0"/>
+                                  <Component id="MineralCoboltTxtField" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
+                              </Group>
+                              <Group type="102" attributes="0">
+                                  <Component id="CopperLbl" min="-2" pref="95" max="-2" attributes="0"/>
+                                  <EmptySpace max="32767" attributes="0"/>
+                                  <Component id="MineralCopperTxtField" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
+                              </Group>
+                              <Group type="102" attributes="0">
+                                  <Component id="ZincLbl" min="-2" pref="95" max="-2" attributes="0"/>
+                                  <EmptySpace max="32767" attributes="0"/>
+                                  <Component id="MineralZincTxtField" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
+                              </Group>
+                              <Group type="102" attributes="0">
+                                  <Component id="ManganeseLbl" min="-2" pref="95" max="-2" attributes="0"/>
+                                  <EmptySpace max="32767" attributes="0"/>
+                                  <Component id="MineralManganeseTxtField" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
+                              </Group>
+                              <Group type="102" attributes="0">
+                                  <Component id="MolybdenumLbl" min="-2" pref="95" max="-2" attributes="0"/>
+                                  <EmptySpace max="32767" attributes="0"/>
+                                  <Component id="MineralMolybdenumTxtField" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
+                              </Group>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Component id="IodineLbl" min="-2" pref="95" max="-2" attributes="0"/>
+                                  <EmptySpace max="32767" attributes="0"/>
+                                  <Component id="MineralIodineTxtField" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
+                              </Group>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Component id="SeleniumLbl" min="-2" pref="95" max="-2" attributes="0"/>
+                                  <EmptySpace max="32767" attributes="0"/>
+                                  <Component id="MineralSeleniumTxtField" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
+                              </Group>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Component id="FluorideLbl" min="-2" pref="95" max="-2" attributes="0"/>
+                                  <EmptySpace max="32767" attributes="0"/>
+                                  <Component id="MineralFluorideTxtField" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
+                              </Group>
+                              <Group type="102" alignment="1" attributes="0">
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <Component id="SodiumLbl" min="-2" pref="95" max="-2" attributes="0"/>
+                                          <EmptySpace max="32767" attributes="0"/>
+                                          <Component id="MineralSodiumTxtField" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <Component id="CalciumLbl" min="-2" pref="95" max="-2" attributes="0"/>
+                                          <EmptySpace max="32767" attributes="0"/>
+                                          <Component id="MineralCalciumTxtField" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <Component id="PotassiumLbl" min="-2" pref="95" max="-2" attributes="0"/>
+                                          <EmptySpace max="32767" attributes="0"/>
+                                          <Component id="MineralPotassiumTxtField" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                  </Group>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="MgLbl2" min="-2" pref="27" max="-2" attributes="0"/>
+                                      <Component id="MgLbl1" min="-2" pref="27" max="-2" attributes="0"/>
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <EmptySpace min="6" pref="6" max="-2" attributes="0"/>
+                                          <Group type="103" groupAlignment="0" attributes="0">
+                                              <Component id="PercntageLbl15" min="-2" pref="20" max="-2" attributes="0"/>
+                                              <Component id="PercntageLbl14" min="-2" pref="20" max="-2" attributes="0"/>
+                                              <Component id="PercntageLbl16" alignment="0" min="-2" pref="20" max="-2" attributes="0"/>
+                                              <Component id="PercntageLbl17" alignment="0" min="-2" pref="20" max="-2" attributes="0"/>
+                                              <Component id="PercntageLbl18" alignment="0" min="-2" pref="20" max="-2" attributes="0"/>
+                                              <Component id="PercntageLbl19" alignment="0" min="-2" pref="20" max="-2" attributes="0"/>
+                                              <Component id="PercntageLbl20" alignment="0" min="-2" pref="20" max="-2" attributes="0"/>
+                                              <Component id="PercntageLbl21" alignment="0" min="-2" pref="20" max="-2" attributes="0"/>
+                                              <Component id="PercntageLbl22" alignment="0" min="-2" pref="20" max="-2" attributes="0"/>
+                                              <Component id="PercntageLbl23" alignment="0" min="-2" pref="20" max="-2" attributes="0"/>
+                                              <Component id="PercntageLbl24" alignment="0" min="-2" pref="20" max="-2" attributes="0"/>
+                                              <Component id="PercntageLbl25" alignment="0" min="-2" pref="20" max="-2" attributes="0"/>
+                                              <Component id="PercntageLbl26" alignment="0" min="-2" pref="20" max="-2" attributes="0"/>
+                                              <Component id="PercntageLbl27" alignment="0" min="-2" pref="20" max="-2" attributes="0"/>
+                                          </Group>
+                                      </Group>
+                                  </Group>
+                                  <EmptySpace min="-2" pref="13" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
+                      </Group>
+                      <Group type="102" attributes="0">
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="CaloriesLbl" alignment="0" min="-2" pref="100" max="-2" attributes="0"/>
+                              <Group type="103" alignment="0" groupAlignment="1" attributes="0">
+                                  <Component id="CholesterolLbl" min="-2" pref="174" max="-2" attributes="0"/>
+                                  <Component id="CholesterolTxtField" alignment="0" min="-2" pref="100" max="-2" attributes="0"/>
+                              </Group>
+                              <Component id="ProteinLbl" alignment="0" min="-2" pref="174" max="-2" attributes="0"/>
+                              <Component id="ProteinTxtField" alignment="0" min="-2" pref="100" max="-2" attributes="0"/>
+                              <Component id="CaloriesTxtField" alignment="0" min="-2" pref="100" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="PolyunsaturatedFatLbl" max="32767" attributes="0"/>
+                              <Component id="MonounsaturatedFatLbl" max="32767" attributes="0"/>
+                              <Group type="102" attributes="0">
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
+                                          <Component id="TotalFatLbl" min="-2" pref="100" max="-2" attributes="0"/>
+                                          <Component id="SaturatedFatLbl" alignment="1" min="-2" pref="100" max="-2" attributes="0"/>
+                                      </Group>
+                                      <Component id="TransFatLbl" min="-2" pref="100" max="-2" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                              </Group>
+                          </Group>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Component id="TransFatTxtField" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                                  <Component id="SugarsLbl" min="-2" pref="110" max="-2" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="SugarsTxtField" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Component id="SaturatedFatTxtField" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                                  <Component id="DietaryFiberLbl" min="-2" pref="110" max="-2" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="DietaryFiberTxtField" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Component id="PolyunsaturatedTxtField" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                                  <Component id="AddedSugarsLbl" min="-2" pref="110" max="-2" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="AddedSugarsTxtField" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <Component id="MonounsaturatedTxtField" min="-2" max="-2" attributes="0"/>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Component id="TotalFatTxtField" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                                  <Component id="TotalCarbohydrateLbl" min="-2" pref="110" max="-2" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="TotalCarbohydratesTxtField" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
+                          <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
+                      </Group>
+                  </Group>
+                  <EmptySpace max="-2" attributes="0"/>
+              </Group>
+          </Group>
+        </DimensionLayout>
+        <DimensionLayout dim="1">
+          <Group type="103" groupAlignment="0" attributes="0">
+              <Group type="102" alignment="0" attributes="0">
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                      <Component id="SelectRecordToAddToLbl" max="32767" attributes="0"/>
+                      <Component id="ItemNamePnl" max="32767" attributes="0"/>
+                  </Group>
+                  <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="SelectRecordComboBox" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="ItemNameTxtField" alignment="3" max="32767" attributes="0"/>
+                  </Group>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" alignment="0" attributes="0">
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="102" attributes="0">
+                                  <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="3" attributes="0">
+                                      <Component id="TotalCarbohydrateLbl" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="TotalCarbohydratesTxtField" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace min="-2" pref="2" max="-2" attributes="0"/>
+                              </Group>
+                              <Group type="102" alignment="1" attributes="0">
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="3" attributes="0">
+                                      <Component id="TotalFatTxtField" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="TotalFatLbl" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="SaturatedFatLbl" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="SaturatedFatTxtField" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="DietaryFiberLbl" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="DietaryFiberTxtField" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="TransFatTxtField" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="SugarsLbl" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="SugarsTxtField" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="TransFatLbl" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="103" alignment="0" groupAlignment="3" attributes="0">
+                                  <Component id="PolyunsaturatedTxtField" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="PolyunsaturatedFatLbl" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="AddedSugarsLbl" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="AddedSugarsTxtField" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="MonounsaturatedFatLbl" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="MonounsaturatedTxtField" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="CaloriesLbl" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="CaloriesTxtField" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="2" max="-2" attributes="0"/>
+                          <Component id="CholesterolLbl" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="CholesterolTxtField" min="-2" pref="22" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="ProteinLbl" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="ProteinTxtField" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                  </Group>
+                  <EmptySpace min="-2" pref="16" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="VitaminsLbl" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="MineralsLbl" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" attributes="0">
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="VitaminALbl" alignment="0" min="-2" pref="16" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="SodiumLbl" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="MgLbl1" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="MineralSodiumTxtField" alignment="3" min="-2" pref="16" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="VitaminB1Lbl" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="PotassiumLbl" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="MgLbl2" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="MineralPotassiumTxtField" alignment="3" min="-2" pref="16" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="VitaminB2Lbl" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="CalciumLbl" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="PercntageLbl14" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="MineralCalciumTxtField" alignment="3" min="-2" pref="16" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="VitaminB3Lbl" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="PhosphorusLbl" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="PercntageLbl15" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="MineralPhosphorusTxtField" alignment="3" min="-2" pref="16" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="VitaminB5Lbl" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="MagnesiumLbl" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="PercntageLbl16" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="MineralMagnesiumTxtField" alignment="3" min="-2" pref="16" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="VitaminB6Lbl" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="SulfurLbl" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="PercntageLbl17" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="MineralSulfurTxtField" alignment="3" min="-2" pref="16" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="VitaminB7Lbl" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="IronLbl" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="PercntageLbl18" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="MineralIronTxtField" alignment="3" min="-2" pref="16" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="VitaminB9Lbl" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="ChromiumLbl" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="PercntageLbl19" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="MineralChromiumTxtField" alignment="3" min="-2" pref="16" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="VitaminB12Lbl" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="CoboltLbl" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="PercntageLbl20" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="MineralCoboltTxtField" alignment="3" min="-2" pref="16" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="VitaminCLbl" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="CopperLbl" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="PercntageLbl21" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="MineralCopperTxtField" alignment="3" min="-2" pref="16" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="VitaminDLbl" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="ZincLbl" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="PercntageLbl22" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="MineralZincTxtField" alignment="3" min="-2" pref="16" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="VitaminELbl" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="ManganeseLbl" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="PercntageLbl23" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="MineralManganeseTxtField" alignment="3" min="-2" pref="16" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="VitaminKLbl" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="MolybdenumLbl" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="PercntageLbl24" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="MineralMolybdenumTxtField" alignment="3" min="-2" pref="16" max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
+                      <Group type="102" attributes="0">
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="PercntageLbl1" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="VitaminATxtField" alignment="3" min="-2" pref="16" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="PercntageLbl2" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="VitaminB1TxtField" alignment="3" min="-2" pref="16" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="PercntageLbl3" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="VitaminB2TxtField" alignment="3" min="-2" pref="16" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="PercntageLbl4" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="VitaminB3TxtField" alignment="3" min="-2" pref="16" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="PercntageLbl5" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="VitaminB5TxtField" alignment="3" min="-2" pref="16" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="PercntageLbl6" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="VitaminB6TxtField" alignment="3" min="-2" pref="16" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="PercntageLbl7" min="-2" max="-2" attributes="0"/>
+                              <Component id="VitaminB7TxtField" min="-2" pref="16" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="PercntageLbl8" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="VitaminB9TxtField" alignment="3" min="-2" pref="16" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="PercntageLbl9" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="VitaminB12TxtField" alignment="3" min="-2" pref="16" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="PercntageLbl10" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="VitaminCTxtField" alignment="3" min="-2" pref="16" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="PercntageLbl11" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="VitaminDTxtField" alignment="3" min="-2" pref="16" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="PercntageLbl12" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="VitaminETxtField" alignment="3" min="-2" pref="16" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="PercntageLbl13" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="VitaminKTxtField" alignment="3" min="-2" pref="16" max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
+                  </Group>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Component id="IodineLbl" min="-2" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="PercntageLbl25" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="MineralIodineTxtField" alignment="3" min="-2" pref="16" max="-2" attributes="0"/>
+                      </Group>
+                  </Group>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" attributes="0">
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="SeleniumLbl" min="-2" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="PercntageLbl26" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="MineralSeleniumTxtField" alignment="3" min="-2" pref="16" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="FluorideLbl" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="PercntageLbl27" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="MineralFluorideTxtField" alignment="3" min="-2" pref="16" max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
+                      <Component id="AddItemToRecordBtn" pref="44" max="32767" attributes="0"/>
+                  </Group>
+                  <EmptySpace max="-2" attributes="0"/>
+              </Group>
+          </Group>
+        </DimensionLayout>
+      </Layout>
+      <SubComponents>
+        <Component class="javax.swing.JLabel" name="SelectRecordToAddToLbl">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Segoe UI" size="14" style="1"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="Select Record to Add to"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JComboBox" name="SelectRecordComboBox">
+          <Properties>
+            <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+              <StringArray count="2">
+                <StringItem index="0" value="Food"/>
+                <StringItem index="1" value="Drink"/>
+              </StringArray>
+            </Property>
+          </Properties>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+          </AuxValues>
+        </Component>
+        <Component class="javax.swing.JLabel" name="CaloriesLbl">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Segoe UI" size="14" style="1"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="Calories"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JTextField" name="TotalFatTxtField">
+        </Component>
+        <Component class="javax.swing.JLabel" name="ItemNamePnl">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Segoe UI" size="14" style="1"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="Item Name"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JTextField" name="ItemNameTxtField">
+        </Component>
+        <Component class="javax.swing.JLabel" name="VitaminsLbl">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Segoe UI" size="14" style="1"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="Vitamins"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="MineralsLbl">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Segoe UI" size="14" style="1"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="Minerals"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="VitaminB1Lbl">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Vitamin B1(Thiamine)"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="VitaminALbl">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Vitamin A"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="VitaminB2Lbl">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Vitamin B2(Riboflavin)"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="VitaminB3Lbl">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Vitamin B3(Niacin)"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="VitaminB5Lbl">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Vitamin B5(Pantothenic Acid)"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="VitaminB6Lbl">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Vitamin B6(Pyridoxine)"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="VitaminB7Lbl">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Vitamin B7(Biotin)"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="VitaminB9Lbl">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Vitamin B9(Folate)"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="VitaminB12Lbl">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Vitamin B12(Cobalamin)"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="VitaminCLbl">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Vitamin C"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="VitaminDLbl">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Vitamin D"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="VitaminELbl">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Vitamin E"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="VitaminKLbl">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Vitamin K"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="PercntageLbl1">
+          <Properties>
+            <Property name="horizontalAlignment" type="int" value="4"/>
+            <Property name="text" type="java.lang.String" value="%"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="PercntageLbl2">
+          <Properties>
+            <Property name="horizontalAlignment" type="int" value="4"/>
+            <Property name="text" type="java.lang.String" value="%"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="PercntageLbl3">
+          <Properties>
+            <Property name="horizontalAlignment" type="int" value="4"/>
+            <Property name="text" type="java.lang.String" value="%"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="PercntageLbl4">
+          <Properties>
+            <Property name="horizontalAlignment" type="int" value="4"/>
+            <Property name="text" type="java.lang.String" value="%"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="PercntageLbl5">
+          <Properties>
+            <Property name="horizontalAlignment" type="int" value="4"/>
+            <Property name="text" type="java.lang.String" value="%"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="PercntageLbl6">
+          <Properties>
+            <Property name="horizontalAlignment" type="int" value="4"/>
+            <Property name="text" type="java.lang.String" value="%"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="PercntageLbl7">
+          <Properties>
+            <Property name="horizontalAlignment" type="int" value="4"/>
+            <Property name="text" type="java.lang.String" value="%"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="PercntageLbl8">
+          <Properties>
+            <Property name="horizontalAlignment" type="int" value="4"/>
+            <Property name="text" type="java.lang.String" value="%"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="PercntageLbl9">
+          <Properties>
+            <Property name="horizontalAlignment" type="int" value="4"/>
+            <Property name="text" type="java.lang.String" value="%"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="PercntageLbl10">
+          <Properties>
+            <Property name="horizontalAlignment" type="int" value="4"/>
+            <Property name="text" type="java.lang.String" value="%"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="PercntageLbl11">
+          <Properties>
+            <Property name="horizontalAlignment" type="int" value="4"/>
+            <Property name="text" type="java.lang.String" value="%"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="PercntageLbl12">
+          <Properties>
+            <Property name="horizontalAlignment" type="int" value="4"/>
+            <Property name="text" type="java.lang.String" value="%"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="PercntageLbl13">
+          <Properties>
+            <Property name="horizontalAlignment" type="int" value="4"/>
+            <Property name="text" type="java.lang.String" value="%"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="ProteinLbl">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Segoe UI" size="14" style="1"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="Protein"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JTextField" name="ProteinTxtField">
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ProteinTxtFieldActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JLabel" name="CholesterolLbl">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Segoe UI" size="14" style="1"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="Cholesterol"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JTextField" name="CholesterolTxtField">
+        </Component>
+        <Component class="javax.swing.JLabel" name="SaturatedFatLbl">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Saturated Fat"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="TransFatLbl">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Trans Fat"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JTextField" name="CaloriesTxtField">
+        </Component>
+        <Component class="javax.swing.JLabel" name="TotalFatLbl">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Segoe UI" size="12" style="1"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="Total Fat"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="PolyunsaturatedFatLbl">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Polyunsaturated"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="MonounsaturatedFatLbl">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Monounsaturated"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JTextField" name="SaturatedFatTxtField">
+        </Component>
+        <Component class="javax.swing.JTextField" name="TransFatTxtField">
+        </Component>
+        <Component class="javax.swing.JTextField" name="PolyunsaturatedTxtField">
+        </Component>
+        <Component class="javax.swing.JTextField" name="MonounsaturatedTxtField">
+        </Component>
+        <Component class="javax.swing.JLabel" name="TotalCarbohydrateLbl">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Segoe UI" size="12" style="1"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="Total Carbohydrate"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="DietaryFiberLbl">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Dietary Fiber"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="SugarsLbl">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Sugars"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="AddedSugarsLbl">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Added Sugars"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JTextField" name="TotalCarbohydratesTxtField">
+        </Component>
+        <Component class="javax.swing.JTextField" name="DietaryFiberTxtField">
+        </Component>
+        <Component class="javax.swing.JTextField" name="SugarsTxtField">
+        </Component>
+        <Component class="javax.swing.JTextField" name="AddedSugarsTxtField">
+        </Component>
+        <Component class="javax.swing.JLabel" name="SodiumLbl">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Sodium"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="PotassiumLbl">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Potassium"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="CalciumLbl">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Calcium"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="PhosphorusLbl">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Phosphorus"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="MagnesiumLbl">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Magnesium"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="SulfurLbl">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Sulfur"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="IronLbl">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Iron"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="ChromiumLbl">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Chromium"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="CoboltLbl">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Cobolt"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="CopperLbl">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Copper"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="ZincLbl">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Zinc"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="ManganeseLbl">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Manganese"/>
+            <Property name="toolTipText" type="java.lang.String" value=""/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="MolybdenumLbl">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Molybdenum"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="IodineLbl">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Iodine"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="SeleniumLbl">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Selenium"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="FluorideLbl">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Fluoride"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="MgLbl1">
+          <Properties>
+            <Property name="horizontalAlignment" type="int" value="4"/>
+            <Property name="text" type="java.lang.String" value="mg"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="MgLbl2">
+          <Properties>
+            <Property name="horizontalAlignment" type="int" value="4"/>
+            <Property name="text" type="java.lang.String" value="mg"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="PercntageLbl14">
+          <Properties>
+            <Property name="horizontalAlignment" type="int" value="4"/>
+            <Property name="text" type="java.lang.String" value="%"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="PercntageLbl15">
+          <Properties>
+            <Property name="horizontalAlignment" type="int" value="4"/>
+            <Property name="text" type="java.lang.String" value="%"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="PercntageLbl16">
+          <Properties>
+            <Property name="horizontalAlignment" type="int" value="4"/>
+            <Property name="text" type="java.lang.String" value="%"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="PercntageLbl17">
+          <Properties>
+            <Property name="horizontalAlignment" type="int" value="4"/>
+            <Property name="text" type="java.lang.String" value="%"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="PercntageLbl18">
+          <Properties>
+            <Property name="horizontalAlignment" type="int" value="4"/>
+            <Property name="text" type="java.lang.String" value="%"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="PercntageLbl19">
+          <Properties>
+            <Property name="horizontalAlignment" type="int" value="4"/>
+            <Property name="text" type="java.lang.String" value="%"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="PercntageLbl20">
+          <Properties>
+            <Property name="horizontalAlignment" type="int" value="4"/>
+            <Property name="text" type="java.lang.String" value="%"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="PercntageLbl21">
+          <Properties>
+            <Property name="horizontalAlignment" type="int" value="4"/>
+            <Property name="text" type="java.lang.String" value="%"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="PercntageLbl22">
+          <Properties>
+            <Property name="horizontalAlignment" type="int" value="4"/>
+            <Property name="text" type="java.lang.String" value="%"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="PercntageLbl23">
+          <Properties>
+            <Property name="horizontalAlignment" type="int" value="4"/>
+            <Property name="text" type="java.lang.String" value="%"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="PercntageLbl24">
+          <Properties>
+            <Property name="horizontalAlignment" type="int" value="4"/>
+            <Property name="text" type="java.lang.String" value="%"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="PercntageLbl25">
+          <Properties>
+            <Property name="horizontalAlignment" type="int" value="4"/>
+            <Property name="text" type="java.lang.String" value="%"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="PercntageLbl26">
+          <Properties>
+            <Property name="horizontalAlignment" type="int" value="4"/>
+            <Property name="text" type="java.lang.String" value="%"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="PercntageLbl27">
+          <Properties>
+            <Property name="horizontalAlignment" type="int" value="4"/>
+            <Property name="text" type="java.lang.String" value="%"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JTextField" name="VitaminATxtField">
+        </Component>
+        <Component class="javax.swing.JTextField" name="VitaminB1TxtField">
+        </Component>
+        <Component class="javax.swing.JTextField" name="VitaminB2TxtField">
+        </Component>
+        <Component class="javax.swing.JTextField" name="VitaminB3TxtField">
+        </Component>
+        <Component class="javax.swing.JTextField" name="VitaminB5TxtField">
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="VitaminB5TxtFieldActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JTextField" name="VitaminB6TxtField">
+        </Component>
+        <Component class="javax.swing.JTextField" name="VitaminB7TxtField">
+        </Component>
+        <Component class="javax.swing.JTextField" name="VitaminB9TxtField">
+        </Component>
+        <Component class="javax.swing.JTextField" name="VitaminB12TxtField">
+        </Component>
+        <Component class="javax.swing.JTextField" name="VitaminCTxtField">
+        </Component>
+        <Component class="javax.swing.JTextField" name="VitaminDTxtField">
+        </Component>
+        <Component class="javax.swing.JTextField" name="VitaminETxtField">
+        </Component>
+        <Component class="javax.swing.JTextField" name="VitaminKTxtField">
+        </Component>
+        <Component class="javax.swing.JTextField" name="MineralSodiumTxtField">
+        </Component>
+        <Component class="javax.swing.JTextField" name="MineralPotassiumTxtField">
+        </Component>
+        <Component class="javax.swing.JTextField" name="MineralCalciumTxtField">
+        </Component>
+        <Component class="javax.swing.JTextField" name="MineralPhosphorusTxtField">
+        </Component>
+        <Component class="javax.swing.JTextField" name="MineralMagnesiumTxtField">
+        </Component>
+        <Component class="javax.swing.JTextField" name="MineralSulfurTxtField">
+        </Component>
+        <Component class="javax.swing.JTextField" name="MineralIronTxtField">
+        </Component>
+        <Component class="javax.swing.JTextField" name="MineralChromiumTxtField">
+        </Component>
+        <Component class="javax.swing.JTextField" name="MineralCoboltTxtField">
+        </Component>
+        <Component class="javax.swing.JTextField" name="MineralCopperTxtField">
+        </Component>
+        <Component class="javax.swing.JTextField" name="MineralZincTxtField">
+        </Component>
+        <Component class="javax.swing.JTextField" name="MineralManganeseTxtField">
+        </Component>
+        <Component class="javax.swing.JTextField" name="MineralMolybdenumTxtField">
+        </Component>
+        <Component class="javax.swing.JTextField" name="MineralIodineTxtField">
+        </Component>
+        <Component class="javax.swing.JTextField" name="MineralSeleniumTxtField">
+        </Component>
+        <Component class="javax.swing.JTextField" name="MineralFluorideTxtField">
+        </Component>
+        <Component class="javax.swing.JButton" name="AddItemToRecordBtn">
+          <Properties>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="0" green="66" red="0" type="rgb"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="Add Item To Record"/>
+          </Properties>
+        </Component>
+      </SubComponents>
+    </Container>
+  </SubComponents>
+</Form>

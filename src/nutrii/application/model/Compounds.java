@@ -19,8 +19,9 @@ import javax.persistence.*;
 public abstract class Compounds {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.TABLE)
-    @Column(name = "id", updatable = false, nullable = false)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+  
+    @Column(name = "id", nullable = false)
     protected int id;
 
     @Transient
@@ -38,7 +39,7 @@ public abstract class Compounds {
     @Transient
     protected String compoundName;
 
-    @Column(name = "name")
+    @Column(name = "name", unique = true)
     private String keyname;
 
     public String getKeyname() {

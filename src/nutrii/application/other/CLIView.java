@@ -58,7 +58,7 @@ public class CLIView {
                         UserSelectedMenu();
                     }
                 } else if (response == 2) {
-                    nutrii.createNewUser();
+//                    nutrii.createNewUser();
                 } else if (response == 3) {
                     //Exit
                     System.out.print("\nExiting Program... Thank you for using Nutrii, and stay healthy.\n");
