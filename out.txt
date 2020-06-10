@@ -1,0 +1,74 @@
+
+    drop table Nutrii.Food_Item
+
+    drop table Nutrii.Meal
+
+    drop table Nutrii.Minerals
+
+    drop table Nutrii.Nutrients
+
+    drop table Nutrii.Users
+
+    drop table Nutrii.Vitamins
+
+    drop sequence Nutrii.hibernate_sequence restrict
+
+    drop table Nutrii.hibernate_sequences
+
+    create table Nutrii.Food_Item (
+        id integer not null,
+        class_name varchar(255),
+        name varchar(255),
+        is_eaten boolean,
+        primary key (id)
+    )
+
+    create table Nutrii.Meal (
+        id varchar(255) not null,
+        date varchar(255) for bit data,
+        thisMeal varchar(255) for bit data,
+        time varchar(255) for bit data,
+        primary key (id)
+    )
+
+    create table Nutrii.Minerals (
+        id integer not null,
+        name varchar(255),
+        Value float,
+        primary key (id)
+    )
+
+    create table Nutrii.Nutrients (
+        id integer not null,
+        name varchar(255),
+        Value float,
+        primary key (id)
+    )
+
+    create table Nutrii.Users (
+        lifestyle integer not null,
+        id integer not null,
+        BMR float,
+        dob varchar(255) for bit data,
+        date_joined varchar(255) for bit data,
+        gender char(1),
+        height float,
+        name varchar(20),
+        password varchar(255),
+        weight float,
+        primary key (id)
+    )
+
+    create table Nutrii.Vitamins (
+        id integer not null,
+        name varchar(255),
+        Value float,
+        primary key (id)
+    )
+
+    create sequence Nutrii.hibernate_sequence
+
+    create table Nutrii.hibernate_sequences (
+         sequence_name varchar(255),
+         sequence_next_hi_value integer 
+    )
