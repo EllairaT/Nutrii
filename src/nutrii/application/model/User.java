@@ -3,7 +3,6 @@ package nutrii.application.model;
 import java.time.LocalDate;
 import java.time.Period;
 import javax.persistence.*;
-import org.hibernate.annotations.ColumnDefault;
 
 /**
  *
@@ -47,6 +46,9 @@ public abstract class User {
     @Column(name = "BMR")
     private float BMR;
 
+    @Column(name = "Calorie_req")
+    private float calorieReq;
+
     @Column(name = "Lifestyle", updatable = false, nullable = false, insertable = false)
     private String lifestyle;
 
@@ -61,8 +63,8 @@ public abstract class User {
         this.setWeight(w);
         this.setStartDate(LocalDate.now());
         this.setDOB(d);
-        setBMR(calculateBMR());
-        //this.lifestyle = getClass().getSimpleName();
+        this.setBMR(calculateBMR());
+        this.setCalorieReq(calculateCalNeeded());
     }
 
     public String getPassword() {
@@ -73,13 +75,6 @@ public abstract class User {
         this.password = password;
     }
 
-//    public String getLifestyle() {
-//        return lifestyle;
-//    }
-//
-//    public void setLifestyle(String lifestyle) {
-//        this.lifestyle = lifestyle;
-//    }
     public int getId() {
         return this.id;
     }
@@ -100,13 +95,18 @@ public abstract class User {
         this.DOB = dob;
     }
 
+    public float getCalorieReq() {
+        return calorieReq;
+    }
+
+    public void setCalorieReq(float calorieReq) {
+        this.calorieReq = calorieReq;
+    }
+
     public void setStartDate(LocalDate sd) {
         this.START_DATE = sd;
     }
 
-    public void setBMR(Float bmr) {
-        this.BMR = bmr;
-    }
 
     public float getBMR() {
         return this.BMR;
@@ -130,7 +130,7 @@ public abstract class User {
      *
      * @return total BMR of user.
      */
-    protected final float calculateBMR() {
+    protected float calculateBMR() {
 
         switch (gender) {
             case 'm':
@@ -150,7 +150,7 @@ public abstract class User {
         return name + ", DOB: " + DOB + " (" + getAge() + ")" + "\nBMR: " + BMR
                 + "\nLifestyle: " + getClass().getSimpleName()
                 + "\nTotal Calories needed for lifestyle: "
-                + calculateCalNeeded() + "\nAccount created on: " + START_DATE;
+                + calorieReq + "\nAccount created on: " + START_DATE;
     }
 
     //format to write to file

@@ -1,5 +1,6 @@
 package nutrii.application.services;
 
+import java.time.LocalDate;
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.List;
@@ -66,8 +67,13 @@ public class UserService {
 
         try {
             tx = session.beginTransaction();
-
+            //check for similar records
+            
+            u.setStartDate(LocalDate.now());
+            u.setCalorieReq(u.calculateCalNeeded());
             session.saveOrUpdate(u);
+            
+            
             session.flush();
             tx.commit();
 

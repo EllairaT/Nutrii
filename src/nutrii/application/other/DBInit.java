@@ -20,7 +20,7 @@ public class DBInit {
         cs = new CompoundService();
         us = new UserService();
         //  initCompounds();
-        //  initUsers();
+        initUsers();
     }
 
     public void initCompounds() {
@@ -32,7 +32,7 @@ public class DBInit {
         comp.add(minerals);
         comp.add(vitamins);
         comp.add(nutrients);
-        
+
         for (Compounds c : comp) {
             System.out.println("COMPOUND: " + c.getCompoundName());
             for (String key : c.returnList().keySet()) {

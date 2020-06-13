@@ -1,16 +1,12 @@
 package nutrii.application;
 
 import nutrii.application.model.Nutrii;
-import nutrii.application.other.FoodItemDatabase;
 import nutrii.application.other.HibernateUtil;
 import nutrii.application.model.*;
-import nutrii.application.other.CLIView;
-import java.util.ArrayList;
 import java.util.List;
 import org.hibernate.SessionFactory;
 import org.hibernate.service.ServiceRegistry;
 import nutrii.application.other.DBInit;
-import nutrii.application.services.CompoundService;
 import nutrii.application.services.UserService;
 
 /**
@@ -34,11 +30,12 @@ public class NutriiApplication {
         for (User u : rows){
             System.out.println(u + "\n");
         }
-        User u = us.userLogIn("Ellaira", "password");
-        nutrii.setCurrentUser(u);
-       
+//        User u = us.userLogIn("Ellaira", "password");
+//        nutrii.setCurrentUser(u);
+//        System.out.println("CALORIES NEEDED: " + u.calculateCalNeeded());
+//        
         for(User i : nutrii.getUserList()){
-            System.out.println(i);
+            System.out.println(i + "\n------------------------");
         }
         //System.out.println("LOGGED IN: (" + u.getId() + ")" + u);
  
