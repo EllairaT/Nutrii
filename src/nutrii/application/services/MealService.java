@@ -1,8 +1,10 @@
 package nutrii.application.services;
 
+import java.util.List;
 import nutrii.application.model.FoodItem;
 import nutrii.application.model.Meal;
 import nutrii.application.other.HibernateUtil;
+import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
@@ -30,7 +32,7 @@ public class MealService {
             //session.saveOrUpdate(m);
 
         } catch (Exception e) {
-            System.err.println("Error adding user: " + m.getName());
+            System.err.println("Error adding meal " + m.getName());
             tx.rollback();
             throw e;
         } finally {
@@ -54,7 +56,7 @@ public class MealService {
             if (tx != null) {
                 tx.rollback();
             }
-            System.err.println("Error loading User");
+            System.err.println("Error loading meal");
             throw e;
         } finally {
             if (session != null && session.isOpen()) {
@@ -65,9 +67,13 @@ public class MealService {
 
     }
 
-    public void printAllRows() {
+    public List<Meal> printAllRows() {
         Session session = HibernateUtil.getSessionFactory().openSession();
-
+        
+        Criteria crit = session.createCriteria(Meal.class);
+        List<Meal> results = crit.list();
+        
         session.close();
+        return results;
     }
 }

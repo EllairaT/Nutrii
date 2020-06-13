@@ -107,23 +107,21 @@ public class UserService {
         return user;
     }
     
-        public void printAllRows(Class user) {
+        public List<User> printAllRows(Class user) {
         Session session = HibernateUtil.getSessionFactory().openSession();
-       
+       //the joincolumn annotation is fucking things up dunno why
         Criteria crit = session.createCriteria(user);
-
-        List<User> results = crit.list();
-        Set<String> resultSet = new HashSet<>();
+      
+        
+        System.out.println("this is where things go wrong");
+//        List<User> results = ;
 
         for(User u : results){
-            resultSet.add(u.getName() + "," + u.getPassword() + "," + u.getStartDate());
+            System.out.println(u);
         }
         
-        System.out.println("RESULTSET--------------------------");
-        System.out.println(Arrays.asList(resultSet));
-        System.out.println("RESULTSET//END--------------------------");
-        
         session.close();
+        return results;
     }
 //    public ArrayList<User> browseUsers() {
 //

@@ -3,36 +3,45 @@ package nutrii.application.model;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
+import java.util.List;
 import javax.persistence.*;
+
 /**
- * A meal is an object containing an arraylist of food items
- * and information such as when and what time the meal was eaten
+ * A meal is an object containing an arraylist of food items and information
+ * such as when and what time the meal was eaten
+ *
  * @author Blake & Ellaira
  */
 
-@Entity 
-@Table(name="Meal")
+@Entity
+@Table(name = "Meal")
 public class Meal {
 
     @Id
-    @Column(name="id")
+    @Column(name = "id")
     private String name;
-   
-    @Column 
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "USER_ID")
+    private User user;
+
+    @Column
     private LocalDate date;
-    
+
     @Column
     private LocalDateTime time;
-    
-    @Convert(converter = StringListConverter.class)
-    private ArrayList<FoodItem> thisMeal;
-    
-    @Embedded private Minerals mineralsCount;
-    @Embedded private Vitamins vitaminsCount;
-    @Embedded private Nutrients nutrientsCount;
-    
-//    private FoodItemDatabase fdb;
 
+    @ElementCollection
+    private List<FoodItem> thisMeal;
+
+    @Transient
+    private Minerals mineralsCount;
+    @Transient
+    private Vitamins vitaminsCount;
+    @Transient
+    private Nutrients nutrientsCount;
+
+//    private FoodItemDatabase fdb;
     public Meal(ArrayList<FoodItem> arr, String n) {
         mineralsCount = new Minerals();
         vitaminsCount = new Vitamins();
@@ -44,24 +53,33 @@ public class Meal {
         addAll();
     }
 
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
+
+
     public Meal(String s) {
         thisMeal = new ArrayList<FoodItem>();
-//        fdb = new FoodItemDatabase("Foods.csv", "Drinks.csv");
         mineralsCount = new Minerals();
         vitaminsCount = new Vitamins();
         nutrientsCount = new Nutrients();
-        
+
         String[] m = s.split(",");
         date = LocalDate.parse(m[0]);
         time = LocalDateTime.parse(m[1]);
-        name = m[2]; 
-        
-        addAll(); 
-    }
-    
-    public Meal(){}
+        name = m[2];
 
-    public ArrayList<FoodItem> getMeal() {
+        addAll();
+    }
+
+    public Meal() {
+    }
+
+    public List<FoodItem> getMeal() {
         return thisMeal;
     }
 
@@ -92,8 +110,9 @@ public class Meal {
         }
     }
 
-    /** 
+    /**
      * this method is called when the meal is ready to be written to file
+     *
      * @return String containing details about the meal
      */
     public String writeMeal() {
@@ -105,15 +124,15 @@ public class Meal {
         return toPrint;
     }
 
-    public Vitamins getVitamins(){
+    public Vitamins getVitamins() {
         return vitaminsCount;
     }
-    
-    public Minerals getMinerals(){
+
+    public Minerals getMinerals() {
         return mineralsCount;
     }
-    
-    public Nutrients getNutrients(){
+
+    public Nutrients getNutrients() {
         return nutrientsCount;
     }
 

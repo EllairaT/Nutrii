@@ -3,6 +3,7 @@ package nutrii.application.model;
 import java.time.LocalDate;
 import java.time.Period;
 import javax.persistence.*;
+import org.hibernate.annotations.ColumnDefault;
 
 /**
  *
@@ -18,7 +19,8 @@ public abstract class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
-    @Column(name = "id", updatable = false, nullable = false)
+    @Column(name = "USER_ID", nullable = false)
+    @ColumnDefault("username")
     protected int id;
 
     @Column(name = "name", length = 20)
@@ -33,10 +35,8 @@ public abstract class User {
     @Transient
     protected float modifier;
 
-  
     @Column
-    private LocalDate DOB;
-    
+    private LocalDate DOB;    
 
     @Column
     private LocalDate START_DATE; 
@@ -56,35 +56,23 @@ public abstract class User {
     }
 
     public User(String n, String p, char g, LocalDate d, float h, float w) {
-        this.setName(n);
-        this.setPassword(p);
-        this.setGender(g);
-        this.setHeight(h);
-        this.setWeight(w);
-        this.setStartDate(LocalDate.now());
-        this.setDOB(d);
-        this.setBMR(calculateBMR());
+        setName(n);
+        setPassword(p);
+        setGender(g);
+        setHeight(h);
+        setWeight(w);
+        setStartDate(LocalDate.now());
+        setDOB(d);
+        setBMR(calculateBMR());
         //this.lifestyle = getClass().getSimpleName();
     }
-
-//    public User(String userString) {
-//        String[] user = userString.split(",");
-//        this.setName(user[0]);
-//        this.setPassword(user[1]);
-//        this.setGender(user[2].charAt(0));
-//        this.setHeight(Float.parseFloat(user[4]));
-//        this.setWeight(Float.parseFloat(user[5]));
-//        this.START_DATE = LocalDate.parse(user[6]);
-//        this.DOB = LocalDate.parse(user[3]);
-//        this.setBMR(calculateBMR());
-//    }
 
     public String getPassword() {
         return password;
     }
 
     public void setPassword(String password) {
-        this.password = password;
+        password = password;
     }
 
 //    public String getLifestyle() {
@@ -99,23 +87,23 @@ public abstract class User {
     }
 
     public void setId(int i) {
-        this.id = i;
+        id = i;
     }
 
     public void setDOB(LocalDate dob) {
-        this.DOB = dob;
+        DOB = dob;
     }
 
     public void setStartDate(LocalDate sd) {
-        this.START_DATE = sd;
+        START_DATE = sd;
     }
 
     public void setBMR(Float bmr) {
-        this.BMR = bmr;
+        BMR = bmr;
     }
 
     public float getBMR() {
-        return this.BMR;
+        return BMR;
     }
 
     /**
@@ -184,7 +172,7 @@ public abstract class User {
      * @param height the height to set
      */
     public final void setHeight(float height) {
-        this.height = height;
+        height = height;
     }
 
     /**
@@ -198,14 +186,14 @@ public abstract class User {
      * @param weight the weight to set
      */
     public final void setWeight(float weight) {
-        this.weight = weight;
+        weight = weight;
     }
 
     /**
      * @param BMR the BMR to set
      */
     public final void setBMR(float BMR) {
-        this.BMR = BMR;
+        BMR = BMR;
     }
 
     /**
@@ -219,7 +207,7 @@ public abstract class User {
      * @param name the name to set
      */
     public final void setName(String name) {
-        this.name = name;
+        name = name;
     }
 
     /**
@@ -233,7 +221,7 @@ public abstract class User {
      * @param gender the gender to set
      */
     public final void setGender(char gender) {
-        this.gender = gender;
+        gender = gender;
     }
 
     /**

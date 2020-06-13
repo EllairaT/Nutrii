@@ -19,9 +19,10 @@ public class DBInit {
     public DBInit() {
         cs = new CompoundService();
         us = new UserService();
-      //  initCompounds();
-        initUsers();
+       //  initCompounds();
+       // initUsers();
     }
+
 
     public void initCompounds() {    
         Compounds vitamins = new Vitamins();

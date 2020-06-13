@@ -13,15 +13,15 @@
         <property name="current_session_context_class">thread</property>
         <property name="hibernate.jdbc.batch_size">50</property>
         <property name="hibernate.show_sql">true</property>     
-        <!--<property name="hibernate.format_sql">true</property>-->
-        <!--<property name="use_sql_comments">true</property>-->
+        <property name="hibernate.format_sql">true</property>
+        <property name="use_sql_comments">true</property>
         <property name="hibernate.hbm2ddl.auto">update</property>
         
                         <!--MAPPING CLASSES-->
-        <mapping class="nutrii.application.model.FoodItem"/>
-        <mapping class="nutrii.application.model.Compounds"/>
+        <mapping class="nutrii.application.model.FoodItem"/>   
         <mapping class="nutrii.application.model.Meal"/>
         
+        <mapping class="nutrii.application.model.Compounds"/>
         <mapping class="nutrii.application.model.Minerals"/>
         <mapping class="nutrii.application.model.Vitamins"/>
         <mapping class="nutrii.application.model.Nutrients"/>
