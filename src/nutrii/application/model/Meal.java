@@ -12,7 +12,6 @@ import javax.persistence.*;
  *
  * @author Blake & Ellaira
  */
-
 @Entity
 @Table(name = "Meal")
 public class Meal {
@@ -21,9 +20,8 @@ public class Meal {
     @Column(name = "id")
     private String name;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "USER_ID")
-    private User user;
+    @Column
+    private int user_id;
 
     @Column
     private LocalDate date;
@@ -53,15 +51,6 @@ public class Meal {
         addAll();
     }
 
-    public User getUser() {
-        return user;
-    }
-
-    public void setUser(User user) {
-        this.user = user;
-    }
-
-
     public Meal(String s) {
         thisMeal = new ArrayList<FoodItem>();
         mineralsCount = new Minerals();
@@ -81,6 +70,14 @@ public class Meal {
 
     public List<FoodItem> getMeal() {
         return thisMeal;
+    }
+
+    public int getUser_id() {
+        return user_id;
+    }
+
+    public void setUser_id(int user_id) {
+        this.user_id = user_id;
     }
 
     public String getName() {

@@ -28,7 +28,7 @@ public class CLIView {
 
     public CLIView(Nutrii n) {
         nutrii = n;
-        userList = nutrii.getUserList();
+       // userList = nutrii.getUserList();
         theDB = nutrii.getFoodItemDatabase();
         foodList = theDB.getFoodDB();
         drinkList = theDB.getDrinkDB();

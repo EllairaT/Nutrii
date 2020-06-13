@@ -10,7 +10,7 @@ import javax.persistence.Entity;
  * @author Blake & Ellaira
  */
 @Entity
-@DiscriminatorValue("1")
+@DiscriminatorValue(value="Sedentary")
 public class Sedentary extends User {
 
     public Sedentary() {

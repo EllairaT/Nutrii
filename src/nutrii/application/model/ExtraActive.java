@@ -9,7 +9,7 @@ import javax.persistence.Entity;
  * @author Blake & Ellaira
  */
 @Entity
-@DiscriminatorValue("5")
+@DiscriminatorValue(value="ExtraActive")
 public class ExtraActive extends User {
 
     public ExtraActive() {

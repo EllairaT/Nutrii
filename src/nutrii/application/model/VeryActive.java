@@ -10,7 +10,7 @@ import org.hibernate.annotations.DiscriminatorOptions;
  * @author Blake & Ellaira
  */
 @Entity
-@DiscriminatorValue("4")
+@DiscriminatorValue(value="VeryActive")
 public class VeryActive extends User {
     
     public VeryActive() {

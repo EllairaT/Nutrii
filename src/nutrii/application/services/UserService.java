@@ -5,15 +5,17 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 import nutrii.application.model.User;
+import nutrii.application.model.VeryActive;
 import nutrii.application.other.HibernateUtil;
 import org.hibernate.Criteria;
+import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.hibernate.criterion.Restrictions;
 
 /**
- * NOTE: When possible I use Criteria over HQL because it looks less messy,
- * is safe from sql injection, and is more flexible. 
+ * NOTE: When possible I use Criteria over HQL because it looks less messy, is
+ * safe from sql injection, and is more flexible.
  *
  *
  * @author Ellaira
@@ -58,19 +60,17 @@ public class UserService {
     }
 
     public boolean addUser(User u) {
-      
         Session session = HibernateUtil.getSessionFactory().openSession();
         Transaction tx = null;
         boolean isSuccessul = false;
 
         try {
-            tx = session.beginTransaction();       
-                      
+            tx = session.beginTransaction();
+
             session.saveOrUpdate(u);
             session.flush();
             tx.commit();
-           
-            
+
         } catch (Exception e) {
             System.err.println("Error adding user: " + u.getName());
             tx.rollback();
@@ -80,11 +80,11 @@ public class UserService {
                 session.close();
             }
         }
-        
+
         return isSuccessul;
     }
 
-    public User getUser(int id) {
+    public User loadUser(int id) {
         Session session = HibernateUtil.getSessionFactory().openSession();
         Transaction tx = null;
         User user = null;
@@ -106,24 +106,17 @@ public class UserService {
         }
         return user;
     }
-    
-        public List<User> printAllRows(Class user) {
-        Session session = HibernateUtil.getSessionFactory().openSession();
-       //the joincolumn annotation is fucking things up dunno why
-        Criteria crit = session.createCriteria(user);
-      
-        
-        System.out.println("this is where things go wrong");
-//        List<User> results = ;
 
-        for(User u : results){
-            System.out.println(u);
-        }
-        
+    public List<User> browseAll(Class user) {
+        Session session = HibernateUtil.getSessionFactory().openSession();
+
+        Criteria crit = session.createCriteria(user);
+        List<User> results = crit.list();
         session.close();
         return results;
     }
-//    public ArrayList<User> browseUsers() {
+    
+//    public List<User> browseUsers() {
 //
 //    }
 //
@@ -134,7 +127,7 @@ public class UserService {
 //
 //    }
 //
-//    public ArrayList<User> searchByUserName() {
+//    public ArrayList<User> searchByName() {
 //
 //    }
 //

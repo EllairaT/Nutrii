@@ -20,26 +20,28 @@ import nutrii.application.services.UserService;
  */
 public class NutriiApplication {
 
-    private static DBConnect dbconn;
-    private static FoodItemDatabase fdb;
-    private static final String USER_FILE = "NUTRII_USERS.txt";
-    public static CLIView cli;
     public static Nutrii nutrii;
     private static SessionFactory factory;
     private static ServiceRegistry serviceRegistry;
     private static DBInit db;
-    private static ArrayList<User> tempUserList;
 
     public static void main(String[] args) {
         initialize();
-
+        nutrii = new Nutrii();
         UserService us = new UserService();
-        List<User> rows = us.printAllRows(User.class);
+        List<User> rows = us.browseAll(Sedentary.class);
         
         for (User u : rows){
-            System.out.println(u);
+            System.out.println(u + "\n");
         }
-        
+        User u = us.userLogIn("Ellaira", "password");
+        nutrii.setCurrentUser(u);
+       
+        for(User i : nutrii.getUserList()){
+            System.out.println(i);
+        }
+        //System.out.println("LOGGED IN: (" + u.getId() + ")" + u);
+ 
         HibernateUtil.shutdown();
         System.exit(0);
     }
@@ -47,6 +49,7 @@ public class NutriiApplication {
     public static void initialize() {
         try {
             System.out.println("--------INITIALISE DATABASE\n");
+            
             db = new DBInit();
 
             System.out.println("--------END INITIALISATION\n");

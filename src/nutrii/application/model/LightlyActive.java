@@ -10,7 +10,7 @@ import javax.persistence.Entity;
  * @author Blake & Ellaira
  */
 @Entity
-@DiscriminatorValue("2")
+@DiscriminatorValue(value="LightlyActive")
 public class LightlyActive extends User {
     
     public LightlyActive() {

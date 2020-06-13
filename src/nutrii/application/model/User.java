@@ -9,18 +9,15 @@ import org.hibernate.annotations.ColumnDefault;
  *
  * @author Ellaira & Blake
  */
-
 //to make use of the polymorphism, we're using single_table to access
 //only one table when making a query. 
 @Entity(name = "Users")
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
-@DiscriminatorColumn(discriminatorType = DiscriminatorType.INTEGER, name = "Lifestyle")
+@DiscriminatorColumn(name = "Lifestyle", discriminatorType = DiscriminatorType.STRING)
 public abstract class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
-    @Column(name = "USER_ID", nullable = false)
-    @ColumnDefault("username")
     protected int id;
 
     @Column(name = "name", length = 20)
@@ -36,10 +33,10 @@ public abstract class User {
     protected float modifier;
 
     @Column
-    private LocalDate DOB;    
+    private LocalDate DOB;
 
     @Column
-    private LocalDate START_DATE; 
+    private LocalDate START_DATE;
 
     @Column(name = "height")
     private float height;
@@ -50,29 +47,30 @@ public abstract class User {
     @Column(name = "BMR")
     private float BMR;
 
-//    @Column(name = "lifestyle")
-//    private String lifestyle;
+    @Column(name = "Lifestyle", updatable = false, nullable = false, insertable = false)
+    private String lifestyle;
+
     public User() {
     }
 
     public User(String n, String p, char g, LocalDate d, float h, float w) {
-        setName(n);
-        setPassword(p);
-        setGender(g);
-        setHeight(h);
-        setWeight(w);
-        setStartDate(LocalDate.now());
-        setDOB(d);
+        this.setName(n);
+        this.setPassword(p);
+        this.setGender(g);
+        this.setHeight(h);
+        this.setWeight(w);
+        this.setStartDate(LocalDate.now());
+        this.setDOB(d);
         setBMR(calculateBMR());
         //this.lifestyle = getClass().getSimpleName();
     }
 
     public String getPassword() {
-        return password;
+        return this.password;
     }
 
     public void setPassword(String password) {
-        password = password;
+        this.password = password;
     }
 
 //    public String getLifestyle() {
@@ -83,27 +81,35 @@ public abstract class User {
 //        this.lifestyle = lifestyle;
 //    }
     public int getId() {
-        return id;
+        return this.id;
     }
 
     public void setId(int i) {
-        id = i;
+        this.id = i;
+    }
+
+    public String getLifestyle() {
+        return this.lifestyle;
+    }
+
+    public void setLifestyle(String lifestyle) {
+        this.lifestyle = lifestyle;
     }
 
     public void setDOB(LocalDate dob) {
-        DOB = dob;
+        this.DOB = dob;
     }
 
     public void setStartDate(LocalDate sd) {
-        START_DATE = sd;
+        this.START_DATE = sd;
     }
 
     public void setBMR(Float bmr) {
-        BMR = bmr;
+        this.BMR = bmr;
     }
 
     public float getBMR() {
-        return BMR;
+        return this.BMR;
     }
 
     /**
@@ -165,70 +171,70 @@ public abstract class User {
      * @return the height
      */
     public float getHeight() {
-        return height;
+        return this.height;
     }
 
     /**
      * @param height the height to set
      */
     public final void setHeight(float height) {
-        height = height;
+        this.height = height;
     }
 
     /**
      * @return the weight
      */
     public float getWeight() {
-        return weight;
+        return this.weight;
     }
 
     /**
      * @param weight the weight to set
      */
     public final void setWeight(float weight) {
-        weight = weight;
+        this.weight = weight;
     }
 
     /**
      * @param BMR the BMR to set
      */
     public final void setBMR(float BMR) {
-        BMR = BMR;
+        this.BMR = BMR;
     }
 
     /**
      * @return the name
      */
     public String getName() {
-        return name;
+        return this.name;
     }
 
     /**
      * @param name the name to set
      */
     public final void setName(String name) {
-        name = name;
+        this.name = name;
     }
 
     /**
      * @return the startDate
      */
     public LocalDate getStartDate() {
-        return START_DATE;
+        return this.START_DATE;
     }
 
     /**
      * @param gender the gender to set
      */
     public final void setGender(char gender) {
-        gender = gender;
+        this.gender = gender;
     }
 
     /**
      * @return the gender
      */
     public char getGender() {
-        return gender;
+        return this.gender;
     }
 
     /**
@@ -243,5 +249,4 @@ public abstract class User {
         String st = (String) o;
         return name.equals(st);
     }
-
 }
