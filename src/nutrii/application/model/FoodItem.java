@@ -1,17 +1,7 @@
 package nutrii.application.model;
 
-import java.io.Serializable;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
 import javax.persistence.*;
 import nutrii.application.ItemActions;
-import org.hibernate.HibernateException;
-import org.hibernate.type.*;
-import org.hibernate.engine.spi.SessionImplementor;
-import org.hibernate.type.Type;
-import org.hibernate.usertype.CompositeUserType;
-import org.hibernate.usertype.UserType;
 
 
 /**
@@ -19,20 +9,28 @@ import org.hibernate.usertype.UserType;
  * @author Blake & Ellaira
  */
 @Entity
-@Table(name="Food_Item")
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
+@DiscriminatorColumn(name = "className", discriminatorType = DiscriminatorType.STRING)
 public class FoodItem implements Comparable<FoodItem>, ItemActions{ 
     
     @Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private int id;
     
     @Column(name="name")
     protected String foodName;
-   
-    @Embedded private Nutrients nutrients;
     
-    @Embedded private Minerals minerals;
+    @Transient
+    private Nutrients nutrients;
+   
+    @Transient
+    private Minerals minerals;
 
-    @Embedded private Vitamins vitamins;
+    @Transient
+    private Vitamins vitamins;
+    
+//    @EmbeddedId
+//    private FoodItemIdentity foodItemIdentity;
     
     @Column(name="class_name")
     protected String className;
@@ -43,9 +41,7 @@ public class FoodItem implements Comparable<FoodItem>, ItemActions{
     public FoodItem(String name){
         className = getClass().getSimpleName();
         this.setFoodName(name);
-        nutrients = new Nutrients();
-        minerals = new Minerals();
-        vitamins = new Vitamins();
+        
         isEaten = true;
     }
     
@@ -147,17 +143,12 @@ public class FoodItem implements Comparable<FoodItem>, ItemActions{
     
     @Override
     public String toString(){
-        return className + ": " + foodName + " (" + nutrients.returnList().get("Calories") + " cal)";
+        return this.className + ": " + this.foodName;
     }
     
     public void printNutritionInfo(){
         System.out.println(className + ": " + foodName + "\n");
-     
-        nutrients.toString();
-        System.out.println("");
-        minerals.toString();
-        System.out.println("");
-        vitamins.toString();
+
     }
 
     public boolean equals(String f){

@@ -19,6 +19,10 @@
         
                         <!--MAPPING CLASSES-->
         <mapping class="nutrii.application.model.FoodItem"/>   
+        <mapping class="nutrii.application.model.FoodItemIdentity"/>  
+        <mapping class="nutrii.application.model.MealIdentity"/>  
+        <mapping class="nutrii.application.model.Food"/>   
+        <mapping class="nutrii.application.model.Drink"/>   
         <mapping class="nutrii.application.model.Meal"/>
         
         <mapping class="nutrii.application.model.Compounds"/>

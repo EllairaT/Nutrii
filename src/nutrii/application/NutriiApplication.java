@@ -7,6 +7,7 @@ import java.util.List;
 import org.hibernate.SessionFactory;
 import org.hibernate.service.ServiceRegistry;
 import nutrii.application.other.DBInit;
+import nutrii.application.services.FoodItemService;
 import nutrii.application.services.UserService;
 
 /**
@@ -24,17 +25,14 @@ public class NutriiApplication {
     public static void main(String[] args) {
         initialize();
         nutrii = new Nutrii();
-        UserService us = new UserService();
-        List<User> rows = us.browseAll(Sedentary.class);
+        FoodItemService fs = new FoodItemService();
         
-        for (User u : rows){
-            System.out.println(u + "\n");
-        }
+        List<FoodItem> results = fs.searchByName("Apple");
 //        User u = us.userLogIn("Ellaira", "password");
 //        nutrii.setCurrentUser(u);
 //        System.out.println("CALORIES NEEDED: " + u.calculateCalNeeded());
 //        
-        for(User i : nutrii.getUserList()){
+        for(FoodItem i : results){
             System.out.println(i + "\n------------------------");
         }
         //System.out.println("LOGGED IN: (" + u.getId() + ")" + u);

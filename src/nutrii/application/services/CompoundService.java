@@ -1,10 +1,6 @@
 package nutrii.application.services;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 import nutrii.application.model.Compounds;
 import nutrii.application.model.Minerals;
 import nutrii.application.model.Nutrients;
@@ -23,27 +19,16 @@ import org.hibernate.criterion.Restrictions;
 public class CompoundService {
 
     //todo change return type to List
-    public void getAllRows(Class compound) {
+    public List<Compounds> getAllRows(Class compound) {
         Session session = HibernateUtil.getSessionFactory().openSession();
 
         Criteria crit = session.createCriteria(compound);
-//        for (Object i : session.createCriteria(Nutrients.class).list()) {
-//             compoundSet.add(i);
-//        }
+
         crit.setResultTransformer(Criteria.DISTINCT_ROOT_ENTITY);
         List<Compounds> results = crit.list();
-        Set<String> resultSet = new HashSet<>();
-
-        for (Compounds c : results) {
-            resultSet.add(c.getKeyname() + ": " + c.getId() + "\n");
-        }
-
-        System.out.println("RESULTSET--------------------------\n");
-        System.out.println(Arrays.asList(resultSet));
-        System.out.println("RESULTSET//END--------------------------\n");
 
         session.close();
-
+        return results;
     }
 
     public void getbyid(int cid) {

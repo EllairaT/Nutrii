@@ -16,11 +16,11 @@
             <!--<property name="hibernate.connection.autocommit" value="false"/>-->
 <!--            <property name="javax.persistence.schema-generation.create-source" value="script"/>
             <property name="javax.persistence.schema-generation.create-script-source" value="data.sql"/>-->
+            <property name = "hibernate.id.new_generator_mappings" value="false"/>
             <property name="hibernate.hbm2ddl.auto=update"/>
             <property name="hibernate.show_sql" value="true"/>
             <property name="hibernate.format_sql" value="true"/> 
-         
-           
+            
         </properties>
     </persistence-unit>
 </persistence>

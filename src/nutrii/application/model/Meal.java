@@ -17,11 +17,14 @@ import javax.persistence.*;
 public class Meal {
 
     @Id
-    @Column(name = "id")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int mealId;
+
+    @Column(name = "mealname")
     private String name;
 
     @Column
-    private int user_id;
+    private int userId;
 
     @Column
     private LocalDate date;
@@ -29,8 +32,8 @@ public class Meal {
     @Column
     private LocalDateTime time;
 
-    @ElementCollection
-    private List<FoodItem> thisMeal;
+    @Transient
+    private ArrayList<FoodItem> thisMeal;
 
     @Transient
     private Minerals mineralsCount;
@@ -39,45 +42,47 @@ public class Meal {
     @Transient
     private Nutrients nutrientsCount;
 
-//    private FoodItemDatabase fdb;
     public Meal(ArrayList<FoodItem> arr, String n) {
-        mineralsCount = new Minerals();
-        vitaminsCount = new Vitamins();
-        nutrientsCount = new Nutrients();
-        thisMeal = arr;
-        name = n;
-        date = LocalDate.now();
-        time = LocalDateTime.now();
-        addAll();
-    }
-
-    public Meal(String s) {
-        thisMeal = new ArrayList<FoodItem>();
-        mineralsCount = new Minerals();
-        vitaminsCount = new Vitamins();
-        nutrientsCount = new Nutrients();
-
-        String[] m = s.split(",");
-        date = LocalDate.parse(m[0]);
-        time = LocalDateTime.parse(m[1]);
-        name = m[2];
-
-        addAll();
+        this.setThisMeal(arr);
+        this.setName(n);
+        this.date = LocalDate.now();
+        this.time = LocalDateTime.now();
     }
 
     public Meal() {
     }
 
-    public List<FoodItem> getMeal() {
+    public ArrayList<FoodItem> getThisMeal() {
         return thisMeal;
     }
 
-    public int getUser_id() {
-        return user_id;
+    public void setThisMeal(ArrayList<FoodItem> thisMeal) {
+        this.thisMeal = thisMeal;
     }
 
-    public void setUser_id(int user_id) {
-        this.user_id = user_id;
+   
+    public int getMealId() {
+        return mealId;
+    }
+
+    public void setMealId(int mealId) {
+        this.mealId = mealId;
+    }
+
+    public LocalDate getDate() {
+        return date;
+    }
+
+    public boolean addToMeal(FoodItem f) {
+        return thisMeal.add(f);
+    }
+
+    public int getUserId() {
+        return userId;
+    }
+
+    public void setUser_id(int id) {
+        this.userId = id;
     }
 
     public String getName() {
@@ -89,25 +94,6 @@ public class Meal {
     }
 
     /**
-     * adds all the nutritional information of each food item
-     */
-    public void addAll() {
-        for (FoodItem f : thisMeal) {
-            Minerals m = f.getMinerals();
-            Vitamins v = f.getVitamins();
-            Nutrients n = f.getNutrients();
-
-            //adds all the nutrients together
-            m.returnList().forEach(
-                    (key, val) -> mineralsCount.returnList().merge(key, val, (v1, v2) -> v1 + v2));
-            v.returnList().forEach(
-                    (key, val) -> vitaminsCount.returnList().merge(key, val, (v1, v2) -> v1 + v2));
-            n.returnList().forEach(
-                    (key, val) -> nutrientsCount.returnList().merge(key, val, (v1, v2) -> v1 + v2));
-        }
-    }
-
-    /**
      * this method is called when the meal is ready to be written to file
      *
      * @return String containing details about the meal
@@ -115,41 +101,20 @@ public class Meal {
     public String writeMeal() {
         String toPrint = date + "," + time + "," + name;
 
-        for (FoodItem m : thisMeal) {
+        for (FoodItem m : this.thisMeal) {
             toPrint += "," + m.getFoodName();
         }
         return toPrint;
-    }
-
-    public Vitamins getVitamins() {
-        return vitaminsCount;
-    }
-
-    public Minerals getMinerals() {
-        return mineralsCount;
-    }
-
-    public Nutrients getNutrients() {
-        return nutrientsCount;
     }
 
     @Override
     public String toString() {
         String formattedTime = time.getHour() + ":" + time.getMinute();
         System.out.println("You had " + name + " on: " + date.toString() + " at: " + formattedTime);
-        printMeal();
-        return "This meal is a total of: " + nutrientsCount.returnList().get("Calories") + " calories.";
-    }
-
-    /**
-     * this method is called in the CLI for the user to read about the meal
-     */
-    public void printMeal() {
-        System.out.println("This is what you had for " + name);
-        thisMeal.forEach((f) -> {
+        for (FoodItem f : this.thisMeal){
             System.out.println(f);
-        });
-        System.out.println("");
+        }
+        return "";
     }
 
     @Override

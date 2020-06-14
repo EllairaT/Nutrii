@@ -53,12 +53,12 @@ public class Report {
             String line;
             BufferedReader reader = new BufferedReader(new FileReader(userFile));
             
-            while ((line = reader.readLine()) != null) {
-                String[] s = line.split(",");
-                if(today.toString().equals(s[0])){
-                    mealReport.add(new Meal(line));  
-                }
-            }
+//            while ((line = reader.readLine()) != null) {
+//                String[] s = line.split(",");
+//                if(today.toString().equals(s[0])){
+//                    mealReport.add(new Meal(line));  
+//                }
+//            }
 
         } catch (FileNotFoundException e) {
             createUserReport();
