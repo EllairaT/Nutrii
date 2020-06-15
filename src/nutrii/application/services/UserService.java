@@ -47,11 +47,9 @@ public class UserService {
             }
             System.err.println("Error logging in.");
             throw e;
-        } finally {
-            if (session != null && session.isOpen()) {
-                session.close();
-            }
         }
+        session.close();
+
         return currentUser;
     }
 
@@ -73,9 +71,8 @@ public class UserService {
             System.err.println("Error adding user: " + u.getName());
             tx.rollback();
             throw e;
-        } finally {
-            session.close();
         }
+        session.close();
         return isSuccessful;
     }
 
@@ -93,9 +90,8 @@ public class UserService {
             }
             System.err.println("Error loading User");
             throw e;
-        } finally {
-            session.close();
         }
+        session.close();
         return user;
     }
 
@@ -121,9 +117,8 @@ public class UserService {
         } catch (Exception e) {
             tx.rollback();
             throw e;
-        } finally {
-            session.close();
         }
+        session.close();
         return isSuccessful;
     }
 
@@ -157,9 +152,8 @@ public class UserService {
             results = crit.list();
         } catch (Exception e) {
             throw e;
-        } finally {
-            session.close();
         }
+        session.close();
         return results;
     }
 
@@ -175,10 +169,8 @@ public class UserService {
 
         } catch (Exception e) {
             throw e;
-        } finally {
-            session.close();
         }
+        session.close();
         return results;
     }
-
 }

@@ -1,20 +1,13 @@
-Sun Jun 14 16:22:20 NZST 2020 : Apache Derby Network Server - 10.14.2.0 - (1828579) started and ready to accept connections on port 1527
 ----------------------------------------------------------------
-Sun Jun 14 16:22:20 NZST 2020:
-Booting Derby version The Apache Software Foundation - Apache Derby - 10.14.2.0 - (1828579): instance a816c00e-0172-b110-600f-000003fb9e7a 
-on database directory E:\Nutrii\Nutrii-master\Nutrii with class loader jdk.internal.loader.ClassLoaders$AppClassLoader@c387f44 
-Loaded from file:/E:/db-derby-10.14.2.0-bin(4)/db-derby-10.14.2.0-bin/lib/derby.jar
+Tue Jun 16 09:35:11 NZST 2020:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.14.2.0 - (1828579): instance a816c00e-0172-b9e8-58a6-00001d7f0e00 
+on database directory E:\Nutrii\Nutrii-master\Nutrii with class loader jdk.internal.loader.ClassLoaders$AppClassLoader@4e0e2f2a 
+Loaded from file:/E:/Nutrii/Nutrii-master/lib/derby.jar
 java.vendor=Oracle Corporation
 java.runtime.version=13.0.2+8
-user.dir=E:\db-derby-10.14.2.0-bin(4)\db-derby-10.14.2.0-bin
+user.dir=E:\Nutrii\Nutrii-master
 os.name=Windows 10
 os.arch=amd64
 os.version=10.0
-derby.system.home=E:\Nutrii\Nutrii-master
+derby.system.home=null
 Database Class Loader started - derby.database.classpath=''
-----------------------------------------------------------------
-Sun Jun 14 16:42:11 NZST 2020: Shutting down Derby engine
-----------------------------------------------------------------
-Sun Jun 14 16:42:11 NZST 2020:
-Shutting down instance a816c00e-0172-b110-600f-000003fb9e7a on database directory E:\Nutrii\Nutrii-master\Nutrii with class loader jdk.internal.loader.ClassLoaders$AppClassLoader@c387f44 
-----------------------------------------------------------------

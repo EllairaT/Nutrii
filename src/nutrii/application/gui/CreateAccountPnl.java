@@ -5,6 +5,9 @@
  */
 package nutrii.application.gui;
 
+import javax.swing.JFrame;
+import javax.swing.SwingUtilities;
+
 /**
  *
  * @author Blakey
@@ -27,62 +30,290 @@ public CreateAccountPnl() {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        lifestyleGroup = new javax.swing.ButtonGroup();
+        genderGroup = new javax.swing.ButtonGroup();
+        back = new javax.swing.JLabel();
         CreateAccountTitleLbl = new javax.swing.JLabel();
-        jPanel1 = new javax.swing.JPanel();
+        container = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
+        jPanel1 = new javax.swing.JPanel();
+        jRadioButton1 = new javax.swing.JRadioButton();
+        jRadioButton2 = new javax.swing.JRadioButton();
+        jRadioButton3 = new javax.swing.JRadioButton();
+        jRadioButton4 = new javax.swing.JRadioButton();
+        jRadioButton5 = new javax.swing.JRadioButton();
+        usernameField = new javax.swing.JTextField();
+        jLabel1 = new javax.swing.JLabel();
+        jPasswordField1 = new javax.swing.JPasswordField();
+        jLabel3 = new javax.swing.JLabel();
+        jTextField1 = new javax.swing.JTextField();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jRadioButton6 = new javax.swing.JRadioButton();
+        jRadioButton7 = new javax.swing.JRadioButton();
+        jLabel6 = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
+        jLabel7 = new javax.swing.JLabel();
+        jPasswordField2 = new javax.swing.JPasswordField();
 
+        setBackground(new java.awt.Color(0, 0, 0));
+        setMinimumSize(new java.awt.Dimension(800, 800));
+        setPreferredSize(new java.awt.Dimension(800, 900));
+        setLayout(null);
+
+        back.setBackground(new java.awt.Color(0, 0, 0));
+        back.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N
+        back.setForeground(new java.awt.Color(255, 255, 255));
+        back.setText("<  Go Back");
+        back.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                backMousePressed(evt);
+            }
+        });
+        add(back);
+        back.setBounds(15, 6, 118, 38);
+
+        CreateAccountTitleLbl.setBackground(new java.awt.Color(0, 0, 0));
         CreateAccountTitleLbl.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        CreateAccountTitleLbl.setForeground(new java.awt.Color(255, 255, 255));
         CreateAccountTitleLbl.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         CreateAccountTitleLbl.setText("Create Account");
+        CreateAccountTitleLbl.setOpaque(true);
+        add(CreateAccountTitleLbl);
+        CreateAccountTitleLbl.setBounds(0, 0, 800, 50);
 
-        jPanel1.setBackground(new java.awt.Color(102, 102, 102));
+        container.setBackground(new java.awt.Color(15, 93, 70));
+        container.setLayout(null);
 
-        jLabel2.setText("jLabel2");
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel2.setText("Username:");
+        container.add(jLabel2);
+        jLabel2.setBounds(310, 41, 115, 43);
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(550, Short.MAX_VALUE))
-        );
+        jPanel1.setName(""); // NOI18N
+        jPanel1.setOpaque(false);
+        jPanel1.setLayout(new java.awt.GridLayout(5, 0));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addContainerGap())
-                    .addComponent(CreateAccountTitleLbl, javax.swing.GroupLayout.DEFAULT_SIZE, 614, Short.MAX_VALUE)))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(CreateAccountTitleLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
-        );
+        lifestyleGroup.add(jRadioButton1);
+        jRadioButton1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jRadioButton1.setForeground(new java.awt.Color(255, 255, 255));
+        jRadioButton1.setText("Very little. I sit around a lot");
+        jRadioButton1.setToolTipText("");
+        jRadioButton1.setBorder(null);
+        jRadioButton1.setContentAreaFilled(false);
+        jRadioButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRadioButton1ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jRadioButton1);
+
+        lifestyleGroup.add(jRadioButton2);
+        jRadioButton2.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jRadioButton2.setForeground(new java.awt.Color(255, 255, 255));
+        jRadioButton2.setText("Some light sports, 1-3 days a week");
+        jRadioButton2.setBorder(null);
+        jRadioButton2.setContentAreaFilled(false);
+        jPanel1.add(jRadioButton2);
+
+        lifestyleGroup.add(jRadioButton3);
+        jRadioButton3.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jRadioButton3.setForeground(new java.awt.Color(255, 255, 255));
+        jRadioButton3.setText("Quite a bit, 6-7 days a week");
+        jRadioButton3.setBorder(null);
+        jRadioButton3.setContentAreaFilled(false);
+        jPanel1.add(jRadioButton3);
+
+        lifestyleGroup.add(jRadioButton4);
+        jRadioButton4.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jRadioButton4.setForeground(new java.awt.Color(255, 255, 255));
+        jRadioButton4.setText("A lot! Hard exercise every day!");
+        jRadioButton4.setBorder(null);
+        jRadioButton4.setContentAreaFilled(false);
+        jRadioButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRadioButton4ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jRadioButton4);
+
+        lifestyleGroup.add(jRadioButton5);
+        jRadioButton5.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jRadioButton5.setForeground(new java.awt.Color(255, 255, 255));
+        jRadioButton5.setText("I exercise twice a day and/or train for marathons/triathlons, etc.\n");
+        jRadioButton5.setBorder(null);
+        jRadioButton5.setContentAreaFilled(false);
+        jPanel1.add(jRadioButton5);
+
+        container.add(jPanel1);
+        jPanel1.setBounds(20, 300, 750, 430);
+
+        usernameField.setBackground(new java.awt.Color(10, 36, 2));
+        usernameField.setForeground(new java.awt.Color(255, 255, 255));
+        usernameField.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        usernameField.setText("username");
+        usernameField.setBorder(null);
+        container.add(usernameField);
+        usernameField.setBounds(431, 47, 121, 30);
+
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setText("Password");
+        container.add(jLabel1);
+        jLabel1.setBounds(310, 102, 115, 33);
+
+        jPasswordField1.setBackground(new java.awt.Color(10, 36, 2));
+        jPasswordField1.setForeground(new java.awt.Color(255, 255, 255));
+        jPasswordField1.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        jPasswordField1.setText("password");
+        jPasswordField1.setBorder(null);
+        jPasswordField1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jPasswordField1ActionPerformed(evt);
+            }
+        });
+        container.add(jPasswordField1);
+        jPasswordField1.setBounds(431, 102, 121, 33);
+
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel3.setText("Date of Birth");
+        container.add(jLabel3);
+        jLabel3.setBounds(310, 210, 120, 16);
+
+        jTextField1.setBackground(new java.awt.Color(10, 36, 2));
+        jTextField1.setForeground(new java.awt.Color(255, 255, 255));
+        jTextField1.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        jTextField1.setText("DD/MM/YYYY");
+        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField1ActionPerformed(evt);
+            }
+        });
+        container.add(jTextField1);
+        jTextField1.setBounds(430, 200, 121, 37);
+
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/nutrii/application/gui/images/defaultUser.jpg"))); // NOI18N
+        container.add(jLabel4);
+        jLabel4.setBounds(50, 30, 190, 180);
+
+        jLabel5.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel5.setText("Be honest, how often do you exercise in a week?");
+        container.add(jLabel5);
+        jLabel5.setBounds(20, 240, 400, 70);
+
+        genderGroup.add(jRadioButton6);
+        jRadioButton6.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jRadioButton6.setForeground(new java.awt.Color(255, 255, 255));
+        jRadioButton6.setText("Male");
+        jRadioButton6.setBorder(null);
+        jRadioButton6.setContentAreaFilled(false);
+        jRadioButton6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRadioButton6ActionPerformed(evt);
+            }
+        });
+        container.add(jRadioButton6);
+        jRadioButton6.setBounds(590, 90, 49, 20);
+
+        genderGroup.add(jRadioButton7);
+        jRadioButton7.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jRadioButton7.setForeground(new java.awt.Color(255, 255, 255));
+        jRadioButton7.setText("Female");
+        jRadioButton7.setBorder(null);
+        jRadioButton7.setContentAreaFilled(false);
+        container.add(jRadioButton7);
+        jRadioButton7.setBounds(590, 130, 98, 20);
+
+        jLabel6.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel6.setText("Gender:");
+        container.add(jLabel6);
+        jLabel6.setBounds(590, 50, 80, 30);
+
+        jButton1.setBackground(new java.awt.Color(10, 36, 2));
+        jButton1.setForeground(new java.awt.Color(255, 255, 255));
+        jButton1.setText("CREATE ACCOUNT");
+        jButton1.setBorder(null);
+        container.add(jButton1);
+        jButton1.setBounds(270, 750, 230, 60);
+
+        jLabel7.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel7.setText("Confirm password");
+        container.add(jLabel7);
+        jLabel7.setBounds(310, 150, 115, 33);
+
+        jPasswordField2.setBackground(new java.awt.Color(10, 36, 2));
+        jPasswordField2.setForeground(new java.awt.Color(255, 255, 255));
+        jPasswordField2.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        jPasswordField2.setText("password");
+        jPasswordField2.setBorder(null);
+        jPasswordField2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jPasswordField2ActionPerformed(evt);
+            }
+        });
+        container.add(jPasswordField2);
+        jPasswordField2.setBounds(430, 150, 121, 33);
+
+        add(container);
+        container.setBounds(0, 50, 800, 850);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jPasswordField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jPasswordField1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jPasswordField1ActionPerformed
+
+    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField1ActionPerformed
+
+    private void jRadioButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jRadioButton1ActionPerformed
+
+    private void jRadioButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton4ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jRadioButton4ActionPerformed
+
+    private void jRadioButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton6ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jRadioButton6ActionPerformed
+
+    private void jPasswordField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jPasswordField2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jPasswordField2ActionPerformed
+
+    private void backMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_backMousePressed
+        JFrame parentFrame = (JFrame) SwingUtilities.getWindowAncestor(this);
+        parentFrame.dispose();
+    }//GEN-LAST:event_backMousePressed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel CreateAccountTitleLbl;
+    private javax.swing.JLabel back;
+    private javax.swing.JPanel container;
+    private javax.swing.ButtonGroup genderGroup;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPasswordField jPasswordField1;
+    private javax.swing.JPasswordField jPasswordField2;
+    private javax.swing.JRadioButton jRadioButton1;
+    private javax.swing.JRadioButton jRadioButton2;
+    private javax.swing.JRadioButton jRadioButton3;
+    private javax.swing.JRadioButton jRadioButton4;
+    private javax.swing.JRadioButton jRadioButton5;
+    private javax.swing.JRadioButton jRadioButton6;
+    private javax.swing.JRadioButton jRadioButton7;
+    private javax.swing.JTextField jTextField1;
+    private javax.swing.ButtonGroup lifestyleGroup;
+    private javax.swing.JTextField usernameField;
     // End of variables declaration//GEN-END:variables
 }

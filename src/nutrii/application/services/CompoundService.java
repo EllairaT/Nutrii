@@ -13,12 +13,17 @@ import org.hibernate.Transaction;
 import org.hibernate.criterion.Restrictions;
 
 /**
+ * due to the nature of the app, compounds (vitamins, minerals, nutrients) a
+ * User should NOT be able to delete a compound from the database, so a delete
+ * method is not necessary.
+ *
+ * Sessions MUST be opened when a method is invoked and closed AFTER. they're
+ * not thread safe DO NOT FORGET TO CLOSE THE SESSION!
  *
  * @author Ellaira
  */
 public class CompoundService {
 
-    //todo change return type to List
     public List<Compounds> getAllRows(Class compound) {
         Session session = HibernateUtil.getSessionFactory().openSession();
 
@@ -34,9 +39,7 @@ public class CompoundService {
     public void getbyid(int cid) {
         Session session = HibernateUtil.getSessionFactory().openSession();
         try {
-
             session.beginTransaction();
-
             Criteria criteria = session.createCriteria(Nutrients.class);
             criteria.add(Restrictions.eq("id", cid));
 
@@ -55,7 +58,6 @@ public class CompoundService {
     }
 
     public void addCompound(Compounds c, String k, float v) {
-        //TODO search database for value, if exist, dont add
         Session session = HibernateUtil.getSessionFactory().openSession();
         Transaction tx = null;
         try {
@@ -72,15 +74,12 @@ public class CompoundService {
             c.setValue(v);
 
             session.saveOrUpdate(c);
-            //session.flush();
-
             tx.commit();
 
         } catch (RuntimeException e) {
             tx.rollback();
             throw e;
-        } finally {
-            session.close();
         }
+        session.close();
     }
 }

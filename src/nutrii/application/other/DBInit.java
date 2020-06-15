@@ -25,10 +25,10 @@ public class DBInit {
         us = new UserService();
         fs = new FoodItemService();
         ms = new MealService();
-        //  initCompounds();
+        //initCompounds();
         //initUsers();
         //initFood();
-        initMeals();
+        //initMeals();
     }
 
     public void initCompounds() {
@@ -42,7 +42,7 @@ public class DBInit {
         comp.add(nutrients);
 
         for (Compounds c : comp) {
-            System.out.println("COMPOUND: " + c.getCompoundName());
+            System.out.println("INITIALISING COMPOUND: " + c.getCompoundName());
             for (String key : c.returnList().keySet()) {
                 cs.addCompound(c, key, 0f);
             }
@@ -53,16 +53,14 @@ public class DBInit {
     public void initUsers() {
         User user1 = new LightlyActive("Blake", "password", 'm', LocalDate.of(2000, Month.AUGUST, 13), 180f, 52f);
         User user2 = new ExtraActive("Test User: EA", "big boi", 'm', LocalDate.of(2000, Month.JANUARY, 1), 160f, 60f);
-        User user3 = new Sedentary("Ellaira", "password", 'f', LocalDate.of(2000, Month.MAY, 23), 150f, 48f);
+        User user3 = new Sedentary("sombra", "password", 'f', LocalDate.of(1999, Month.JUNE, 6), 150f, 48f);
         User user4 = new ModeratelyActive("Ellaira", "password", 'f', LocalDate.of(2000, Month.MAY, 23), 150f, 48f);
-        User user5 = new VeryActive("Ellaira", "password", 'f', LocalDate.of(2000, Month.MAY, 23), 150f, 48f);
-
+        User user5 = new VeryActive("boop", "password", 'f', LocalDate.of(1987, Month.JULY, 5), 150f, 48f);
         us.addUser(user1);
         us.addUser(user2);
         us.addUser(user3);
         us.addUser(user4);
         us.addUser(user5);
-
     }
 
     public void initMeals() {
@@ -71,22 +69,13 @@ public class DBInit {
         meal1.add(fs.searchByName("Banana").get(0));
         meal1.add(fs.searchByName("Pear").get(0));
         meal1.add(fs.searchByName("Fried Eggs").get(0));
-        
-        for(FoodItem f: meal1){
-            System.out.println(f);
-        }
-       // meal1.add(fs.searchByName("Sprite").get(0));
+
         Meal breakfast = new Meal(meal1, "Breakfast");
+        
         int userId = us.searchByName("Blake").get(0).getId();
         breakfast.setUser_id(userId);
         
-        for(FoodItem fi : breakfast.getThisMeal()){
-            System.out.println(fi);
-        }
         ms.addMeal(breakfast);
-        
-        
-  
     }
 
     public void initFood() {
@@ -108,7 +97,5 @@ public class DBInit {
             newDrink = new Drink(d);
             fs.addFoodItem(newDrink);
         }
-
     }
-
 }

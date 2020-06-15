@@ -134,7 +134,7 @@ public class FoodItemService {
         Session session = HibernateUtil.getSessionFactory().openSession();
 
         Criteria crit = session.createCriteria(FoodItem.class);
-            crit.add(Restrictions.ilike("foodName", fname));
+            crit.add(Restrictions.ilike("foodName", "%" + fname + "%"));
         List<FoodItem> results = crit.list();
         session.close();
         return results;
