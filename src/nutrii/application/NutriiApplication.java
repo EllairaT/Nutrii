@@ -1,5 +1,6 @@
 package nutrii.application;
 
+import nutrii.application.controllers.FoodItemController;
 import nutrii.application.controllers.UserController;
 import nutrii.application.gui.NutriiGUI;
 import nutrii.application.model.Nutrii;
@@ -18,6 +19,7 @@ public class NutriiApplication {
     private static NutriiLoginGUI logIn;
     private static NutriiGUI view;
     private static UserController uController;
+    private static FoodItemController fController;
     
     public static void main(String[] args) {
         initialize();
@@ -26,6 +28,7 @@ public class NutriiApplication {
         logIn = new NutriiLoginGUI();
         
         uController = new UserController(view, logIn, nutrii);
+        fController = new FoodItemController(nutrii, view);
         
         logIn.setVisible(true);
 

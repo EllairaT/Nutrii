@@ -18,11 +18,11 @@ import javax.swing.JToggleButton;
  *
  * @author Blakey
  */
-public class NutriiLoginGUI extends javax.swing.JFrame{
+public class NutriiLoginGUI extends javax.swing.JFrame {
 
     int xMouse;
     int yMouse;
-    
+
     public NutriiLoginGUI() {
         initComponents();
     }
@@ -90,6 +90,9 @@ public class NutriiLoginGUI extends javax.swing.JFrame{
         LoginBtn.setForeground(new java.awt.Color(255, 255, 255));
         LoginBtn.setText("Login");
         LoginBtn.setBorder(null);
+        LoginBtn.setFocusPainted(false);
+        LoginBtn.setFocusable(false);
+        LoginBtn.setRequestFocusEnabled(false);
         getContentPane().add(LoginBtn);
         LoginBtn.setBounds(6, 276, 132, 34);
 
@@ -97,6 +100,7 @@ public class NutriiLoginGUI extends javax.swing.JFrame{
         CreateAccountBtn.setForeground(new java.awt.Color(255, 255, 255));
         CreateAccountBtn.setText("Create Account");
         CreateAccountBtn.setBorder(null);
+        CreateAccountBtn.setRequestFocusEnabled(false);
         CreateAccountBtn.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 CreateAccountBtnMousePressed(evt);
@@ -146,8 +150,7 @@ public class NutriiLoginGUI extends javax.swing.JFrame{
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    
-    
+
     private void closeBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_closeBtnActionPerformed
         this.dispose();
         System.exit(0);
@@ -166,25 +169,27 @@ public class NutriiLoginGUI extends javax.swing.JFrame{
         this.setLocation(x - xMouse, y - yMouse);
     }//GEN-LAST:event_headerMouseDragged
 
-    public String getUserName(){
+    public String getUserName() {
         return usernameTxtField.getText();
     }
-    
-    public char [] getPassword(){
+
+    public char[] getPassword() {
         return passwordField.getPassword();
     }
-    
-    public void clearUserInput(){
+
+    public void clearUserInput() {
         usernameTxtField.setText("");
     }
-    
-    public void clearPasswodInput(){
+
+    public void clearPasswodInput() {
         passwordField.setText("");
     }
+
     /**
-     * prevents the frame from "snapping" to the tip of the cursor
-     * which may annoy the user
-     * @param evt 
+     * prevents the frame from "snapping" to the tip of the cursor which may
+     * annoy the user
+     *
+     * @param evt
      */
 
 //    public NutriiLoginGUI(int xMouse, int yMouse, JToggleButton CreateAccountBtn, JLabel EnterPasswordLbl, JLabel EnterUsernameLbl, JToggleButton LoginBtn, JLabel LoginOrSignUpTitleLbl, JLabel bg, JButton closeBtn, JLabel header, JButton minBtn, JPasswordField passwordField, JTextField usernameTxtField) throws HeadlessException {
@@ -209,23 +214,23 @@ public class NutriiLoginGUI extends javax.swing.JFrame{
     }//GEN-LAST:event_headerMousePressed
 
     private void CreateAccountBtnMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CreateAccountBtnMousePressed
-       CreateAccountFrame caFrame = new CreateAccountFrame();
-       caFrame.setVisible(true);
+        CreateAccountFrame caFrame = new CreateAccountFrame();
+        caFrame.setVisible(true);
     }//GEN-LAST:event_CreateAccountBtnMousePressed
 
-    public void addUserListener(ActionListener ual){
+    public void addUserListener(ActionListener ual) {
         usernameTxtField.addActionListener(ual);
     }
-    
-    public void addPasswordListener(ActionListener pal){
+
+    public void addPasswordListener(ActionListener pal) {
         passwordField.addActionListener(pal);
     }
-    
-    public void addLogInListener(ActionListener lia){
+
+    public void addLogInListener(ActionListener lia) {
         LoginBtn.addActionListener(lia);
     }
-    
-    public void addCreateBtnListener(ActionListener cre){
+
+    public void addCreateBtnListener(ActionListener cre) {
         CreateAccountBtn.addActionListener(cre);
     }
 

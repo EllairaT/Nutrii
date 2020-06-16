@@ -4,6 +4,7 @@
  */
 package nutrii.application.gui;
 
+import java.awt.event.ActionListener;
 import javax.swing.JFrame;
 import javax.swing.SwingUtilities;
 
@@ -18,8 +19,8 @@ public class MenuPanel extends javax.swing.JPanel {
      */
     int xMouse;
     int yMouse;
-    
-    
+    boolean isOptionsVisible = false;
+
     public MenuPanel() {
         initComponents();
     }
@@ -36,19 +37,26 @@ public class MenuPanel extends javax.swing.JPanel {
         jButton6 = new javax.swing.JButton();
         jButton8 = new javax.swing.JButton();
         jButton10 = new javax.swing.JButton();
+        userOptions = new javax.swing.JPanel();
+        userOptions.setVisible(false);
+        accountBtn = new javax.swing.JButton();
+        usersBtn = new javax.swing.JButton();
+        abtBtn = new javax.swing.JButton();
+        logOutBtn = new javax.swing.JButton();
         header = new javax.swing.JPanel();
+        userMenu = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         closeBtn = new javax.swing.JLabel();
         minimiseBtn = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
+        userNameLbl = new javax.swing.JLabel();
         container = new javax.swing.JPanel();
         menuContainer = new javax.swing.JPanel();
         AddConsumedPanel = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
-        jButton4 = new javax.swing.JButton();
+        addFoodItemBtn = new javax.swing.JButton();
         ManageItemsPanel = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
-        jButton11 = new javax.swing.JButton();
+        removeFoodItemBtn = new javax.swing.JButton();
         UseFoodCalculatorPanel = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         jButton9 = new javax.swing.JButton();
@@ -77,8 +85,67 @@ public class MenuPanel extends javax.swing.JPanel {
         setOpaque(false);
         setLayout(null);
 
+        userOptions.setEnabled(false);
+        userOptions.setFocusable(false);
+        userOptions.setOpaque(false);
+        userOptions.setLayout(new java.awt.GridLayout(4, 0));
+
+        accountBtn.setBackground(new java.awt.Color(10, 36, 2));
+        accountBtn.setForeground(new java.awt.Color(255, 255, 255));
+        accountBtn.setText("ACCOUNT");
+        accountBtn.setBorderPainted(false);
+        accountBtn.setContentAreaFilled(false);
+        accountBtn.setFocusPainted(false);
+        accountBtn.setOpaque(true);
+        accountBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                accountBtnActionPerformed(evt);
+            }
+        });
+        userOptions.add(accountBtn);
+
+        usersBtn.setBackground(new java.awt.Color(10, 36, 2));
+        usersBtn.setForeground(new java.awt.Color(255, 255, 255));
+        usersBtn.setText("USERS");
+        usersBtn.setBorderPainted(false);
+        usersBtn.setContentAreaFilled(false);
+        usersBtn.setFocusPainted(false);
+        usersBtn.setOpaque(true);
+        userOptions.add(usersBtn);
+
+        abtBtn.setBackground(new java.awt.Color(10, 36, 2));
+        abtBtn.setForeground(new java.awt.Color(255, 255, 255));
+        abtBtn.setText("ABOUT");
+        abtBtn.setBorderPainted(false);
+        abtBtn.setContentAreaFilled(false);
+        abtBtn.setFocusPainted(false);
+        abtBtn.setOpaque(true);
+        userOptions.add(abtBtn);
+
+        logOutBtn.setBackground(new java.awt.Color(10, 36, 2));
+        logOutBtn.setForeground(new java.awt.Color(255, 255, 255));
+        logOutBtn.setText("LOG OUT");
+        logOutBtn.setBorderPainted(false);
+        logOutBtn.setContentAreaFilled(false);
+        logOutBtn.setFocusPainted(false);
+        logOutBtn.setOpaque(true);
+        userOptions.add(logOutBtn);
+
+        add(userOptions);
+        userOptions.setBounds(0, 80, 220, 250);
+
         header.setOpaque(false);
         header.setPreferredSize(new java.awt.Dimension(120, 50));
+
+        userMenu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/nutrii/application/gui/images/user.png"))); // NOI18N
+        userMenu.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                userMenuMouseClicked(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                userMenuMousePressed(evt);
+            }
+        });
 
         jLabel6.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
@@ -97,20 +164,23 @@ public class MenuPanel extends javax.swing.JPanel {
             }
         });
 
-        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/nutrii/application/gui/images/user.png"))); // NOI18N
+        userNameLbl.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        userNameLbl.setForeground(new java.awt.Color(255, 255, 255));
 
         javax.swing.GroupLayout headerLayout = new javax.swing.GroupLayout(header);
         header.setLayout(headerLayout);
         headerLayout.setHorizontalGroup(
             headerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(headerLayout.createSequentialGroup()
-                .addGap(16, 16, 16)
-                .addComponent(jLabel7)
-                .addGap(241, 241, 241)
-                .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(129, 129, 129)
-                .addComponent(minimiseBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 49, Short.MAX_VALUE)
+                .addContainerGap()
+                .addComponent(userMenu)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(userNameLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(76, 76, 76)
+                .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 128, Short.MAX_VALUE)
+                .addComponent(minimiseBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(28, 28, 28)
                 .addComponent(closeBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         headerLayout.setVerticalGroup(
@@ -118,6 +188,7 @@ public class MenuPanel extends javax.swing.JPanel {
             .addGroup(headerLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(headerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(userMenu, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, 68, Short.MAX_VALUE)
                     .addGroup(headerLayout.createSequentialGroup()
                         .addGroup(headerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -125,7 +196,10 @@ public class MenuPanel extends javax.swing.JPanel {
                             .addComponent(minimiseBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
-            .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, headerLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(userNameLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(17, 17, 17))
         );
 
         add(header);
@@ -139,106 +213,68 @@ public class MenuPanel extends javax.swing.JPanel {
         menuContainer.setLayout(new java.awt.GridLayout(2, 2, 1, 0));
 
         AddConsumedPanel.setOpaque(false);
+        AddConsumedPanel.setLayout(null);
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel3.setText("Add Item to Record");
+        AddConsumedPanel.add(jLabel3);
+        jLabel3.setBounds(0, 70, 382, 30);
 
-        jButton4.setBackground(new java.awt.Color(100, 137, 108));
-        jButton4.setForeground(new java.awt.Color(255, 255, 255));
-        jButton4.setText("Add new Food item or Drink item");
-
-        javax.swing.GroupLayout AddConsumedPanelLayout = new javax.swing.GroupLayout(AddConsumedPanel);
-        AddConsumedPanel.setLayout(AddConsumedPanelLayout);
-        AddConsumedPanelLayout.setHorizontalGroup(
-            AddConsumedPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(AddConsumedPanelLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(AddConsumedPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 382, Short.MAX_VALUE))
-                .addContainerGap())
-        );
-        AddConsumedPanelLayout.setVerticalGroup(
-            AddConsumedPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, AddConsumedPanelLayout.createSequentialGroup()
-                .addContainerGap(62, Short.MAX_VALUE)
-                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(73, 73, 73))
-        );
+        addFoodItemBtn.setBackground(new java.awt.Color(2, 58, 15));
+        addFoodItemBtn.setFont(new java.awt.Font("Segoe UI", 3, 24)); // NOI18N
+        addFoodItemBtn.setForeground(new java.awt.Color(255, 255, 255));
+        addFoodItemBtn.setText("Add new Food or Drink ");
+        addFoodItemBtn.setBorderPainted(false);
+        addFoodItemBtn.setContentAreaFilled(false);
+        AddConsumedPanel.add(addFoodItemBtn);
+        addFoodItemBtn.setBounds(22, 110, 370, 183);
 
         menuContainer.add(AddConsumedPanel);
 
         ManageItemsPanel.setOpaque(false);
         ManageItemsPanel.setPreferredSize(new java.awt.Dimension(124, 186));
+        ManageItemsPanel.setLayout(null);
 
         jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel4.setText("Remove Item From Record");
+        ManageItemsPanel.add(jLabel4);
+        jLabel4.setBounds(6, 63, 382, 30);
 
-        jButton11.setBackground(new java.awt.Color(100, 137, 108));
-        jButton11.setForeground(new java.awt.Color(255, 255, 255));
-        jButton11.setText("Remove Item from Record");
-
-        javax.swing.GroupLayout ManageItemsPanelLayout = new javax.swing.GroupLayout(ManageItemsPanel);
-        ManageItemsPanel.setLayout(ManageItemsPanelLayout);
-        ManageItemsPanelLayout.setHorizontalGroup(
-            ManageItemsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(ManageItemsPanelLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(ManageItemsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton11, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 382, Short.MAX_VALUE))
-                .addContainerGap())
-        );
-        ManageItemsPanelLayout.setVerticalGroup(
-            ManageItemsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ManageItemsPanelLayout.createSequentialGroup()
-                .addContainerGap(63, Short.MAX_VALUE)
-                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButton11, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(72, 72, 72))
-        );
+        removeFoodItemBtn.setBackground(new java.awt.Color(100, 137, 108));
+        removeFoodItemBtn.setFont(new java.awt.Font("Segoe UI", 3, 24)); // NOI18N
+        removeFoodItemBtn.setForeground(new java.awt.Color(255, 255, 255));
+        removeFoodItemBtn.setText("Remove Item from Record");
+        removeFoodItemBtn.setBorderPainted(false);
+        removeFoodItemBtn.setContentAreaFilled(false);
+        ManageItemsPanel.add(removeFoodItemBtn);
+        removeFoodItemBtn.setBounds(10, 110, 370, 183);
 
         menuContainer.add(ManageItemsPanel);
 
         UseFoodCalculatorPanel.setOpaque(false);
         UseFoodCalculatorPanel.setPreferredSize(new java.awt.Dimension(124, 186));
+        UseFoodCalculatorPanel.setLayout(null);
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel2.setText("Use Food Calculator");
+        UseFoodCalculatorPanel.add(jLabel2);
+        jLabel2.setBounds(10, 0, 369, 30);
 
         jButton9.setBackground(new java.awt.Color(100, 137, 108));
+        jButton9.setFont(new java.awt.Font("Segoe UI", 3, 24)); // NOI18N
         jButton9.setForeground(new java.awt.Color(255, 255, 255));
         jButton9.setText("Food Calculator");
-
-        javax.swing.GroupLayout UseFoodCalculatorPanelLayout = new javax.swing.GroupLayout(UseFoodCalculatorPanel);
-        UseFoodCalculatorPanel.setLayout(UseFoodCalculatorPanelLayout);
-        UseFoodCalculatorPanelLayout.setHorizontalGroup(
-            UseFoodCalculatorPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(UseFoodCalculatorPanelLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(UseFoodCalculatorPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, 382, Short.MAX_VALUE)
-                    .addComponent(jButton9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap())
-        );
-        UseFoodCalculatorPanelLayout.setVerticalGroup(
-            UseFoodCalculatorPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(UseFoodCalculatorPanelLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(27, 27, 27)
-                .addComponent(jButton9, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(117, Short.MAX_VALUE))
-        );
+        jButton9.setBorderPainted(false);
+        jButton9.setContentAreaFilled(false);
+        jButton9.setDefaultCapable(false);
+        UseFoodCalculatorPanel.add(jButton9);
+        jButton9.setBounds(20, 70, 370, 190);
 
         menuContainer.add(UseFoodCalculatorPanel);
 
@@ -252,15 +288,24 @@ public class MenuPanel extends javax.swing.JPanel {
         jButton1.setBackground(new java.awt.Color(100, 137, 108));
         jButton1.setForeground(new java.awt.Color(255, 255, 255));
         jButton1.setText("Create new Day");
+        jButton1.setBorder(null);
+        jButton1.setBorderPainted(false);
+        jButton1.setContentAreaFilled(false);
         jButton1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
         jButton2.setBackground(new java.awt.Color(100, 137, 108));
         jButton2.setForeground(new java.awt.Color(255, 255, 255));
         jButton2.setText("View Days");
+        jButton2.setBorder(null);
+        jButton2.setBorderPainted(false);
+        jButton2.setContentAreaFilled(false);
 
         jButton3.setBackground(new java.awt.Color(100, 137, 108));
         jButton3.setForeground(new java.awt.Color(255, 255, 255));
         jButton3.setText("Adjust Days");
+        jButton3.setBorder(null);
+        jButton3.setBorderPainted(false);
+        jButton3.setContentAreaFilled(false);
 
         javax.swing.GroupLayout ManageDietPanelLayout = new javax.swing.GroupLayout(ManageDietPanel);
         ManageDietPanel.setLayout(ManageDietPanelLayout);
@@ -271,7 +316,7 @@ public class MenuPanel extends javax.swing.JPanel {
                 .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 382, Short.MAX_VALUE)
                 .addContainerGap())
             .addGroup(ManageDietPanelLayout.createSequentialGroup()
-                .addGap(93, 93, 93)
+                .addGap(91, 91, 91)
                 .addGroup(ManageDietPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -283,13 +328,13 @@ public class MenuPanel extends javax.swing.JPanel {
             .addGroup(ManageDietPanelLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(83, 83, 83)
+                .addGap(91, 91, 91)
                 .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(121, Short.MAX_VALUE))
+                .addContainerGap(113, Short.MAX_VALUE))
         );
 
         menuContainer.add(ManageDietPanel);
@@ -299,7 +344,7 @@ public class MenuPanel extends javax.swing.JPanel {
         add(container);
         container.setBounds(2, 76, 790, 720);
 
-        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/nutrii/application/gui/images/bgNutrii.jpg"))); // NOI18N
+        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/nutrii/application/gui/images/bgNutri2i.jpg"))); // NOI18N
         add(jLabel5);
         jLabel5.setBounds(-4, -30, 860, 860);
 
@@ -335,26 +380,72 @@ public class MenuPanel extends javax.swing.JPanel {
         JFrame parentFrame = (JFrame) SwingUtilities.getWindowAncestor(this);
         int x = evt.getXOnScreen();
         int y = evt.getYOnScreen();
-        
+
         parentFrame.setLocation(x - xMouse, y - yMouse);
     }//GEN-LAST:event_headerLabelMouseDragged
 
+    private void userMenuMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_userMenuMousePressed
+        // TODO add your handling code here:
+        if (!isOptionsVisible) {
+            showUserMenu();
+            System.out.println(isOptionsVisible);
+        } else {
+            hideUserMenu();
+            System.out.println(isOptionsVisible);
+        }
+
+    }//GEN-LAST:event_userMenuMousePressed
+
+    public void adduserLabelListener(ActionListener a, String text){
+        userNameLbl.setText(text);
+    }
+    private void accountBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_accountBtnActionPerformed
+        // TODO add your handling code here:
+
+    }//GEN-LAST:event_accountBtnActionPerformed
+
+    //toggle user menu visibility
+    private void userMenuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_userMenuMouseClicked
+        if (!isOptionsVisible) {
+            isOptionsVisible = true;
+        } else {
+            isOptionsVisible = false;
+        }
+    }//GEN-LAST:event_userMenuMouseClicked
+
+    public void addLogOutListener(ActionListener a) {
+        logOutBtn.addActionListener(a);
+    }
+    
+    public void addFoodItemListener(ActionListener a){
+        addFoodItemBtn.addActionListener(a);
+    }
+
+    private void showUserMenu() {
+        userOptions.setVisible(true);
+    }
+
+    private void hideUserMenu() {
+        userOptions.setVisible(false);
+    }
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel AddConsumedPanel;
     private javax.swing.JPanel ManageDietPanel;
     private javax.swing.JPanel ManageItemsPanel;
     private javax.swing.JPanel UseFoodCalculatorPanel;
+    private javax.swing.JButton abtBtn;
+    private javax.swing.JButton accountBtn;
+    private javax.swing.JButton addFoodItemBtn;
     private javax.swing.JLabel closeBtn;
     private javax.swing.JPanel container;
     private javax.swing.JPanel header;
     private javax.swing.JLabel headerLabel;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton10;
-    private javax.swing.JButton jButton11;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton8;
     private javax.swing.JButton jButton9;
@@ -364,8 +455,13 @@ public class MenuPanel extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
+    private javax.swing.JButton logOutBtn;
     private javax.swing.JPanel menuContainer;
     private javax.swing.JLabel minimiseBtn;
+    private javax.swing.JButton removeFoodItemBtn;
+    private javax.swing.JLabel userMenu;
+    private javax.swing.JLabel userNameLbl;
+    private javax.swing.JPanel userOptions;
+    private javax.swing.JButton usersBtn;
     // End of variables declaration//GEN-END:variables
 }

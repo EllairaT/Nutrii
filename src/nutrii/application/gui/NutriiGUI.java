@@ -10,16 +10,30 @@ import org.hibernate.Hibernate;
 public class NutriiGUI extends javax.swing.JFrame {
     
     private MenuPanel menu;
+    private MngRecordAddPnl addPanel;
+    private MngRecordRemovePnl removePanel;
     
     public NutriiGUI() {
         initComponents();
         menu = new MenuPanel();
+        addPanel = new MngRecordAddPnl();
+        removePanel = new MngRecordRemovePnl();
         
         this.add(menu);
-        menu.setVisible(true);
-        
+        menu.setVisible(true); 
     }
 
+    public MngRecordAddPnl getAddPanel() {
+        return addPanel;
+    }
+
+    public MngRecordRemovePnl getRemovePanel() {
+        return removePanel;
+    }
+
+    public MenuPanel getMenuPanel(){
+        return menu;
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always

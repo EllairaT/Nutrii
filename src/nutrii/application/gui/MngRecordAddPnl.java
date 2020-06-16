@@ -5,6 +5,10 @@
  */
 package nutrii.application.gui;
 
+import java.awt.event.ActionListener;
+import javax.swing.JFrame;
+import javax.swing.SwingUtilities;
+
 /**
  *
  * @author Blakey
@@ -31,6 +35,7 @@ public MngRecordAddPnl() {
         jLabel18 = new javax.swing.JLabel();
         jLabel26 = new javax.swing.JLabel();
         jLabel33 = new javax.swing.JLabel();
+        backBtn = new javax.swing.JButton();
         AddItemToRecordTitleLbl = new javax.swing.JLabel();
         MRAP = new javax.swing.JPanel();
         SelectRecordToAddToLbl = new javax.swing.JLabel();
@@ -162,700 +167,648 @@ public MngRecordAddPnl() {
         jLabel33.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel33.setText("%");
 
+        setBackground(new java.awt.Color(15, 93, 70));
+        setPreferredSize(new java.awt.Dimension(790, 790));
+
+        backBtn.setBackground(new java.awt.Color(0, 0, 0));
+        backBtn.setFont(new java.awt.Font("Segoe UI", 3, 18)); // NOI18N
+        backBtn.setForeground(new java.awt.Color(255, 255, 255));
+        backBtn.setText("< Back");
+        backBtn.setActionCommand("");
+        backBtn.setBorder(null);
+        backBtn.setBorderPainted(false);
+        backBtn.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+
+        AddItemToRecordTitleLbl.setBackground(new java.awt.Color(0, 0, 0));
         AddItemToRecordTitleLbl.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        AddItemToRecordTitleLbl.setForeground(new java.awt.Color(255, 255, 255));
         AddItemToRecordTitleLbl.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         AddItemToRecordTitleLbl.setText("Add Item To Record");
+        AddItemToRecordTitleLbl.setOpaque(true);
 
         MRAP.setBackground(new java.awt.Color(102, 102, 102));
+        MRAP.setOpaque(false);
+        MRAP.setPreferredSize(new java.awt.Dimension(790, 790));
+        MRAP.setLayout(null);
 
         SelectRecordToAddToLbl.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        SelectRecordToAddToLbl.setForeground(new java.awt.Color(255, 255, 255));
         SelectRecordToAddToLbl.setText("Select Record to Add to");
+        MRAP.add(SelectRecordToAddToLbl);
+        SelectRecordToAddToLbl.setBounds(6, 6, 296, 20);
 
+        SelectRecordComboBox.setForeground(new java.awt.Color(0, 0, 0));
         SelectRecordComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Food", "Drink" }));
+        MRAP.add(SelectRecordComboBox);
+        SelectRecordComboBox.setBounds(6, 36, 175, 22);
 
         CaloriesLbl.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        CaloriesLbl.setForeground(new java.awt.Color(255, 255, 255));
         CaloriesLbl.setText("Calories");
+        MRAP.add(CaloriesLbl);
+        CaloriesLbl.setBounds(6, 64, 100, 20);
+
+        TotalFatTxtField.setForeground(new java.awt.Color(255, 255, 255));
+        MRAP.add(TotalFatTxtField);
+        TotalFatTxtField.setBounds(312, 72, 64, 22);
 
         ItemNamePnl.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        ItemNamePnl.setForeground(new java.awt.Color(255, 255, 255));
         ItemNamePnl.setText("Item Name");
+        MRAP.add(ItemNamePnl);
+        ItemNamePnl.setBounds(308, 6, 296, 20);
+
+        ItemNameTxtField.setForeground(new java.awt.Color(255, 255, 255));
+        MRAP.add(ItemNameTxtField);
+        ItemNameTxtField.setBounds(308, 36, 296, 22);
 
         VitaminsLbl.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        VitaminsLbl.setForeground(new java.awt.Color(255, 255, 255));
         VitaminsLbl.setText("Vitamins");
+        MRAP.add(VitaminsLbl);
+        VitaminsLbl.setBounds(6, 232, 296, 20);
 
         MineralsLbl.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        MineralsLbl.setForeground(new java.awt.Color(255, 255, 255));
         MineralsLbl.setText("Minerals");
+        MRAP.add(MineralsLbl);
+        MineralsLbl.setBounds(308, 232, 296, 20);
 
-        VitaminB1Lbl.setText("Vitamin B1(Thiamine)");
+        VitaminB1Lbl.setForeground(new java.awt.Color(255, 255, 255));
+        VitaminB1Lbl.setText("Vitamin B1 (Thiamine)");
+        MRAP.add(VitaminB1Lbl);
+        VitaminB1Lbl.setBounds(6, 280, 170, 16);
 
+        VitaminALbl.setForeground(new java.awt.Color(255, 255, 255));
         VitaminALbl.setText("Vitamin A");
+        MRAP.add(VitaminALbl);
+        VitaminALbl.setBounds(6, 258, 52, 16);
 
-        VitaminB2Lbl.setText("Vitamin B2(Riboflavin)");
+        VitaminB2Lbl.setForeground(new java.awt.Color(255, 255, 255));
+        VitaminB2Lbl.setText("Vitamin B2 (Riboflavin)");
+        MRAP.add(VitaminB2Lbl);
+        VitaminB2Lbl.setBounds(6, 302, 121, 16);
 
-        VitaminB3Lbl.setText("Vitamin B3(Niacin)");
+        VitaminB3Lbl.setForeground(new java.awt.Color(255, 255, 255));
+        VitaminB3Lbl.setText("Vitamin B3 (Niacin)");
+        MRAP.add(VitaminB3Lbl);
+        VitaminB3Lbl.setBounds(6, 324, 102, 16);
 
-        VitaminB5Lbl.setText("Vitamin B5(Pantothenic Acid)");
+        VitaminB5Lbl.setForeground(new java.awt.Color(255, 255, 255));
+        VitaminB5Lbl.setText("Vitamin B5 (Pantothenic Acid)");
+        MRAP.add(VitaminB5Lbl);
+        VitaminB5Lbl.setBounds(6, 346, 159, 16);
 
-        VitaminB6Lbl.setText("Vitamin B6(Pyridoxine)");
+        VitaminB6Lbl.setForeground(new java.awt.Color(255, 255, 255));
+        VitaminB6Lbl.setText("Vitamin B6 (Pyridoxine)");
+        MRAP.add(VitaminB6Lbl);
+        VitaminB6Lbl.setBounds(6, 368, 124, 16);
 
-        VitaminB7Lbl.setText("Vitamin B7(Biotin)");
+        VitaminB7Lbl.setForeground(new java.awt.Color(255, 255, 255));
+        VitaminB7Lbl.setText("Vitamin B7 (Biotin)");
+        MRAP.add(VitaminB7Lbl);
+        VitaminB7Lbl.setBounds(6, 390, 99, 16);
 
-        VitaminB9Lbl.setText("Vitamin B9(Folate)");
+        VitaminB9Lbl.setForeground(new java.awt.Color(255, 255, 255));
+        VitaminB9Lbl.setText("Vitamin B9 (Folate)");
+        MRAP.add(VitaminB9Lbl);
+        VitaminB9Lbl.setBounds(6, 412, 100, 16);
 
-        VitaminB12Lbl.setText("Vitamin B12(Cobalamin)");
+        VitaminB12Lbl.setForeground(new java.awt.Color(255, 255, 255));
+        VitaminB12Lbl.setText("Vitamin B12 (Cobalamin)");
+        MRAP.add(VitaminB12Lbl);
+        VitaminB12Lbl.setBounds(6, 434, 132, 16);
 
+        VitaminCLbl.setForeground(new java.awt.Color(255, 255, 255));
         VitaminCLbl.setText("Vitamin C");
+        MRAP.add(VitaminCLbl);
+        VitaminCLbl.setBounds(6, 456, 52, 16);
 
+        VitaminDLbl.setForeground(new java.awt.Color(255, 255, 255));
         VitaminDLbl.setText("Vitamin D");
+        MRAP.add(VitaminDLbl);
+        VitaminDLbl.setBounds(6, 478, 52, 16);
 
+        VitaminELbl.setForeground(new java.awt.Color(255, 255, 255));
         VitaminELbl.setText("Vitamin E");
+        MRAP.add(VitaminELbl);
+        VitaminELbl.setBounds(6, 500, 50, 16);
 
+        VitaminKLbl.setForeground(new java.awt.Color(255, 255, 255));
         VitaminKLbl.setText("Vitamin K");
+        MRAP.add(VitaminKLbl);
+        VitaminKLbl.setBounds(6, 522, 51, 16);
 
+        PercntageLbl1.setForeground(new java.awt.Color(255, 255, 255));
         PercntageLbl1.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         PercntageLbl1.setText("%");
+        MRAP.add(PercntageLbl1);
+        PercntageLbl1.setBounds(270, 258, 20, 16);
 
+        PercntageLbl2.setForeground(new java.awt.Color(255, 255, 255));
         PercntageLbl2.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         PercntageLbl2.setText("%");
+        MRAP.add(PercntageLbl2);
+        PercntageLbl2.setBounds(270, 280, 20, 16);
 
+        PercntageLbl3.setForeground(new java.awt.Color(255, 255, 255));
         PercntageLbl3.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         PercntageLbl3.setText("%");
+        MRAP.add(PercntageLbl3);
+        PercntageLbl3.setBounds(270, 302, 20, 16);
 
+        PercntageLbl4.setForeground(new java.awt.Color(255, 255, 255));
         PercntageLbl4.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         PercntageLbl4.setText("%");
+        MRAP.add(PercntageLbl4);
+        PercntageLbl4.setBounds(270, 324, 20, 16);
 
+        PercntageLbl5.setForeground(new java.awt.Color(255, 255, 255));
         PercntageLbl5.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         PercntageLbl5.setText("%");
+        MRAP.add(PercntageLbl5);
+        PercntageLbl5.setBounds(270, 346, 20, 16);
 
+        PercntageLbl6.setForeground(new java.awt.Color(255, 255, 255));
         PercntageLbl6.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         PercntageLbl6.setText("%");
+        MRAP.add(PercntageLbl6);
+        PercntageLbl6.setBounds(270, 368, 20, 16);
 
+        PercntageLbl7.setForeground(new java.awt.Color(255, 255, 255));
         PercntageLbl7.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         PercntageLbl7.setText("%");
+        MRAP.add(PercntageLbl7);
+        PercntageLbl7.setBounds(270, 390, 20, 16);
 
+        PercntageLbl8.setForeground(new java.awt.Color(255, 255, 255));
         PercntageLbl8.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         PercntageLbl8.setText("%");
+        MRAP.add(PercntageLbl8);
+        PercntageLbl8.setBounds(270, 412, 20, 16);
 
+        PercntageLbl9.setForeground(new java.awt.Color(255, 255, 255));
         PercntageLbl9.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         PercntageLbl9.setText("%");
+        MRAP.add(PercntageLbl9);
+        PercntageLbl9.setBounds(270, 434, 20, 16);
 
+        PercntageLbl10.setForeground(new java.awt.Color(255, 255, 255));
         PercntageLbl10.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         PercntageLbl10.setText("%");
+        MRAP.add(PercntageLbl10);
+        PercntageLbl10.setBounds(270, 456, 20, 16);
 
+        PercntageLbl11.setForeground(new java.awt.Color(255, 255, 255));
         PercntageLbl11.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         PercntageLbl11.setText("%");
+        MRAP.add(PercntageLbl11);
+        PercntageLbl11.setBounds(270, 478, 20, 16);
 
+        PercntageLbl12.setForeground(new java.awt.Color(255, 255, 255));
         PercntageLbl12.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         PercntageLbl12.setText("%");
+        MRAP.add(PercntageLbl12);
+        PercntageLbl12.setBounds(270, 500, 20, 16);
 
+        PercntageLbl13.setForeground(new java.awt.Color(255, 255, 255));
         PercntageLbl13.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         PercntageLbl13.setText("%");
+        MRAP.add(PercntageLbl13);
+        PercntageLbl13.setBounds(270, 522, 20, 16);
 
         ProteinLbl.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        ProteinLbl.setForeground(new java.awt.Color(255, 255, 255));
         ProteinLbl.setText("Protein");
+        MRAP.add(ProteinLbl);
+        ProteinLbl.setBounds(6, 168, 174, 20);
 
+        ProteinTxtField.setForeground(new java.awt.Color(255, 255, 255));
         ProteinTxtField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ProteinTxtFieldActionPerformed(evt);
             }
         });
+        MRAP.add(ProteinTxtField);
+        ProteinTxtField.setBounds(6, 194, 100, 22);
 
         CholesterolLbl.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        CholesterolLbl.setForeground(new java.awt.Color(255, 255, 255));
         CholesterolLbl.setText("Cholesterol");
+        MRAP.add(CholesterolLbl);
+        CholesterolLbl.setBounds(6, 114, 174, 20);
 
+        CholesterolTxtField.setForeground(new java.awt.Color(255, 255, 255));
+        MRAP.add(CholesterolTxtField);
+        CholesterolTxtField.setBounds(6, 140, 100, 22);
+
+        SaturatedFatLbl.setForeground(new java.awt.Color(255, 255, 255));
         SaturatedFatLbl.setText("Saturated Fat");
+        MRAP.add(SaturatedFatLbl);
+        SaturatedFatLbl.setBounds(192, 103, 100, 16);
 
+        TransFatLbl.setForeground(new java.awt.Color(255, 255, 255));
         TransFatLbl.setText("Trans Fat");
+        MRAP.add(TransFatLbl);
+        TransFatLbl.setBounds(192, 131, 100, 16);
+
+        CaloriesTxtField.setForeground(new java.awt.Color(255, 255, 255));
+        MRAP.add(CaloriesTxtField);
+        CaloriesTxtField.setBounds(6, 90, 100, 22);
 
         TotalFatLbl.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        TotalFatLbl.setForeground(new java.awt.Color(255, 255, 255));
         TotalFatLbl.setText("Total Fat");
+        MRAP.add(TotalFatLbl);
+        TotalFatLbl.setBounds(192, 75, 100, 16);
 
+        PolyunsaturatedFatLbl.setForeground(new java.awt.Color(255, 255, 255));
         PolyunsaturatedFatLbl.setText("Polyunsaturated");
+        MRAP.add(PolyunsaturatedFatLbl);
+        PolyunsaturatedFatLbl.setBounds(192, 159, 114, 16);
 
+        MonounsaturatedFatLbl.setForeground(new java.awt.Color(255, 255, 255));
         MonounsaturatedFatLbl.setText("Monounsaturated");
+        MRAP.add(MonounsaturatedFatLbl);
+        MonounsaturatedFatLbl.setBounds(192, 187, 114, 16);
+
+        SaturatedFatTxtField.setForeground(new java.awt.Color(255, 255, 255));
+        MRAP.add(SaturatedFatTxtField);
+        SaturatedFatTxtField.setBounds(312, 100, 64, 22);
+
+        TransFatTxtField.setForeground(new java.awt.Color(255, 255, 255));
+        MRAP.add(TransFatTxtField);
+        TransFatTxtField.setBounds(312, 128, 64, 22);
+
+        PolyunsaturatedTxtField.setForeground(new java.awt.Color(255, 255, 255));
+        MRAP.add(PolyunsaturatedTxtField);
+        PolyunsaturatedTxtField.setBounds(312, 156, 64, 22);
+
+        MonounsaturatedTxtField.setForeground(new java.awt.Color(255, 255, 255));
+        MRAP.add(MonounsaturatedTxtField);
+        MonounsaturatedTxtField.setBounds(312, 184, 64, 22);
 
         TotalCarbohydrateLbl.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        TotalCarbohydrateLbl.setForeground(new java.awt.Color(255, 255, 255));
         TotalCarbohydrateLbl.setText("Total Carbohydrate");
+        MRAP.add(TotalCarbohydrateLbl);
+        TotalCarbohydrateLbl.setBounds(394, 79, 110, 16);
 
+        DietaryFiberLbl.setForeground(new java.awt.Color(255, 255, 255));
         DietaryFiberLbl.setText("Dietary Fiber");
+        MRAP.add(DietaryFiberLbl);
+        DietaryFiberLbl.setBounds(394, 103, 110, 16);
 
+        SugarsLbl.setForeground(new java.awt.Color(255, 255, 255));
         SugarsLbl.setText("Sugars");
+        MRAP.add(SugarsLbl);
+        SugarsLbl.setBounds(394, 131, 110, 16);
 
+        AddedSugarsLbl.setForeground(new java.awt.Color(255, 255, 255));
         AddedSugarsLbl.setText("Added Sugars");
+        MRAP.add(AddedSugarsLbl);
+        AddedSugarsLbl.setBounds(394, 159, 110, 16);
 
+        TotalCarbohydratesTxtField.setForeground(new java.awt.Color(255, 255, 255));
+        MRAP.add(TotalCarbohydratesTxtField);
+        TotalCarbohydratesTxtField.setBounds(510, 76, 64, 22);
+
+        DietaryFiberTxtField.setForeground(new java.awt.Color(255, 255, 255));
+        MRAP.add(DietaryFiberTxtField);
+        DietaryFiberTxtField.setBounds(510, 100, 64, 22);
+
+        SugarsTxtField.setForeground(new java.awt.Color(255, 255, 255));
+        MRAP.add(SugarsTxtField);
+        SugarsTxtField.setBounds(510, 128, 64, 22);
+
+        AddedSugarsTxtField.setForeground(new java.awt.Color(255, 255, 255));
+        MRAP.add(AddedSugarsTxtField);
+        AddedSugarsTxtField.setBounds(510, 156, 64, 22);
+
+        SodiumLbl.setForeground(new java.awt.Color(255, 255, 255));
         SodiumLbl.setText("Sodium");
+        MRAP.add(SodiumLbl);
+        SodiumLbl.setBounds(308, 258, 95, 16);
 
+        PotassiumLbl.setForeground(new java.awt.Color(255, 255, 255));
         PotassiumLbl.setText("Potassium");
+        MRAP.add(PotassiumLbl);
+        PotassiumLbl.setBounds(308, 280, 95, 16);
 
+        CalciumLbl.setForeground(new java.awt.Color(255, 255, 255));
         CalciumLbl.setText("Calcium");
+        MRAP.add(CalciumLbl);
+        CalciumLbl.setBounds(308, 302, 95, 16);
 
+        PhosphorusLbl.setForeground(new java.awt.Color(255, 255, 255));
         PhosphorusLbl.setText("Phosphorus");
+        MRAP.add(PhosphorusLbl);
+        PhosphorusLbl.setBounds(308, 324, 95, 16);
 
+        MagnesiumLbl.setForeground(new java.awt.Color(255, 255, 255));
         MagnesiumLbl.setText("Magnesium");
+        MRAP.add(MagnesiumLbl);
+        MagnesiumLbl.setBounds(308, 346, 95, 16);
 
+        SulfurLbl.setForeground(new java.awt.Color(255, 255, 255));
         SulfurLbl.setText("Sulfur");
+        MRAP.add(SulfurLbl);
+        SulfurLbl.setBounds(308, 368, 95, 16);
 
+        IronLbl.setForeground(new java.awt.Color(255, 255, 255));
         IronLbl.setText("Iron");
+        MRAP.add(IronLbl);
+        IronLbl.setBounds(308, 390, 95, 16);
 
+        ChromiumLbl.setForeground(new java.awt.Color(255, 255, 255));
         ChromiumLbl.setText("Chromium");
+        MRAP.add(ChromiumLbl);
+        ChromiumLbl.setBounds(308, 412, 95, 16);
 
+        CoboltLbl.setForeground(new java.awt.Color(255, 255, 255));
         CoboltLbl.setText("Cobolt");
+        MRAP.add(CoboltLbl);
+        CoboltLbl.setBounds(308, 434, 95, 16);
 
+        CopperLbl.setForeground(new java.awt.Color(255, 255, 255));
         CopperLbl.setText("Copper");
+        MRAP.add(CopperLbl);
+        CopperLbl.setBounds(308, 456, 95, 16);
 
+        ZincLbl.setForeground(new java.awt.Color(255, 255, 255));
         ZincLbl.setText("Zinc");
+        MRAP.add(ZincLbl);
+        ZincLbl.setBounds(308, 478, 95, 16);
 
+        ManganeseLbl.setForeground(new java.awt.Color(255, 255, 255));
         ManganeseLbl.setText("Manganese");
         ManganeseLbl.setToolTipText("");
+        MRAP.add(ManganeseLbl);
+        ManganeseLbl.setBounds(308, 500, 95, 16);
 
+        MolybdenumLbl.setForeground(new java.awt.Color(255, 255, 255));
         MolybdenumLbl.setText("Molybdenum");
+        MRAP.add(MolybdenumLbl);
+        MolybdenumLbl.setBounds(308, 522, 95, 16);
 
+        IodineLbl.setForeground(new java.awt.Color(255, 255, 255));
         IodineLbl.setText("Iodine");
+        MRAP.add(IodineLbl);
+        IodineLbl.setBounds(308, 544, 95, 16);
 
+        SeleniumLbl.setForeground(new java.awt.Color(255, 255, 255));
         SeleniumLbl.setText("Selenium");
+        MRAP.add(SeleniumLbl);
+        SeleniumLbl.setBounds(308, 566, 95, 16);
 
+        FluorideLbl.setForeground(new java.awt.Color(255, 255, 255));
         FluorideLbl.setText("Fluoride");
+        MRAP.add(FluorideLbl);
+        FluorideLbl.setBounds(308, 588, 95, 16);
 
+        MgLbl1.setForeground(new java.awt.Color(255, 255, 255));
         MgLbl1.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         MgLbl1.setText("mg");
+        MRAP.add(MgLbl1);
+        MgLbl1.setBounds(564, 258, 27, 16);
 
+        MgLbl2.setForeground(new java.awt.Color(255, 255, 255));
         MgLbl2.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         MgLbl2.setText("mg");
+        MRAP.add(MgLbl2);
+        MgLbl2.setBounds(564, 280, 27, 16);
 
+        PercntageLbl14.setForeground(new java.awt.Color(255, 255, 255));
         PercntageLbl14.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         PercntageLbl14.setText("%");
+        MRAP.add(PercntageLbl14);
+        PercntageLbl14.setBounds(570, 302, 20, 16);
 
+        PercntageLbl15.setForeground(new java.awt.Color(255, 255, 255));
         PercntageLbl15.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         PercntageLbl15.setText("%");
+        MRAP.add(PercntageLbl15);
+        PercntageLbl15.setBounds(570, 324, 20, 16);
 
+        PercntageLbl16.setForeground(new java.awt.Color(255, 255, 255));
         PercntageLbl16.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         PercntageLbl16.setText("%");
+        MRAP.add(PercntageLbl16);
+        PercntageLbl16.setBounds(570, 346, 20, 16);
 
+        PercntageLbl17.setForeground(new java.awt.Color(255, 255, 255));
         PercntageLbl17.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         PercntageLbl17.setText("%");
+        MRAP.add(PercntageLbl17);
+        PercntageLbl17.setBounds(570, 368, 20, 16);
 
+        PercntageLbl18.setForeground(new java.awt.Color(255, 255, 255));
         PercntageLbl18.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         PercntageLbl18.setText("%");
+        MRAP.add(PercntageLbl18);
+        PercntageLbl18.setBounds(570, 390, 20, 16);
 
+        PercntageLbl19.setForeground(new java.awt.Color(255, 255, 255));
         PercntageLbl19.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         PercntageLbl19.setText("%");
+        MRAP.add(PercntageLbl19);
+        PercntageLbl19.setBounds(570, 412, 20, 16);
 
+        PercntageLbl20.setForeground(new java.awt.Color(255, 255, 255));
         PercntageLbl20.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         PercntageLbl20.setText("%");
+        MRAP.add(PercntageLbl20);
+        PercntageLbl20.setBounds(570, 434, 20, 16);
 
+        PercntageLbl21.setForeground(new java.awt.Color(255, 255, 255));
         PercntageLbl21.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         PercntageLbl21.setText("%");
+        MRAP.add(PercntageLbl21);
+        PercntageLbl21.setBounds(570, 456, 20, 16);
 
+        PercntageLbl22.setForeground(new java.awt.Color(255, 255, 255));
         PercntageLbl22.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         PercntageLbl22.setText("%");
+        MRAP.add(PercntageLbl22);
+        PercntageLbl22.setBounds(570, 478, 20, 16);
 
+        PercntageLbl23.setForeground(new java.awt.Color(255, 255, 255));
         PercntageLbl23.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         PercntageLbl23.setText("%");
+        MRAP.add(PercntageLbl23);
+        PercntageLbl23.setBounds(570, 500, 20, 16);
 
+        PercntageLbl24.setForeground(new java.awt.Color(255, 255, 255));
         PercntageLbl24.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         PercntageLbl24.setText("%");
+        MRAP.add(PercntageLbl24);
+        PercntageLbl24.setBounds(570, 522, 20, 16);
 
+        PercntageLbl25.setForeground(new java.awt.Color(255, 255, 255));
         PercntageLbl25.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         PercntageLbl25.setText("%");
+        MRAP.add(PercntageLbl25);
+        PercntageLbl25.setBounds(570, 544, 20, 16);
 
+        PercntageLbl26.setForeground(new java.awt.Color(255, 255, 255));
         PercntageLbl26.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         PercntageLbl26.setText("%");
+        MRAP.add(PercntageLbl26);
+        PercntageLbl26.setBounds(570, 566, 20, 16);
 
+        PercntageLbl27.setForeground(new java.awt.Color(255, 255, 255));
         PercntageLbl27.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         PercntageLbl27.setText("%");
+        MRAP.add(PercntageLbl27);
+        PercntageLbl27.setBounds(570, 588, 20, 16);
 
+        VitaminATxtField.setForeground(new java.awt.Color(255, 255, 255));
+        MRAP.add(VitaminATxtField);
+        VitaminATxtField.setBounds(200, 258, 64, 16);
+
+        VitaminB1TxtField.setForeground(new java.awt.Color(255, 255, 255));
+        MRAP.add(VitaminB1TxtField);
+        VitaminB1TxtField.setBounds(200, 280, 64, 16);
+
+        VitaminB2TxtField.setForeground(new java.awt.Color(255, 255, 255));
+        MRAP.add(VitaminB2TxtField);
+        VitaminB2TxtField.setBounds(200, 302, 64, 16);
+
+        VitaminB3TxtField.setForeground(new java.awt.Color(255, 255, 255));
+        MRAP.add(VitaminB3TxtField);
+        VitaminB3TxtField.setBounds(200, 324, 64, 16);
+
+        VitaminB5TxtField.setForeground(new java.awt.Color(255, 255, 255));
         VitaminB5TxtField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 VitaminB5TxtFieldActionPerformed(evt);
             }
         });
+        MRAP.add(VitaminB5TxtField);
+        VitaminB5TxtField.setBounds(200, 346, 64, 16);
 
-        AddItemToRecordBtn.setForeground(new java.awt.Color(0, 102, 0));
+        VitaminB6TxtField.setForeground(new java.awt.Color(255, 255, 255));
+        MRAP.add(VitaminB6TxtField);
+        VitaminB6TxtField.setBounds(200, 368, 64, 16);
+
+        VitaminB7TxtField.setForeground(new java.awt.Color(255, 255, 255));
+        MRAP.add(VitaminB7TxtField);
+        VitaminB7TxtField.setBounds(200, 390, 64, 16);
+
+        VitaminB9TxtField.setForeground(new java.awt.Color(255, 255, 255));
+        MRAP.add(VitaminB9TxtField);
+        VitaminB9TxtField.setBounds(200, 412, 64, 16);
+
+        VitaminB12TxtField.setForeground(new java.awt.Color(255, 255, 255));
+        MRAP.add(VitaminB12TxtField);
+        VitaminB12TxtField.setBounds(200, 434, 64, 16);
+
+        VitaminCTxtField.setForeground(new java.awt.Color(255, 255, 255));
+        MRAP.add(VitaminCTxtField);
+        VitaminCTxtField.setBounds(200, 456, 64, 16);
+
+        VitaminDTxtField.setForeground(new java.awt.Color(255, 255, 255));
+        MRAP.add(VitaminDTxtField);
+        VitaminDTxtField.setBounds(200, 478, 64, 16);
+
+        VitaminETxtField.setForeground(new java.awt.Color(255, 255, 255));
+        MRAP.add(VitaminETxtField);
+        VitaminETxtField.setBounds(200, 500, 64, 16);
+
+        VitaminKTxtField.setForeground(new java.awt.Color(255, 255, 255));
+        MRAP.add(VitaminKTxtField);
+        VitaminKTxtField.setBounds(200, 522, 64, 16);
+
+        MineralSodiumTxtField.setForeground(new java.awt.Color(255, 255, 255));
+        MRAP.add(MineralSodiumTxtField);
+        MineralSodiumTxtField.setBounds(500, 258, 64, 16);
+
+        MineralPotassiumTxtField.setForeground(new java.awt.Color(255, 255, 255));
+        MRAP.add(MineralPotassiumTxtField);
+        MineralPotassiumTxtField.setBounds(500, 280, 64, 16);
+
+        MineralCalciumTxtField.setForeground(new java.awt.Color(255, 255, 255));
+        MRAP.add(MineralCalciumTxtField);
+        MineralCalciumTxtField.setBounds(500, 302, 64, 16);
+
+        MineralPhosphorusTxtField.setForeground(new java.awt.Color(255, 255, 255));
+        MRAP.add(MineralPhosphorusTxtField);
+        MineralPhosphorusTxtField.setBounds(500, 324, 64, 16);
+
+        MineralMagnesiumTxtField.setForeground(new java.awt.Color(255, 255, 255));
+        MRAP.add(MineralMagnesiumTxtField);
+        MineralMagnesiumTxtField.setBounds(500, 346, 64, 16);
+
+        MineralSulfurTxtField.setForeground(new java.awt.Color(255, 255, 255));
+        MRAP.add(MineralSulfurTxtField);
+        MineralSulfurTxtField.setBounds(500, 368, 64, 16);
+
+        MineralIronTxtField.setForeground(new java.awt.Color(255, 255, 255));
+        MRAP.add(MineralIronTxtField);
+        MineralIronTxtField.setBounds(500, 390, 64, 16);
+
+        MineralChromiumTxtField.setForeground(new java.awt.Color(255, 255, 255));
+        MRAP.add(MineralChromiumTxtField);
+        MineralChromiumTxtField.setBounds(500, 412, 64, 16);
+
+        MineralCoboltTxtField.setForeground(new java.awt.Color(255, 255, 255));
+        MRAP.add(MineralCoboltTxtField);
+        MineralCoboltTxtField.setBounds(500, 434, 64, 16);
+
+        MineralCopperTxtField.setForeground(new java.awt.Color(255, 255, 255));
+        MRAP.add(MineralCopperTxtField);
+        MineralCopperTxtField.setBounds(500, 456, 64, 16);
+
+        MineralZincTxtField.setForeground(new java.awt.Color(255, 255, 255));
+        MRAP.add(MineralZincTxtField);
+        MineralZincTxtField.setBounds(500, 478, 64, 16);
+
+        MineralManganeseTxtField.setForeground(new java.awt.Color(255, 255, 255));
+        MRAP.add(MineralManganeseTxtField);
+        MineralManganeseTxtField.setBounds(500, 500, 64, 16);
+
+        MineralMolybdenumTxtField.setForeground(new java.awt.Color(255, 255, 255));
+        MRAP.add(MineralMolybdenumTxtField);
+        MineralMolybdenumTxtField.setBounds(500, 522, 64, 16);
+
+        MineralIodineTxtField.setForeground(new java.awt.Color(255, 255, 255));
+        MRAP.add(MineralIodineTxtField);
+        MineralIodineTxtField.setBounds(500, 544, 64, 16);
+
+        MineralSeleniumTxtField.setForeground(new java.awt.Color(255, 255, 255));
+        MRAP.add(MineralSeleniumTxtField);
+        MineralSeleniumTxtField.setBounds(500, 566, 64, 16);
+
+        MineralFluorideTxtField.setForeground(new java.awt.Color(255, 255, 255));
+        MRAP.add(MineralFluorideTxtField);
+        MineralFluorideTxtField.setBounds(500, 588, 64, 16);
+
+        AddItemToRecordBtn.setForeground(new java.awt.Color(255, 255, 255));
         AddItemToRecordBtn.setText("Add Item To Record");
-
-        javax.swing.GroupLayout MRAPLayout = new javax.swing.GroupLayout(MRAP);
-        MRAP.setLayout(MRAPLayout);
-        MRAPLayout.setHorizontalGroup(
-            MRAPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(MRAPLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(MRAPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(MRAPLayout.createSequentialGroup()
-                        .addComponent(SelectRecordToAddToLbl, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(ItemNamePnl, javax.swing.GroupLayout.PREFERRED_SIZE, 296, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(MRAPLayout.createSequentialGroup()
-                        .addComponent(SelectRecordComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(127, 127, 127)
-                        .addComponent(ItemNameTxtField))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, MRAPLayout.createSequentialGroup()
-                        .addGroup(MRAPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(MRAPLayout.createSequentialGroup()
-                                .addComponent(VitaminsLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 296, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, MRAPLayout.createSequentialGroup()
-                                .addGroup(MRAPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(AddItemToRecordBtn, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addGroup(MRAPLayout.createSequentialGroup()
-                                        .addGroup(MRAPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                            .addGroup(MRAPLayout.createSequentialGroup()
-                                                .addComponent(VitaminKLbl)
-                                                .addGap(105, 105, 105))
-                                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, MRAPLayout.createSequentialGroup()
-                                                .addComponent(VitaminELbl)
-                                                .addGap(106, 106, 106))
-                                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, MRAPLayout.createSequentialGroup()
-                                                .addComponent(VitaminDLbl)
-                                                .addGap(104, 104, 104))
-                                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, MRAPLayout.createSequentialGroup()
-                                                .addComponent(VitaminCLbl)
-                                                .addGap(104, 104, 104))
-                                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, MRAPLayout.createSequentialGroup()
-                                                .addComponent(VitaminB12Lbl)
-                                                .addGap(27, 27, 27))
-                                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, MRAPLayout.createSequentialGroup()
-                                                .addComponent(VitaminB9Lbl)
-                                                .addGap(59, 59, 59))
-                                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, MRAPLayout.createSequentialGroup()
-                                                .addComponent(VitaminB7Lbl)
-                                                .addGap(60, 60, 60))
-                                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, MRAPLayout.createSequentialGroup()
-                                                .addComponent(VitaminB6Lbl)
-                                                .addGap(35, 35, 35))
-                                            .addComponent(VitaminB5Lbl, javax.swing.GroupLayout.Alignment.TRAILING)
-                                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, MRAPLayout.createSequentialGroup()
-                                                .addComponent(VitaminB3Lbl)
-                                                .addGap(57, 57, 57))
-                                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, MRAPLayout.createSequentialGroup()
-                                                .addComponent(VitaminB2Lbl)
-                                                .addGap(38, 38, 38))
-                                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, MRAPLayout.createSequentialGroup()
-                                                .addComponent(VitaminB1Lbl)
-                                                .addGap(42, 42, 42))
-                                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, MRAPLayout.createSequentialGroup()
-                                                .addComponent(VitaminALbl)
-                                                .addGap(104, 104, 104)))
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addGroup(MRAPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(VitaminKTxtField, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(VitaminETxtField, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(VitaminDTxtField, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(VitaminCTxtField, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(VitaminB12TxtField, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(VitaminB9TxtField, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(VitaminB7TxtField, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(VitaminB6TxtField, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(VitaminB5TxtField, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(VitaminB3TxtField, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(VitaminB2TxtField, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(VitaminB1TxtField, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(VitaminATxtField, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addGroup(MRAPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                            .addComponent(PercntageLbl13, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(PercntageLbl12, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(PercntageLbl11, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(PercntageLbl10, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(PercntageLbl9, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(PercntageLbl8, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(PercntageLbl7, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(PercntageLbl6, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(PercntageLbl3, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(PercntageLbl2, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(PercntageLbl1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(PercntageLbl4, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(PercntageLbl5, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                                .addGap(18, 18, 18)))
-                        .addGroup(MRAPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(MineralsLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 296, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(MRAPLayout.createSequentialGroup()
-                                .addComponent(PhosphorusLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(MineralPhosphorusTxtField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(40, 40, 40))
-                            .addGroup(MRAPLayout.createSequentialGroup()
-                                .addComponent(MagnesiumLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(MineralMagnesiumTxtField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(40, 40, 40))
-                            .addGroup(MRAPLayout.createSequentialGroup()
-                                .addComponent(SulfurLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(MineralSulfurTxtField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(40, 40, 40))
-                            .addGroup(MRAPLayout.createSequentialGroup()
-                                .addComponent(IronLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(MineralIronTxtField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(40, 40, 40))
-                            .addGroup(MRAPLayout.createSequentialGroup()
-                                .addComponent(ChromiumLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(MineralChromiumTxtField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(40, 40, 40))
-                            .addGroup(MRAPLayout.createSequentialGroup()
-                                .addComponent(CoboltLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(MineralCoboltTxtField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(40, 40, 40))
-                            .addGroup(MRAPLayout.createSequentialGroup()
-                                .addComponent(CopperLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(MineralCopperTxtField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(40, 40, 40))
-                            .addGroup(MRAPLayout.createSequentialGroup()
-                                .addComponent(ZincLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(MineralZincTxtField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(40, 40, 40))
-                            .addGroup(MRAPLayout.createSequentialGroup()
-                                .addComponent(ManganeseLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(MineralManganeseTxtField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(40, 40, 40))
-                            .addGroup(MRAPLayout.createSequentialGroup()
-                                .addComponent(MolybdenumLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(MineralMolybdenumTxtField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(40, 40, 40))
-                            .addGroup(MRAPLayout.createSequentialGroup()
-                                .addComponent(IodineLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(MineralIodineTxtField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(40, 40, 40))
-                            .addGroup(MRAPLayout.createSequentialGroup()
-                                .addComponent(SeleniumLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(MineralSeleniumTxtField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(40, 40, 40))
-                            .addGroup(MRAPLayout.createSequentialGroup()
-                                .addComponent(FluorideLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(MineralFluorideTxtField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(40, 40, 40))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, MRAPLayout.createSequentialGroup()
-                                .addGroup(MRAPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(MRAPLayout.createSequentialGroup()
-                                        .addComponent(SodiumLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(MineralSodiumTxtField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(MRAPLayout.createSequentialGroup()
-                                        .addComponent(CalciumLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(MineralCalciumTxtField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(MRAPLayout.createSequentialGroup()
-                                        .addComponent(PotassiumLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(MineralPotassiumTxtField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(MRAPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(MgLbl2, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(MgLbl1, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGroup(MRAPLayout.createSequentialGroup()
-                                        .addGap(6, 6, 6)
-                                        .addGroup(MRAPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(PercntageLbl15, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(PercntageLbl14, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(PercntageLbl16, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(PercntageLbl17, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(PercntageLbl18, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(PercntageLbl19, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(PercntageLbl20, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(PercntageLbl21, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(PercntageLbl22, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(PercntageLbl23, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(PercntageLbl24, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(PercntageLbl25, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(PercntageLbl26, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(PercntageLbl27, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                                .addGap(13, 13, 13))))
-                    .addGroup(MRAPLayout.createSequentialGroup()
-                        .addGroup(MRAPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(CaloriesLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(MRAPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addComponent(CholesterolLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(CholesterolTxtField, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(ProteinLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(ProteinTxtField, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(CaloriesTxtField, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(MRAPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(PolyunsaturatedFatLbl, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(MonounsaturatedFatLbl, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addGroup(MRAPLayout.createSequentialGroup()
-                                .addGroup(MRAPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(MRAPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                        .addComponent(TotalFatLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(SaturatedFatLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addComponent(TransFatLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(0, 0, Short.MAX_VALUE)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(MRAPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(MRAPLayout.createSequentialGroup()
-                                .addComponent(TransFatTxtField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(SugarsLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(SugarsTxtField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(MRAPLayout.createSequentialGroup()
-                                .addComponent(SaturatedFatTxtField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(DietaryFiberLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(DietaryFiberTxtField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(MRAPLayout.createSequentialGroup()
-                                .addComponent(PolyunsaturatedTxtField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(AddedSugarsLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(AddedSugarsTxtField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(MonounsaturatedTxtField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(MRAPLayout.createSequentialGroup()
-                                .addComponent(TotalFatTxtField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(TotalCarbohydrateLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(TotalCarbohydratesTxtField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(30, 30, 30)))
-                .addContainerGap())
-        );
-        MRAPLayout.setVerticalGroup(
-            MRAPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(MRAPLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(MRAPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(SelectRecordToAddToLbl, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(ItemNamePnl, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(10, 10, 10)
-                .addGroup(MRAPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(SelectRecordComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(ItemNameTxtField))
-                .addGroup(MRAPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(MRAPLayout.createSequentialGroup()
-                        .addGroup(MRAPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(MRAPLayout.createSequentialGroup()
-                                .addGap(18, 18, 18)
-                                .addGroup(MRAPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(TotalCarbohydrateLbl)
-                                    .addComponent(TotalCarbohydratesTxtField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(2, 2, 2))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, MRAPLayout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(MRAPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(TotalFatTxtField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(TotalFatLbl))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
-                        .addGroup(MRAPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(SaturatedFatLbl)
-                            .addComponent(SaturatedFatTxtField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(DietaryFiberLbl)
-                            .addComponent(DietaryFiberTxtField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(MRAPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(TransFatTxtField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(SugarsLbl)
-                            .addComponent(SugarsTxtField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(TransFatLbl))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(MRAPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(MRAPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(PolyunsaturatedTxtField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(PolyunsaturatedFatLbl))
-                            .addGroup(MRAPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(AddedSugarsLbl)
-                                .addComponent(AddedSugarsTxtField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(MRAPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(MonounsaturatedFatLbl)
-                            .addComponent(MonounsaturatedTxtField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(MRAPLayout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(CaloriesLbl)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(CaloriesTxtField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(2, 2, 2)
-                        .addComponent(CholesterolLbl)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(CholesterolTxtField, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(ProteinLbl)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(ProteinTxtField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(16, 16, 16)
-                .addGroup(MRAPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(VitaminsLbl)
-                    .addComponent(MineralsLbl))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(MRAPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(MRAPLayout.createSequentialGroup()
-                        .addGroup(MRAPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(VitaminALbl, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(MRAPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(SodiumLbl)
-                                .addComponent(MgLbl1)
-                                .addComponent(MineralSodiumTxtField, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(MRAPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(VitaminB1Lbl)
-                            .addComponent(PotassiumLbl)
-                            .addComponent(MgLbl2)
-                            .addComponent(MineralPotassiumTxtField, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(MRAPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(VitaminB2Lbl)
-                            .addComponent(CalciumLbl)
-                            .addComponent(PercntageLbl14)
-                            .addComponent(MineralCalciumTxtField, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(MRAPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(VitaminB3Lbl)
-                            .addComponent(PhosphorusLbl)
-                            .addComponent(PercntageLbl15)
-                            .addComponent(MineralPhosphorusTxtField, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(MRAPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(VitaminB5Lbl)
-                            .addComponent(MagnesiumLbl)
-                            .addComponent(PercntageLbl16)
-                            .addComponent(MineralMagnesiumTxtField, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(MRAPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(VitaminB6Lbl)
-                            .addComponent(SulfurLbl)
-                            .addComponent(PercntageLbl17)
-                            .addComponent(MineralSulfurTxtField, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(MRAPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(VitaminB7Lbl)
-                            .addComponent(IronLbl)
-                            .addComponent(PercntageLbl18)
-                            .addComponent(MineralIronTxtField, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(MRAPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(VitaminB9Lbl)
-                            .addComponent(ChromiumLbl)
-                            .addComponent(PercntageLbl19)
-                            .addComponent(MineralChromiumTxtField, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(MRAPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(VitaminB12Lbl)
-                            .addComponent(CoboltLbl)
-                            .addComponent(PercntageLbl20)
-                            .addComponent(MineralCoboltTxtField, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(MRAPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(VitaminCLbl)
-                            .addComponent(CopperLbl)
-                            .addComponent(PercntageLbl21)
-                            .addComponent(MineralCopperTxtField, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(MRAPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(VitaminDLbl)
-                            .addComponent(ZincLbl)
-                            .addComponent(PercntageLbl22)
-                            .addComponent(MineralZincTxtField, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(MRAPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(VitaminELbl)
-                            .addComponent(ManganeseLbl)
-                            .addComponent(PercntageLbl23)
-                            .addComponent(MineralManganeseTxtField, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(MRAPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(VitaminKLbl)
-                            .addComponent(MolybdenumLbl)
-                            .addComponent(PercntageLbl24)
-                            .addComponent(MineralMolybdenumTxtField, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(MRAPLayout.createSequentialGroup()
-                        .addGroup(MRAPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(PercntageLbl1)
-                            .addComponent(VitaminATxtField, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(MRAPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(PercntageLbl2)
-                            .addComponent(VitaminB1TxtField, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(MRAPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(PercntageLbl3)
-                            .addComponent(VitaminB2TxtField, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(MRAPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(PercntageLbl4)
-                            .addComponent(VitaminB3TxtField, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(MRAPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(PercntageLbl5)
-                            .addComponent(VitaminB5TxtField, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(MRAPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(PercntageLbl6)
-                            .addComponent(VitaminB6TxtField, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(MRAPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(PercntageLbl7)
-                            .addComponent(VitaminB7TxtField, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(MRAPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(PercntageLbl8)
-                            .addComponent(VitaminB9TxtField, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(MRAPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(PercntageLbl9)
-                            .addComponent(VitaminB12TxtField, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(MRAPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(PercntageLbl10)
-                            .addComponent(VitaminCTxtField, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(MRAPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(PercntageLbl11)
-                            .addComponent(VitaminDTxtField, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(MRAPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(PercntageLbl12)
-                            .addComponent(VitaminETxtField, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(MRAPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(PercntageLbl13)
-                            .addComponent(VitaminKTxtField, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(MRAPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(IodineLbl)
-                    .addGroup(MRAPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(PercntageLbl25)
-                        .addComponent(MineralIodineTxtField, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(MRAPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(MRAPLayout.createSequentialGroup()
-                        .addGroup(MRAPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(SeleniumLbl)
-                            .addGroup(MRAPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(PercntageLbl26)
-                                .addComponent(MineralSeleniumTxtField, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(MRAPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(FluorideLbl)
-                            .addComponent(PercntageLbl27)
-                            .addComponent(MineralFluorideTxtField, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addComponent(AddItemToRecordBtn, javax.swing.GroupLayout.DEFAULT_SIZE, 44, Short.MAX_VALUE))
-                .addContainerGap())
-        );
+        MRAP.add(AddItemToRecordBtn);
+        AddItemToRecordBtn.setBounds(140, 630, 284, 38);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(AddItemToRecordTitleLbl, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(MRAP, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(26, Short.MAX_VALUE)
+                .addComponent(MRAP, javax.swing.GroupLayout.PREFERRED_SIZE, 638, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(68, 68, 68))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addComponent(backBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, 0)
+                .addComponent(AddItemToRecordTitleLbl, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(AddItemToRecordTitleLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(MRAP, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(AddItemToRecordTitleLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(backBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addComponent(MRAP, javax.swing.GroupLayout.DEFAULT_SIZE, 694, Short.MAX_VALUE)
                 .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
@@ -868,6 +821,9 @@ public MngRecordAddPnl() {
         // TODO add your handling code here:
     }//GEN-LAST:event_ProteinTxtFieldActionPerformed
 
+    public void addBackBtnListener(ActionListener a){
+        backBtn.addActionListener(a);
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton AddItemToRecordBtn;
@@ -990,6 +946,7 @@ public MngRecordAddPnl() {
     private javax.swing.JTextField VitaminKTxtField;
     private javax.swing.JLabel VitaminsLbl;
     private javax.swing.JLabel ZincLbl;
+    private javax.swing.JButton backBtn;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel26;

@@ -2,6 +2,7 @@ package nutrii.application.controllers;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import nutrii.application.gui.MenuPanel;
 import nutrii.application.gui.NutriiGUI;
 import nutrii.application.gui.NutriiLoginGUI;
 import nutrii.application.model.Nutrii;
@@ -16,6 +17,7 @@ public class UserController {
 
     private static Nutrii model;
     private static NutriiGUI view;
+    private static MenuPanel menuView;
     private static NutriiLoginGUI loginView;
     private static UserService us;
 
@@ -24,10 +26,14 @@ public class UserController {
         this.view = view;
         this.loginView = login;
         this.us = new UserService();
+        this.menuView = view.getMenuPanel();  
         
-        login.addUserListener(new LogInListener());
-        login.addPasswordListener(new LogInListener());
-        login.addLogInListener(new LogInListener());        
+        loginView.addUserListener(new LogInListener());
+        loginView.addPasswordListener(new LogInListener());
+        loginView.addLogInListener(new LogInListener());      
+        
+        menuView.addLogOutListener(new LogOutListener());
+       
     }
 
     /**
@@ -45,16 +51,25 @@ public class UserController {
                 userInput = loginView.getUserName();
                 password = loginView.getPassword();
 
-                User u = us.userLogIn("Ellaira", "password");
+                User u = us.userLogIn("Blake", "password");
                 model.setCurrentUser(u);
-                System.out.println(model.getCurrentUser());
+                //System.out.println(model.getCurrentUser());
                 loginView.dispose();
-                view.setVisible(true);
                 
+                view.setVisible(true);
+                menuView.adduserLabelListener(this, model.getCurrentUser().getName());
             } catch (Exception ex) {
                 loginView.clearUserInput();
                 loginView.clearPasswodInput();
             }
+        }
+    }
+
+    private static class LogOutListener implements ActionListener {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            view.dispose();
+            loginView.setVisible(true);
         }
     }
 }
