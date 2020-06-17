@@ -36,6 +36,8 @@ public class NutriiLoginGUI extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        warningLbl = new javax.swing.JLabel();
+        warningLbl.setVisible(false);
         EnterUsernameLbl = new javax.swing.JLabel();
         EnterPasswordLbl = new javax.swing.JLabel();
         usernameTxtField = new javax.swing.JTextField();
@@ -62,6 +64,13 @@ public class NutriiLoginGUI extends javax.swing.JFrame {
         setSize(getPreferredSize());
         getContentPane().setLayout(null);
 
+        warningLbl.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        warningLbl.setForeground(new java.awt.Color(255, 51, 51));
+        warningLbl.setText("Incorrect username or password.");
+        warningLbl.setToolTipText("");
+        getContentPane().add(warningLbl);
+        warningLbl.setBounds(150, 290, 200, 50);
+
         EnterUsernameLbl.setForeground(new java.awt.Color(243, 243, 243));
         EnterUsernameLbl.setText("Enter Username:");
         getContentPane().add(EnterUsernameLbl);
@@ -74,15 +83,19 @@ public class NutriiLoginGUI extends javax.swing.JFrame {
 
         usernameTxtField.setBackground(new java.awt.Color(10, 36, 2));
         usernameTxtField.setForeground(new java.awt.Color(204, 204, 204));
+        usernameTxtField.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         usernameTxtField.setText("username");
         usernameTxtField.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        usernameTxtField.setCaretColor(new java.awt.Color(255, 255, 255));
         getContentPane().add(usernameTxtField);
         usernameTxtField.setBounds(6, 137, 338, 30);
 
         passwordField.setBackground(new java.awt.Color(10, 36, 2));
         passwordField.setForeground(new java.awt.Color(204, 204, 204));
-        passwordField.setText("jPasswordField1");
+        passwordField.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        passwordField.setText("password");
         passwordField.setBorder(null);
+        passwordField.setCaretColor(new java.awt.Color(255, 255, 255));
         getContentPane().add(passwordField);
         passwordField.setBounds(6, 210, 338, 30);
 
@@ -101,11 +114,6 @@ public class NutriiLoginGUI extends javax.swing.JFrame {
         CreateAccountBtn.setText("Create Account");
         CreateAccountBtn.setBorder(null);
         CreateAccountBtn.setRequestFocusEnabled(false);
-        CreateAccountBtn.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mousePressed(java.awt.event.MouseEvent evt) {
-                CreateAccountBtnMousePressed(evt);
-            }
-        });
         getContentPane().add(CreateAccountBtn);
         CreateAccountBtn.setBounds(6, 322, 132, 34);
 
@@ -177,6 +185,9 @@ public class NutriiLoginGUI extends javax.swing.JFrame {
         return passwordField.getPassword();
     }
 
+    public JLabel getLabel(){
+        return warningLbl;
+    }
     public void clearUserInput() {
         usernameTxtField.setText("");
     }
@@ -213,11 +224,10 @@ public class NutriiLoginGUI extends javax.swing.JFrame {
         yMouse = evt.getY();
     }//GEN-LAST:event_headerMousePressed
 
-    private void CreateAccountBtnMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CreateAccountBtnMousePressed
-        CreateAccountFrame caFrame = new CreateAccountFrame();
-        caFrame.setVisible(true);
-    }//GEN-LAST:event_CreateAccountBtnMousePressed
-
+    public void createAccntListener(ActionListener a){
+        CreateAccountBtn.addActionListener(a);
+    }
+    
     public void addUserListener(ActionListener ual) {
         usernameTxtField.addActionListener(ual);
     }
@@ -245,6 +255,7 @@ public class NutriiLoginGUI extends javax.swing.JFrame {
     private javax.swing.JButton minBtn;
     private javax.swing.JPasswordField passwordField;
     private javax.swing.JTextField usernameTxtField;
+    private javax.swing.JLabel warningLbl;
     // End of variables declaration//GEN-END:variables
 
 }

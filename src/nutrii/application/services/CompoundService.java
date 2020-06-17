@@ -18,7 +18,7 @@ import org.hibernate.criterion.Restrictions;
  * method is not necessary.
  *
  * Sessions MUST be opened when a method is invoked and closed AFTER. they're
- * not thread safe DO NOT FORGET TO CLOSE THE SESSION!
+ * not thread safe so DO NOT FORGET TO CLOSE THE SESSION!
  *
  * @author Ellaira
  */
@@ -57,19 +57,38 @@ public class CompoundService {
         }
     }
 
+    public Compounds getByString(String s) {
+        Session session = HibernateUtil.getSessionFactory().openSession();
+        Compounds result = null;
+        
+        try {
+            session.beginTransaction();
+            Criteria criteria = session.createCriteria(Compounds.class);
+            criteria.add(Restrictions.eq("keyname", s));
+
+            
+            result = (Compounds) criteria.uniqueResult();
+                    
+            if(result == null){
+                System.err.println("no compound matching: " + s);
+            } else {
+                   System.out.println(result.toString());
+            }
+        } catch (HibernateException e) {
+            session.getTransaction().rollback();
+        }
+        session.close();
+        return result;
+
+    }
+
     public void addCompound(Compounds c, String k, float v) {
         Session session = HibernateUtil.getSessionFactory().openSession();
         Transaction tx = null;
         try {
 
             tx = session.beginTransaction();
-            if (c instanceof Vitamins) {
-                c = (Vitamins) c;
-            } else if (c instanceof Minerals) {
-                c = (Minerals) c;
-            } else {
-                c = (Nutrients) c;
-            }
+            
             c.setKeyname(k);
             c.setValue(v);
 

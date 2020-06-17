@@ -79,6 +79,7 @@ public class DBInit {
     }
 
     public void initFood() {
+        ArrayList<Compounds> c = new ArrayList<>();
         Food newFood;
         Drink newDrink;
         String[] food = {"Apple", "Orange", "Banana", "Pear", "Tomato",
@@ -90,12 +91,12 @@ public class DBInit {
 
         for (String f : food) {
             newFood = new Food(f);
-            fs.addFoodItem(newFood);
+            fs.addFoodItem(newFood, c);
         }
 
         for (String d : drinks) {
             newDrink = new Drink(d);
-            fs.addFoodItem(newDrink);
+            fs.addFoodItem(newDrink, c);
         }
     }
 }

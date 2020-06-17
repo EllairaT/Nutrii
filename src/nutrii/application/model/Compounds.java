@@ -113,11 +113,7 @@ public abstract class Compounds {
 
     @Override
     public String toString() {
-        System.out.println(compoundName);
-        compoundHashMap.forEach((key, value) -> {
-            System.out.println(key + " : " + value);
-        });
-        return "";
+      return keyname + ": " + value;
     }
 
     public float getValue() {

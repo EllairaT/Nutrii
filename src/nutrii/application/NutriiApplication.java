@@ -6,6 +6,7 @@ import nutrii.application.gui.NutriiGUI;
 import nutrii.application.model.Nutrii;
 import nutrii.application.gui.NutriiLoginGUI;
 import nutrii.application.other.DBInit;
+import nutrii.application.splash.Splash;
 
 /**
  * the entry point of the application
@@ -29,6 +30,8 @@ public class NutriiApplication {
         
         uController = new UserController(view, logIn, nutrii);
         fController = new FoodItemController(nutrii, view);
+        
+        Splash splash = new Splash();
         
         logIn.setVisible(true);
 

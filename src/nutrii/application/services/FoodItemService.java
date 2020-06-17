@@ -1,13 +1,11 @@
 package nutrii.application.services;
 
-import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 import nutrii.application.model.Compounds;
 import nutrii.application.model.FoodItem;
 import nutrii.application.model.FoodItemIdentity;
-import nutrii.application.model.User;
 import nutrii.application.other.HibernateUtil;
-import org.apache.derby.vti.Restriction;
 import org.hibernate.Criteria;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
@@ -21,7 +19,7 @@ import org.hibernate.criterion.Restrictions;
 public class FoodItemService {
 
     //need to grab all the compounds to be able to 
-    public boolean addFoodItem(FoodItem f) {
+    public boolean addFoodItem(FoodItem f, ArrayList<Compounds> cmp) {
         Session session = HibernateUtil.getSessionFactory().openSession();
         Transaction tx = null;
         boolean isSuccessful = false;
@@ -34,9 +32,17 @@ public class FoodItemService {
             //for future updating.
             List<Compounds> c = cs.getAllRows(Compounds.class);
 
-            for (Compounds cmp : c) {
-                FoodItemIdentity fid = new FoodItemIdentity(f.getId(), cmp.getId());
-                session.save(fid);
+            FoodItemIdentity fid = null;
+            if (cmp.isEmpty()) {
+                for (Compounds i : c) {
+                    fid = new FoodItemIdentity(f.getId(), i.getId(), 0);
+                    session.save(fid);
+                }
+            } else {
+                for (Compounds i : cmp) {
+                    fid = new FoodItemIdentity(f.getId(), i.getId(), i.getValue());
+                    session.save(fid);
+                }
             }
 
             session.flush();
@@ -120,7 +126,7 @@ public class FoodItemService {
         }
         return isSuccessful;
     }
-    
+
     public List<FoodItem> browseAll() {
         Session session = HibernateUtil.getSessionFactory().openSession();
 
@@ -134,7 +140,7 @@ public class FoodItemService {
         Session session = HibernateUtil.getSessionFactory().openSession();
 
         Criteria crit = session.createCriteria(FoodItem.class);
-            crit.add(Restrictions.ilike("foodName", "%" + fname + "%"));
+        crit.add(Restrictions.ilike("foodName", "%" + fname + "%"));
         List<FoodItem> results = crit.list();
         session.close();
         return results;

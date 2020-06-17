@@ -10,6 +10,7 @@ public class CreateAccountFrame extends javax.swing.JFrame {
      * Creates new form CreateAccountFrame
      */
     private CreateAccountPnl createAccountPnl;
+    
     public CreateAccountFrame() {
         initComponents();
         createAccountPnl = new CreateAccountPnl();
@@ -17,6 +18,11 @@ public class CreateAccountFrame extends javax.swing.JFrame {
         createAccountPnl.setVisible(true);
     }
 
+    public CreateAccountPnl getCreateAccountPnl() {
+        return createAccountPnl;
+    }
+
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -26,9 +32,11 @@ public class CreateAccountFrame extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Nutrii Account Creation");
+        setMaximumSize(new java.awt.Dimension(800, 900));
         setPreferredSize(new java.awt.Dimension(800, 900));
+        setResizable(false);
         getContentPane().setLayout(new javax.swing.BoxLayout(getContentPane(), javax.swing.BoxLayout.LINE_AXIS));
 
         pack();

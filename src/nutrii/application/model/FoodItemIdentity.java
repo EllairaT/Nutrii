@@ -26,9 +26,10 @@ public class FoodItemIdentity implements Serializable {
     public FoodItemIdentity() {
     }
 
-    public FoodItemIdentity(int fi, int ci) {
+    public FoodItemIdentity(int fi, int ci, float val) {
         this.foodItemId = fi;
         this.compoundID = ci;
+        this.value = val;
         this.id = fi + "_" + ci;
     }
 
