@@ -16,11 +16,8 @@ import nutrii.application.splash.Splash;
 public class NutriiApplication {
 
     public static Nutrii nutrii;
-    private static DBInit db;
     private static NutriiLoginGUI logIn;
     private static NutriiGUI view;
-    private static UserController uController;
-    private static FoodItemController fController;
     
     public static void main(String[] args) {
         initialize();
@@ -28,10 +25,10 @@ public class NutriiApplication {
         view = new NutriiGUI();
         logIn = new NutriiLoginGUI();
         
-        uController = new UserController(view, logIn, nutrii);
-        fController = new FoodItemController(nutrii, view);
+        UserController uController = new UserController(view, logIn, nutrii);
+        FoodItemController fController = new FoodItemController(nutrii, view);
         
-        Splash splash = new Splash();
+        //Splash splash = new Splash();
         
         logIn.setVisible(true);
 
@@ -41,7 +38,7 @@ public class NutriiApplication {
 
     public static void initialize() {
         try {
-            db = new DBInit();
+            DBInit db = new DBInit();
             System.out.println("initialised");
         } catch (Exception e) {
             e.printStackTrace();

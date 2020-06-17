@@ -1,7 +1,10 @@
 package nutrii.application.splash;
 
 /**
+ * Show splash image and loading bar when program starts up
  *
+ * something to make the program look at least a little more professional :)
+ * Splash image and all backgrounds are made by me.
  * @author Ellaira
  */
 public class Splash {

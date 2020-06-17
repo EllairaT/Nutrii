@@ -1,26 +1,31 @@
 package nutrii.application.gui;
 
+import javax.swing.JFrame;
+import javax.swing.SwingUtilities;
 import nutrii.application.other.HibernateUtil;
 import org.hibernate.Hibernate;
 
 /**
  * Creates new form NutriiGUI
+ *
  * @author Ellaira
  */
 public class NutriiGUI extends javax.swing.JFrame {
-    
+
     private MenuPanel menu;
     private MngRecordAddPnl addPanel;
     private MngRecordRemovePnl removePanel;
-    
+    private int xMouse;
+    private int yMouse;
+
     public NutriiGUI() {
         initComponents();
         menu = new MenuPanel();
         addPanel = new MngRecordAddPnl();
         removePanel = new MngRecordRemovePnl();
-        
+
         this.add(menu);
-        menu.setVisible(true); 
+        menu.setVisible(true);
     }
 
     public MngRecordAddPnl getAddPanel() {
@@ -31,9 +36,10 @@ public class NutriiGUI extends javax.swing.JFrame {
         return removePanel;
     }
 
-    public MenuPanel getMenuPanel(){
+    public MenuPanel getMenuPanel() {
         return menu;
     }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -42,6 +48,10 @@ public class NutriiGUI extends javax.swing.JFrame {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
+
+        jLabel1 = new javax.swing.JLabel();
+
+        jLabel1.setText("jLabel1");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(640, 620));
@@ -55,5 +65,6 @@ public class NutriiGUI extends javax.swing.JFrame {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables
 }

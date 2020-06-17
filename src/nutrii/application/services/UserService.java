@@ -147,7 +147,7 @@ public class UserService {
         List<User> results = null;
         try {
             Criteria crit = session.createCriteria(User.class);
-            crit.add(Restrictions.eq("name", uname));
+            crit.add(Restrictions.ilike("name", "%"+uname+"%"));
 
             results = crit.list();
         } catch (Exception e) {
@@ -155,6 +155,25 @@ public class UserService {
         }
         session.close();
         return results;
+    }
+
+    public boolean doesUserExist(String uname) {
+        Session session = HibernateUtil.getSessionFactory().openSession();
+        User result = null;
+        boolean userExists = false;
+        try {
+            Criteria crit = session.createCriteria(User.class);
+            crit.add(Restrictions.eq("name", uname));
+
+            result = (User) crit.uniqueResult();
+            if(result != null){
+                userExists = true;
+            }
+        } catch (Exception e) {
+            throw e;
+        }
+        session.close();
+        return userExists;
     }
 
     public List<User> searchByLifeStyle(String lifestyle) {

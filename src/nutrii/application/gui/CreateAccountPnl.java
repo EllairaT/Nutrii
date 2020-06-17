@@ -10,6 +10,7 @@ import java.util.ArrayList;
 import javax.swing.AbstractButton;
 import javax.swing.ButtonGroup;
 import javax.swing.JFrame;
+import javax.swing.JPasswordField;
 import javax.swing.JRadioButton;
 import javax.swing.JTextField;
 import javax.swing.SwingUtilities;
@@ -24,12 +25,10 @@ public class CreateAccountPnl extends javax.swing.JPanel {
      * Creates new form CreateAccountPnl
      */
     ArrayList<JTextField> textFields;
-    
+
     public CreateAccountPnl() {
-        textFields = new ArrayList<>();
-        initComponents(); 
+        initComponents();
     }
-    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -53,13 +52,10 @@ public class CreateAccountPnl extends javax.swing.JPanel {
         jRadioButton4 = new javax.swing.JRadioButton();
         jRadioButton5 = new javax.swing.JRadioButton();
         usernameField = new javax.swing.JTextField();
-        textFields.add(usernameField);
         jLabel1 = new javax.swing.JLabel();
-        jPasswordField1 = new javax.swing.JPasswordField();
-        textFields.add(jPasswordField1);
+        passwordField = new javax.swing.JPasswordField();
         jLabel3 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        textFields.add(jTextField1);
+        dateField = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jRadioButton6 = new javax.swing.JRadioButton();
@@ -67,8 +63,11 @@ public class CreateAccountPnl extends javax.swing.JPanel {
         jLabel6 = new javax.swing.JLabel();
         createBtn = new javax.swing.JButton();
         jLabel7 = new javax.swing.JLabel();
-        jPasswordField2 = new javax.swing.JPasswordField();
-        textFields.add(jPasswordField2);
+        confirmField = new javax.swing.JPasswordField();
+        jLabel8 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
+        heightField = new javax.swing.JTextField();
+        weightField = new javax.swing.JTextField();
 
         setBackground(new java.awt.Color(0, 0, 0));
         setMaximumSize(new java.awt.Dimension(800, 900));
@@ -112,6 +111,7 @@ public class CreateAccountPnl extends javax.swing.JPanel {
         lifestyleGroup.add(jRadioButton1);
         jRadioButton1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jRadioButton1.setForeground(new java.awt.Color(255, 255, 255));
+        jRadioButton1.setSelected(true);
         jRadioButton1.setText("Very little. I sit around a lot");
         jRadioButton1.setToolTipText("");
         jRadioButton1.setActionCommand("sedentary");
@@ -161,14 +161,16 @@ public class CreateAccountPnl extends javax.swing.JPanel {
         jPanel1.add(jRadioButton5);
 
         container.add(jPanel1);
-        jPanel1.setBounds(20, 300, 750, 430);
+        jPanel1.setBounds(20, 300, 820, 430);
 
         usernameField.setBackground(new java.awt.Color(10, 36, 2));
         usernameField.setForeground(new java.awt.Color(255, 255, 255));
         usernameField.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         usernameField.setText("username");
+        usernameField.setActionCommand("<Not Set>");
         usernameField.setBorder(null);
         usernameField.setCaretColor(new java.awt.Color(255, 255, 255));
+        usernameField.setName("uname"); // NOI18N
         container.add(usernameField);
         usernameField.setBounds(431, 47, 121, 30);
 
@@ -177,38 +179,39 @@ public class CreateAccountPnl extends javax.swing.JPanel {
         container.add(jLabel1);
         jLabel1.setBounds(310, 102, 115, 33);
 
-        jPasswordField1.setBackground(new java.awt.Color(10, 36, 2));
-        jPasswordField1.setForeground(new java.awt.Color(255, 255, 255));
-        jPasswordField1.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        jPasswordField1.setText("password");
-        jPasswordField1.setBorder(null);
-        jPasswordField1.setCaretColor(new java.awt.Color(255, 255, 255));
-        jPasswordField1.addActionListener(new java.awt.event.ActionListener() {
+        passwordField.setBackground(new java.awt.Color(10, 36, 2));
+        passwordField.setForeground(new java.awt.Color(255, 255, 255));
+        passwordField.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        passwordField.setText("password");
+        passwordField.setBorder(null);
+        passwordField.setCaretColor(new java.awt.Color(255, 255, 255));
+        passwordField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jPasswordField1ActionPerformed(evt);
+                passwordFieldActionPerformed(evt);
             }
         });
-        container.add(jPasswordField1);
-        jPasswordField1.setBounds(431, 102, 121, 33);
+        container.add(passwordField);
+        passwordField.setBounds(431, 102, 121, 33);
 
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("Date of Birth");
         container.add(jLabel3);
         jLabel3.setBounds(310, 210, 120, 16);
 
-        jTextField1.setBackground(new java.awt.Color(10, 36, 2));
-        jTextField1.setForeground(new java.awt.Color(255, 255, 255));
-        jTextField1.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        jTextField1.setText("DD/MM/YYYY");
-        jTextField1.setBorder(null);
-        jTextField1.setCaretColor(new java.awt.Color(255, 255, 255));
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+        dateField.setBackground(new java.awt.Color(10, 36, 2));
+        dateField.setForeground(new java.awt.Color(255, 255, 255));
+        dateField.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        dateField.setText("YYYY-MM-DD");
+        dateField.setBorder(null);
+        dateField.setCaretColor(new java.awt.Color(255, 255, 255));
+        dateField.setName(""); // NOI18N
+        dateField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
+                dateFieldActionPerformed(evt);
             }
         });
-        container.add(jTextField1);
-        jTextField1.setBounds(430, 200, 121, 37);
+        container.add(dateField);
+        dateField.setBounds(430, 200, 121, 37);
 
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/nutrii/application/gui/images/defaultUser.jpg"))); // NOI18N
         container.add(jLabel4);
@@ -223,12 +226,13 @@ public class CreateAccountPnl extends javax.swing.JPanel {
         genderGroup.add(jRadioButton6);
         jRadioButton6.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jRadioButton6.setForeground(new java.awt.Color(255, 255, 255));
+        jRadioButton6.setSelected(true);
         jRadioButton6.setText("Male");
         jRadioButton6.setActionCommand("male");
         jRadioButton6.setBorder(null);
         jRadioButton6.setContentAreaFilled(false);
         container.add(jRadioButton6);
-        jRadioButton6.setBounds(590, 90, 49, 20);
+        jRadioButton6.setBounds(600, 90, 49, 20);
 
         genderGroup.add(jRadioButton7);
         jRadioButton7.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
@@ -238,13 +242,13 @@ public class CreateAccountPnl extends javax.swing.JPanel {
         jRadioButton7.setBorder(null);
         jRadioButton7.setContentAreaFilled(false);
         container.add(jRadioButton7);
-        jRadioButton7.setBounds(590, 130, 98, 20);
+        jRadioButton7.setBounds(600, 130, 98, 20);
 
         jLabel6.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setText("Gender:");
         container.add(jLabel6);
-        jLabel6.setBounds(590, 50, 80, 30);
+        jLabel6.setBounds(600, 50, 80, 30);
 
         createBtn.setBackground(new java.awt.Color(10, 36, 2));
         createBtn.setForeground(new java.awt.Color(255, 255, 255));
@@ -258,63 +262,118 @@ public class CreateAccountPnl extends javax.swing.JPanel {
         container.add(jLabel7);
         jLabel7.setBounds(310, 150, 115, 33);
 
-        jPasswordField2.setBackground(new java.awt.Color(10, 36, 2));
-        jPasswordField2.setForeground(new java.awt.Color(255, 255, 255));
-        jPasswordField2.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        jPasswordField2.setText("password");
-        jPasswordField2.setBorder(null);
-        jPasswordField2.setCaretColor(new java.awt.Color(255, 255, 255));
-        jPasswordField2.addActionListener(new java.awt.event.ActionListener() {
+        confirmField.setBackground(new java.awt.Color(10, 36, 2));
+        confirmField.setForeground(new java.awt.Color(255, 255, 255));
+        confirmField.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        confirmField.setText("password");
+        confirmField.setBorder(null);
+        confirmField.setCaretColor(new java.awt.Color(255, 255, 255));
+        confirmField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jPasswordField2ActionPerformed(evt);
+                confirmFieldActionPerformed(evt);
             }
         });
-        container.add(jPasswordField2);
-        jPasswordField2.setBounds(430, 150, 121, 33);
+        container.add(confirmField);
+        confirmField.setBounds(430, 150, 121, 33);
+
+        jLabel8.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel8.setText("Height (cm)");
+        container.add(jLabel8);
+        jLabel8.setBounds(580, 170, 80, 30);
+
+        jLabel9.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel9.setText("Weight (kg)");
+        container.add(jLabel9);
+        jLabel9.setBounds(580, 210, 70, 30);
+
+        heightField.setBackground(new java.awt.Color(10, 36, 2));
+        heightField.setForeground(new java.awt.Color(255, 255, 255));
+        heightField.setText("0");
+        heightField.setBorder(null);
+        heightField.setCaretColor(new java.awt.Color(255, 255, 255));
+        container.add(heightField);
+        heightField.setBounds(660, 170, 60, 30);
+
+        weightField.setBackground(new java.awt.Color(10, 36, 2));
+        weightField.setForeground(new java.awt.Color(255, 255, 255));
+        weightField.setText("0");
+        weightField.setBorder(null);
+        weightField.setCaretColor(new java.awt.Color(255, 255, 255));
+        weightField.setPreferredSize(new java.awt.Dimension(77, 16));
+        container.add(weightField);
+        weightField.setBounds(660, 210, 60, 30);
 
         add(container);
         container.setBounds(0, 50, 910, 850);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jPasswordField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jPasswordField1ActionPerformed
+    private void passwordFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_passwordFieldActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jPasswordField1ActionPerformed
+    }//GEN-LAST:event_passwordFieldActionPerformed
 
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+    private void dateFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dateFieldActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1ActionPerformed
+    }//GEN-LAST:event_dateFieldActionPerformed
 
-    private void jPasswordField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jPasswordField2ActionPerformed
-       
-    }//GEN-LAST:event_jPasswordField2ActionPerformed
+    private void confirmFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_confirmFieldActionPerformed
+
+    }//GEN-LAST:event_confirmFieldActionPerformed
 
     private void backMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_backMousePressed
         JFrame parentFrame = (JFrame) SwingUtilities.getWindowAncestor(this);
         parentFrame.dispose();
     }//GEN-LAST:event_backMousePressed
 
-    public void addCreateBtnListener(ActionListener e){
+    public void addCreateBtnListener(ActionListener e) {
         createBtn.addActionListener(e);
     }
+
+    public JPasswordField[] getpasswordField() {
+        JPasswordField[] fields = new JPasswordField[]{passwordField, confirmField};
+        return fields;
+    }
+
+    public JTextField getUserField() {
+        return usernameField;
+    }
+
+    public JTextField getDateField() {
+        return dateField;
+    }
+
+    public String getGenderSelection() {
+        return genderGroup.getSelection().getActionCommand();
+    }
+
+    public String getLifestyleSelection() {
+        return lifestyleGroup.getSelection().getActionCommand();
+    }
+
+    public String getHeightField() {
+        return heightField.getText();
+    }
+
+    public String getWeightField() {
+        return weightField.getText();
+    }
     
-    public ArrayList<JTextField> getTextFields(){
-        return textFields;
-    }
-
-    public ButtonGroup getGenderGroup() {
-        return genderGroup;
-    }
-
-    public ButtonGroup getLifestyleGroup() {
-        return lifestyleGroup;
+    public boolean nullCheck(String s){
+        if(s != null){
+            return true;
+        } else {            
+            return false;
+        }
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel CreateAccountTitleLbl;
     private javax.swing.JLabel back;
+    private javax.swing.JPasswordField confirmField;
     private javax.swing.JPanel container;
     private javax.swing.JButton createBtn;
+    private javax.swing.JTextField dateField;
     private javax.swing.ButtonGroup genderGroup;
+    private javax.swing.JTextField heightField;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -322,9 +381,9 @@ public class CreateAccountPnl extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPasswordField jPasswordField1;
-    private javax.swing.JPasswordField jPasswordField2;
     private javax.swing.JRadioButton jRadioButton1;
     private javax.swing.JRadioButton jRadioButton2;
     private javax.swing.JRadioButton jRadioButton3;
@@ -332,8 +391,9 @@ public class CreateAccountPnl extends javax.swing.JPanel {
     private javax.swing.JRadioButton jRadioButton5;
     private javax.swing.JRadioButton jRadioButton6;
     private javax.swing.JRadioButton jRadioButton7;
-    private javax.swing.JTextField jTextField1;
     private javax.swing.ButtonGroup lifestyleGroup;
+    private javax.swing.JPasswordField passwordField;
     private javax.swing.JTextField usernameField;
+    private javax.swing.JTextField weightField;
     // End of variables declaration//GEN-END:variables
 }

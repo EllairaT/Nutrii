@@ -5,6 +5,9 @@
  */
 package nutrii.application.gui;
 
+import java.awt.event.ActionListener;
+import javax.swing.JComboBox;
+
 /**
  *
  * @author Blakey
@@ -36,81 +39,106 @@ public MngRecordRemovePnl() {
         SelectItemComboBox = new javax.swing.JComboBox<>();
         RemoveItemBtn = new javax.swing.JButton();
 
+        RemoveItemFromRecordTitleLbl.setBackground(new java.awt.Color(0, 0, 0));
         RemoveItemFromRecordTitleLbl.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         RemoveItemFromRecordTitleLbl.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         RemoveItemFromRecordTitleLbl.setText("Remove Item From Record");
+        RemoveItemFromRecordTitleLbl.setOpaque(true);
 
-        MRRP.setBackground(new java.awt.Color(102, 102, 102));
+        MRRP.setBackground(new java.awt.Color(15, 93, 70));
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel2.setText("Select Record to Remove From");
 
-        SelectRecordComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        SelectRecordComboBox.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        SelectRecordComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select Type ", "Food", "Drink" }));
+        SelectRecordComboBox.setBorder(null);
+        SelectRecordComboBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                SelectRecordComboBoxActionPerformed(evt);
+            }
+        });
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel3.setText("Select Item From Record");
 
-        SelectItemComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        SelectItemComboBox.setMaximumRowCount(50);
+        SelectItemComboBox.setBorder(null);
 
+        RemoveItemBtn.setBackground(new java.awt.Color(10, 36, 2));
+        RemoveItemBtn.setForeground(new java.awt.Color(255, 255, 255));
         RemoveItemBtn.setText("Remove Item");
+        RemoveItemBtn.setBorder(null);
+        RemoveItemBtn.setBorderPainted(false);
+        RemoveItemBtn.setFocusPainted(false);
 
         javax.swing.GroupLayout MRRPLayout = new javax.swing.GroupLayout(MRRP);
         MRRP.setLayout(MRRPLayout);
         MRRPLayout.setHorizontalGroup(
             MRRPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(MRRPLayout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(147, 147, 147)
+                .addComponent(SelectRecordComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 319, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(MRRPLayout.createSequentialGroup()
                 .addGroup(MRRPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(MRRPLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(MRRPLayout.createSequentialGroup()
                         .addGroup(MRRPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(RemoveItemBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(SelectRecordComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(SelectItemComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                            .addGroup(MRRPLayout.createSequentialGroup()
+                                .addGap(147, 147, 147)
+                                .addComponent(SelectItemComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 319, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(MRRPLayout.createSequentialGroup()
+                                .addGap(212, 212, 212)
+                                .addComponent(RemoveItemBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(0, 164, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         MRRPLayout.setVerticalGroup(
             MRRPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(MRRPLayout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(51, 51, 51)
                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(SelectRecordComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addGap(26, 26, 26)
+                .addComponent(SelectRecordComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(89, 89, 89)
                 .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(SelectItemComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(RemoveItemBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(404, Short.MAX_VALUE))
+                .addComponent(SelectItemComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(83, 83, 83)
+                .addComponent(RemoveItemBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(138, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(RemoveItemFromRecordTitleLbl, javax.swing.GroupLayout.DEFAULT_SIZE, 620, Short.MAX_VALUE)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(MRRP, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+            .addComponent(RemoveItemFromRecordTitleLbl, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(MRRP, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, 0))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addComponent(RemoveItemFromRecordTitleLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(RemoveItemFromRecordTitleLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, 0)
                 .addComponent(MRRP, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+                .addGap(0, 0, 0))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 620, Short.MAX_VALUE)
+            .addGap(0, 648, Short.MAX_VALUE)
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addGap(0, 0, Short.MAX_VALUE)
@@ -119,7 +147,7 @@ public MngRecordRemovePnl() {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 640, Short.MAX_VALUE)
+            .addGap(0, 677, Short.MAX_VALUE)
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addGap(0, 0, Short.MAX_VALUE)
@@ -127,6 +155,10 @@ public MngRecordRemovePnl() {
                     .addGap(0, 0, Short.MAX_VALUE)))
         );
     }// </editor-fold>//GEN-END:initComponents
+
+    private void SelectRecordComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SelectRecordComboBoxActionPerformed
+//            SelectItemComboBox.addActionListener(a);
+    }//GEN-LAST:event_SelectRecordComboBoxActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -139,4 +171,16 @@ public MngRecordRemovePnl() {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
+
+    public JComboBox<String> getSelectItemComboBox() {
+        return SelectItemComboBox;
+    }
+
+    public JComboBox<String> getSelectRecordComboBox() {
+        return SelectRecordComboBox;
+    }
+    
+    public void addRecordListener(ActionListener a){
+        SelectRecordComboBox.addActionListener(a);
+    }
 }

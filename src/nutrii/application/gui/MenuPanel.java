@@ -41,7 +41,6 @@ public class MenuPanel extends javax.swing.JPanel {
         userOptions.setVisible(false);
         accountBtn = new javax.swing.JButton();
         usersBtn = new javax.swing.JButton();
-        abtBtn = new javax.swing.JButton();
         logOutBtn = new javax.swing.JButton();
         header = new javax.swing.JPanel();
         userMenu = new javax.swing.JLabel();
@@ -88,7 +87,7 @@ public class MenuPanel extends javax.swing.JPanel {
         userOptions.setEnabled(false);
         userOptions.setFocusable(false);
         userOptions.setOpaque(false);
-        userOptions.setLayout(new java.awt.GridLayout(4, 0));
+        userOptions.setLayout(new java.awt.GridLayout(3, 0));
 
         accountBtn.setBackground(new java.awt.Color(10, 36, 2));
         accountBtn.setForeground(new java.awt.Color(255, 255, 255));
@@ -97,11 +96,6 @@ public class MenuPanel extends javax.swing.JPanel {
         accountBtn.setContentAreaFilled(false);
         accountBtn.setFocusPainted(false);
         accountBtn.setOpaque(true);
-        accountBtn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                accountBtnActionPerformed(evt);
-            }
-        });
         userOptions.add(accountBtn);
 
         usersBtn.setBackground(new java.awt.Color(10, 36, 2));
@@ -112,15 +106,6 @@ public class MenuPanel extends javax.swing.JPanel {
         usersBtn.setFocusPainted(false);
         usersBtn.setOpaque(true);
         userOptions.add(usersBtn);
-
-        abtBtn.setBackground(new java.awt.Color(10, 36, 2));
-        abtBtn.setForeground(new java.awt.Color(255, 255, 255));
-        abtBtn.setText("ABOUT");
-        abtBtn.setBorderPainted(false);
-        abtBtn.setContentAreaFilled(false);
-        abtBtn.setFocusPainted(false);
-        abtBtn.setOpaque(true);
-        userOptions.add(abtBtn);
 
         logOutBtn.setBackground(new java.awt.Color(10, 36, 2));
         logOutBtn.setForeground(new java.awt.Color(255, 255, 255));
@@ -138,6 +123,7 @@ public class MenuPanel extends javax.swing.JPanel {
         header.setPreferredSize(new java.awt.Dimension(120, 50));
 
         userMenu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/nutrii/application/gui/images/user.png"))); // NOI18N
+        userMenu.setToolTipText("User Settings");
         userMenu.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 userMenuMouseClicked(evt);
@@ -396,13 +382,13 @@ public class MenuPanel extends javax.swing.JPanel {
 
     }//GEN-LAST:event_userMenuMousePressed
 
-    public void adduserLabelListener(ActionListener a, String text){
+    public void adduserLabelListener(ActionListener a, String text) {
         userNameLbl.setText(text);
     }
-    private void accountBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_accountBtnActionPerformed
-        // TODO add your handling code here:
 
-    }//GEN-LAST:event_accountBtnActionPerformed
+    public void viewAccntListener(ActionListener a) {
+        accountBtn.addActionListener(a);
+    }
 
     //toggle user menu visibility
     private void userMenuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_userMenuMouseClicked
@@ -416,9 +402,13 @@ public class MenuPanel extends javax.swing.JPanel {
     public void addLogOutListener(ActionListener a) {
         logOutBtn.addActionListener(a);
     }
-    
-    public void addFoodItemListener(ActionListener a){
+
+    public void addFoodItemListener(ActionListener a) {
         addFoodItemBtn.addActionListener(a);
+    }
+
+    public void removeFoodItemListener(ActionListener a) {
+        removeFoodItemBtn.addActionListener(a);
     }
 
     private void showUserMenu() {
@@ -428,14 +418,13 @@ public class MenuPanel extends javax.swing.JPanel {
     private void hideUserMenu() {
         userOptions.setVisible(false);
     }
-    
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel AddConsumedPanel;
     private javax.swing.JPanel ManageDietPanel;
     private javax.swing.JPanel ManageItemsPanel;
     private javax.swing.JPanel UseFoodCalculatorPanel;
-    private javax.swing.JButton abtBtn;
     private javax.swing.JButton accountBtn;
     private javax.swing.JButton addFoodItemBtn;
     private javax.swing.JLabel closeBtn;
