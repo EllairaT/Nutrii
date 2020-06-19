@@ -5,6 +5,10 @@ import nutrii.application.ItemActions;
 
 
 /**
+ * This class generates a single FoodItem table, with the classtype (Food/Drink)
+ * being a column within a table. This is so we can make full use of polymorphic query performance
+ * So we would only need to query on one entity, rather than two different entities. 
+ * 
  * This class is the superclass for both types of items: food and drink
  * @author Blake & Ellaira
  */
@@ -62,10 +66,7 @@ public class FoodItem implements Comparable<FoodItem>, ItemActions{
     public void setIsEaten(boolean isEaten) {
         this.isEaten = isEaten;
     }
-    
-    //this is not being used for the CLI
-    //for the next phase of the program, this will be used to remove items from the meal list 
-    //in case the user makes a mistake in entering a food item.
+
     @Override
     public boolean isConsumed(boolean b){ 
       isEaten = b; //fooditem is assumed to be consumed by default
@@ -143,7 +144,7 @@ public class FoodItem implements Comparable<FoodItem>, ItemActions{
     
     @Override
     public String toString(){
-        return this.className + ": " + this.foodName;
+        return this.foodName;
     }
     
     public void printNutritionInfo(){

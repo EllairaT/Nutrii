@@ -2,6 +2,7 @@ package nutrii.application.services;
 
 import java.util.List;
 import nutrii.application.model.Compounds;
+import nutrii.application.model.Vitamins;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -44,9 +45,7 @@ public class CompoundServiceTest {
         CompoundService instance = new CompoundService();
         List<Compounds> expResult = null;
         List<Compounds> result = instance.getAllRows(compound);
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        assertNull(result);
     }
 
     /**
@@ -58,8 +57,6 @@ public class CompoundServiceTest {
         int cid = 0;
         CompoundService instance = new CompoundService();
         instance.getbyid(cid);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -73,8 +70,6 @@ public class CompoundServiceTest {
         Compounds expResult = null;
         Compounds result = instance.getByString(s);
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -83,13 +78,11 @@ public class CompoundServiceTest {
     @Test
     public void testAddCompound() {
         System.out.println("addCompound");
-        Compounds c = null;
+        Compounds c = new Vitamins();
         String k = "";
         float v = 0.0F;
         CompoundService instance = new CompoundService();
         instance.addCompound(c, k, v);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
-    
+
 }

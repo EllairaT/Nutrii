@@ -288,6 +288,7 @@ public class CreateAccountPnl extends javax.swing.JPanel {
 
         heightField.setBackground(new java.awt.Color(10, 36, 2));
         heightField.setForeground(new java.awt.Color(255, 255, 255));
+        heightField.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         heightField.setText("0");
         heightField.setBorder(null);
         heightField.setCaretColor(new java.awt.Color(255, 255, 255));
@@ -296,6 +297,7 @@ public class CreateAccountPnl extends javax.swing.JPanel {
 
         weightField.setBackground(new java.awt.Color(10, 36, 2));
         weightField.setForeground(new java.awt.Color(255, 255, 255));
+        weightField.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         weightField.setText("0");
         weightField.setBorder(null);
         weightField.setCaretColor(new java.awt.Color(255, 255, 255));

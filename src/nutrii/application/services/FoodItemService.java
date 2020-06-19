@@ -13,12 +13,19 @@ import org.hibernate.Transaction;
 import org.hibernate.criterion.Restrictions;
 
 /**
- *
+ * This class contains the methods that 
+ * relate to adding/removing/searching for FoodItms. 
+ * 
  * @author Ellaira
  */
 public class FoodItemService {
 
-    //need to grab all the compounds to be able to 
+    /**
+     * 
+     * @param f FoodItem object (either Food or Drink)
+     * @param cmp
+     * @return 
+     */
     public boolean addFoodItem(FoodItem f, ArrayList<Compounds> cmp) {
         Session session = HibernateUtil.getSessionFactory().openSession();
         Transaction tx = null;
@@ -28,10 +35,11 @@ public class FoodItemService {
         try {
             tx = session.beginTransaction();
             session.save(f);
-            //automatically add records for all of the compounds
-            //for future updating.
+            
             List<Compounds> c = cs.getAllRows(Compounds.class);
 
+            //if an empty arraylist is given, take records from compounds
+            //and use the default values       
             FoodItemIdentity fid = null;
             if (cmp.isEmpty()) {
                 for (Compounds i : c) {
@@ -65,17 +73,15 @@ public class FoodItemService {
         Session session = HibernateUtil.getSessionFactory().openSession();
         Transaction tx = null;
         boolean isSuccessful = false;
-
         try {
             tx = session.beginTransaction();
 
             session.delete(f);
-
-            session.flush();
             tx.commit();
             isSuccessful = true;
+            System.out.println("successfully deleted " + f.getFoodName());
         } catch (HibernateException e) {
-            System.err.println("Error adding food: " + f.getFoodName());
+            System.err.println("Error deleting food: " + f.getFoodName());
             tx.rollback();
             throw e;
         } finally {
@@ -153,5 +159,35 @@ public class FoodItemService {
         List<FoodItem> results = crit.list();
         session.close();
         return results;
+    }
+
+    public FoodItem loadItem(int id) {
+        Session session = HibernateUtil.getSessionFactory().openSession();
+
+        Criteria crit = session.createCriteria(FoodItem.class);
+        crit.add(Restrictions.eq("id", id));
+        
+        FoodItem result = (FoodItem) crit.uniqueResult();
+        session.close();
+        return result;
+    }
+
+    public boolean doesFoodItemExist(String f) {
+        Session session = HibernateUtil.getSessionFactory().openSession();
+        FoodItem result = null;
+        boolean foodExists = false;
+        try {
+            Criteria crit = session.createCriteria(FoodItem.class);
+            crit.add(Restrictions.eq("foodName", f));
+
+            result = (FoodItem) crit.uniqueResult();
+            if (result != null) {
+                foodExists = true;
+            }
+        } catch (Exception e) {
+            throw e;
+        }
+        session.close();
+        return foodExists;
     }
 }

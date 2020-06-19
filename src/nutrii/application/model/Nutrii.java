@@ -1,19 +1,18 @@
 package nutrii.application.model;
 
-import nutrii.application.other.FoodItemDatabase;
-import nutrii.application.model.User;
-import nutrii.application.model.Meal;
 import java.time.LocalDate;
 import java.util.ArrayList;
-import java.util.List;
-import java.util.Scanner;
-import nutrii.application.NutritionTracker;
 import nutrii.application.services.FoodItemService;
 import nutrii.application.services.MealService;
 import nutrii.application.services.UserService;
 
 /**
  * This is the main 'connection point' for the CLI, and the Report classes
+ * 
+ * **UPDATE: this class is still a connection point as this object is used throughout
+ * all the Controllers. But this class no longer uses the services, that job is now
+ * given to the Controllers. 
+ * 
  * @author Blake & Ellaira
  */
 public class Nutrii {
@@ -21,15 +20,8 @@ public class Nutrii {
     private LocalDate today;
     private ArrayList<Meal> meals;
     private User currentUser;
-    private NutritionTracker nt;
-    private UserService us;
-    private FoodItemService fs;
-    private MealService ms;
     
     public Nutrii() {
-        us = new UserService();
-        fs = new FoodItemService();
-        ms = new MealService();
         today = LocalDate.now();
         meals = new ArrayList<>();
     }
@@ -40,7 +32,6 @@ public class Nutrii {
 
     public void setCurrentUser(User u) {
         currentUser = u;
-        nt = new NutritionTracker(u, this);
     }
 
     public User getCurrentUser() {
@@ -51,30 +42,11 @@ public class Nutrii {
         meals.add(m);
     }
 
-    public ArrayList<Meal> getMeals() {
-        if (meals.isEmpty()) {
-            meals = nt.getTodayMeals();
-        }
-        return meals;
-    }
-
-    public void readUserReport() {
-        nt.readReport();
-    }
-
     public LocalDate getToday() {
         return today;
     }
 
-    public void writeToReport(Meal m) {
-        nt.writeReport(m);
-    }
-
     public void printUserInfo() {
         System.out.println(currentUser);
-    }
-
-    public void updateUserDetails(User u) {
-        //update user details here
     }
 }

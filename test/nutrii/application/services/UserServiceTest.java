@@ -1,6 +1,7 @@
 package nutrii.application.services;
 
 import java.util.List;
+import nutrii.application.model.Sedentary;
 import nutrii.application.model.User;
 import org.junit.After;
 import org.junit.AfterClass;
@@ -40,14 +41,11 @@ public class UserServiceTest {
     @Test
     public void testUserLogIn() {
         System.out.println("userLogIn");
-        String uname = "";
-        String pass = "";
+        String uname = "Ellaira";
+        String pass = "password";
         UserService instance = new UserService();
-        User expResult = null;
         User result = instance.userLogIn(uname, pass);
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        assertNotNull(result);
     }
 
     /**
@@ -56,28 +54,11 @@ public class UserServiceTest {
     @Test
     public void testAddUser() {
         System.out.println("addUser");
-        User u = null;
+        User u = new Sedentary();
         UserService instance = new UserService();
-        boolean expResult = false;
+        boolean expResult = true;
         boolean result = instance.addUser(u);
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-
-    /**
-     * Test of loadUser method, of class UserService.
-     */
-    @Test
-    public void testLoadUser() {
-        System.out.println("loadUser");
-        int id = 0;
-        UserService instance = new UserService();
-        User expResult = null;
-        User result = instance.loadUser(id);
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -91,8 +72,7 @@ public class UserServiceTest {
         List<User> expResult = null;
         List<User> result = instance.browseAll(user);
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+  
     }
 
     /**
@@ -101,13 +81,11 @@ public class UserServiceTest {
     @Test
     public void testDeleteUser() {
         System.out.println("deleteUser");
-        User u = null;
+        User u = new Sedentary();
         UserService instance = new UserService();
-        boolean expResult = false;
+        boolean expResult = true;
         boolean result = instance.deleteUser(u);
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -121,8 +99,6 @@ public class UserServiceTest {
         boolean expResult = false;
         boolean result = instance.updateUser(u);
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -131,13 +107,11 @@ public class UserServiceTest {
     @Test
     public void testSearchByName() {
         System.out.println("searchByName");
-        String uname = "";
+        String uname = "Ellaira";
         UserService instance = new UserService();
         List<User> expResult = null;
         List<User> result = instance.searchByName(uname);
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        assertNotNull(result);
     }
 
     /**
@@ -151,23 +125,5 @@ public class UserServiceTest {
         boolean expResult = false;
         boolean result = instance.doesUserExist(uname);
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
-
-    /**
-     * Test of searchByLifeStyle method, of class UserService.
-     */
-    @Test
-    public void testSearchByLifeStyle() {
-        System.out.println("searchByLifeStyle");
-        String lifestyle = "";
-        UserService instance = new UserService();
-        List<User> expResult = null;
-        List<User> result = instance.searchByLifeStyle(lifestyle);
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-    
 }

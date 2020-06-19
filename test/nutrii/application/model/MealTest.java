@@ -2,6 +2,7 @@ package nutrii.application.model;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Arrays;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -44,8 +45,6 @@ public class MealTest {
         ArrayList<FoodItem> expResult = null;
         ArrayList<FoodItem> result = instance.getThisMeal();
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -57,8 +56,6 @@ public class MealTest {
         ArrayList<FoodItem> thisMeal = null;
         Meal instance = new Meal();
         instance.setThisMeal(thisMeal);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -71,8 +68,6 @@ public class MealTest {
         int expResult = 0;
         int result = instance.getMealId();
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -84,8 +79,6 @@ public class MealTest {
         int mealId = 0;
         Meal instance = new Meal();
         instance.setMealId(mealId);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -98,8 +91,6 @@ public class MealTest {
         LocalDate expResult = null;
         LocalDate result = instance.getDate();
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -108,13 +99,13 @@ public class MealTest {
     @Test
     public void testAddToMeal() {
         System.out.println("addToMeal");
-        FoodItem f = null;
-        Meal instance = new Meal();
+        ArrayList<FoodItem> arr = new ArrayList<>();      
+        FoodItem f = new Food("");
+        arr.add(f);
+        Meal instance = new Meal(arr, "");
         boolean expResult = false;
         boolean result = instance.addToMeal(f);
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        assertNotEquals(expResult, result);
     }
 
     /**
@@ -127,8 +118,6 @@ public class MealTest {
         int expResult = 0;
         int result = instance.getUserId();
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -140,8 +129,6 @@ public class MealTest {
         int id = 0;
         Meal instance = new Meal();
         instance.setUser_id(id);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -149,13 +136,12 @@ public class MealTest {
      */
     @Test
     public void testGetName() {
+        ArrayList<FoodItem> arr = new ArrayList<>();      
         System.out.println("getName");
-        Meal instance = new Meal();
+        Meal instance = new Meal(arr, "");      
         String expResult = "";
         String result = instance.getName();
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -167,8 +153,6 @@ public class MealTest {
         String name = "";
         Meal instance = new Meal();
         instance.setName(name);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -176,13 +160,12 @@ public class MealTest {
      */
     @Test
     public void testWriteMeal() {
+        ArrayList<FoodItem> arr = new ArrayList<>();  
         System.out.println("writeMeal");
-        Meal instance = new Meal();
+        Meal instance = new Meal(arr, "");
         String expResult = "";
         String result = instance.writeMeal();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        assertNotEquals(expResult, result);
     }
 
     /**
@@ -190,13 +173,12 @@ public class MealTest {
      */
     @Test
     public void testToString() {
+        ArrayList<FoodItem> arr = new ArrayList<>();  
         System.out.println("toString");
-        Meal instance = new Meal();
-        String expResult = "";
+        Meal instance = new Meal(arr, "name");
+        String expResult = "name";
         String result = instance.toString();
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -210,8 +192,5 @@ public class MealTest {
         boolean expResult = false;
         boolean result = instance.equals(o);
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
-    
 }

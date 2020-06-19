@@ -33,20 +33,6 @@ public class FoodItemTest {
     }
 
     /**
-     * Test of getClassName method, of class FoodItem.
-     */
-    @Test
-    public void testGetClassName() {
-        System.out.println("getClassName");
-        FoodItem instance = new FoodItem();
-        String expResult = "";
-        String result = instance.getClassName();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-
-    /**
      * Test of setClassName method, of class FoodItem.
      */
     @Test
@@ -55,22 +41,6 @@ public class FoodItemTest {
         String className = "";
         FoodItem instance = new FoodItem();
         instance.setClassName(className);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-
-    /**
-     * Test of isIsEaten method, of class FoodItem.
-     */
-    @Test
-    public void testIsIsEaten() {
-        System.out.println("isIsEaten");
-        FoodItem instance = new FoodItem();
-        boolean expResult = false;
-        boolean result = instance.isIsEaten();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -79,11 +49,9 @@ public class FoodItemTest {
     @Test
     public void testSetIsEaten() {
         System.out.println("setIsEaten");
-        boolean isEaten = false;
+        boolean isEaten = true;
         FoodItem instance = new FoodItem();
         instance.setIsEaten(isEaten);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -97,23 +65,6 @@ public class FoodItemTest {
         boolean expResult = false;
         boolean result = instance.isConsumed(b);
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-
-    /**
-     * Test of compareTo method, of class FoodItem.
-     */
-    @Test
-    public void testCompareTo() {
-        System.out.println("compareTo");
-        FoodItem f1 = null;
-        FoodItem instance = new FoodItem();
-        int expResult = 0;
-        int result = instance.compareTo(f1);
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -122,12 +73,10 @@ public class FoodItemTest {
     @Test
     public void testGetFoodName() {
         System.out.println("getFoodName");
-        FoodItem instance = new FoodItem();
+        FoodItem instance = new FoodItem("");
         String expResult = "";
         String result = instance.getFoodName();
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -140,8 +89,6 @@ public class FoodItemTest {
         int expResult = 0;
         int result = instance.getId();
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -153,8 +100,6 @@ public class FoodItemTest {
         int id = 0;
         FoodItem instance = new FoodItem();
         instance.setId(id);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -166,8 +111,6 @@ public class FoodItemTest {
         String foodName = "";
         FoodItem instance = new FoodItem();
         instance.setFoodName(foodName);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -180,8 +123,6 @@ public class FoodItemTest {
         Minerals expResult = null;
         Minerals result = instance.getMinerals();
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -193,8 +134,6 @@ public class FoodItemTest {
         Minerals c = null;
         FoodItem instance = new FoodItem();
         instance.setMinerals(c);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -207,8 +146,6 @@ public class FoodItemTest {
         Nutrients expResult = null;
         Nutrients result = instance.getNutrients();
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -220,8 +157,6 @@ public class FoodItemTest {
         Nutrients c = null;
         FoodItem instance = new FoodItem();
         instance.setNutrients(c);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -234,8 +169,6 @@ public class FoodItemTest {
         Vitamins expResult = null;
         Vitamins result = instance.getVitamins();
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -247,8 +180,6 @@ public class FoodItemTest {
         Vitamins c = null;
         FoodItem instance = new FoodItem();
         instance.setVitamins(c);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -257,12 +188,10 @@ public class FoodItemTest {
     @Test
     public void testToString() {
         System.out.println("toString");
-        FoodItem instance = new FoodItem();
+        FoodItem instance = new FoodItem("");
         String expResult = "";
         String result = instance.toString();
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -273,8 +202,6 @@ public class FoodItemTest {
         System.out.println("printNutritionInfo");
         FoodItem instance = new FoodItem();
         instance.printNutritionInfo();
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -283,13 +210,11 @@ public class FoodItemTest {
     @Test
     public void testEquals() {
         System.out.println("equals");
-        String f = "";
-        FoodItem instance = new FoodItem();
+        String f = "Apple";
+        FoodItem instance = new FoodItem("");
         boolean expResult = false;
         boolean result = instance.equals(f);
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
     
 }

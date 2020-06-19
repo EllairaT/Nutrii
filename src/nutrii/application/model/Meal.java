@@ -109,18 +109,13 @@ public class Meal {
 
     @Override
     public String toString() {
-        String formattedTime = time.getHour() + ":" + time.getMinute();
-        System.out.println("You had " + name + " on: " + date.toString() + " at: " + formattedTime);
-        for (FoodItem f : this.thisMeal){
-            System.out.println(f);
-        }
-        return "";
+        return name;
     }
 
-    @Override
-    public boolean equals(Object o) {
-        String st = (String) o;
-        st.strip();
-        return name.equals(st);
-    }
+//    @Override
+//    public boolean equals(Object o) {
+//        String st = (String) o;
+//        st.strip();
+//        return name.equals(st);
+//    }
 }

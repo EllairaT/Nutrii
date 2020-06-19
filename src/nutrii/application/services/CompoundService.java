@@ -1,5 +1,6 @@
 package nutrii.application.services;
 
+import java.util.ArrayList;
 import java.util.List;
 import nutrii.application.model.Compounds;
 import nutrii.application.model.Minerals;
@@ -20,17 +21,24 @@ import org.hibernate.criterion.Restrictions;
  * Sessions MUST be opened when a method is invoked and closed AFTER. they're
  * not thread safe so DO NOT FORGET TO CLOSE THE SESSION!
  *
+ *
  * @author Ellaira
  */
 public class CompoundService {
 
     public List<Compounds> getAllRows(Class compound) {
         Session session = HibernateUtil.getSessionFactory().openSession();
+        List<Compounds> results = new ArrayList<>();
 
-        Criteria crit = session.createCriteria(compound);
+        if (compound != null) {
+            Criteria crit = session.createCriteria(compound);
 
-        crit.setResultTransformer(Criteria.DISTINCT_ROOT_ENTITY);
-        List<Compounds> results = crit.list();
+            crit.setResultTransformer(Criteria.DISTINCT_ROOT_ENTITY);
+            results = crit.list();
+        }
+        else {
+            results = null;
+        }
 
         session.close();
         return results;
@@ -60,19 +68,18 @@ public class CompoundService {
     public Compounds getByString(String s) {
         Session session = HibernateUtil.getSessionFactory().openSession();
         Compounds result = null;
-        
+
         try {
             session.beginTransaction();
             Criteria criteria = session.createCriteria(Compounds.class);
             criteria.add(Restrictions.eq("keyname", s));
 
-            
             result = (Compounds) criteria.uniqueResult();
-                    
-            if(result == null){
+
+            if (result == null) {
                 System.err.println("no compound matching: " + s);
             } else {
-                   System.out.println(result.toString());
+                System.out.println(result.toString());
             }
         } catch (HibernateException e) {
             session.getTransaction().rollback();
@@ -88,7 +95,7 @@ public class CompoundService {
         try {
 
             tx = session.beginTransaction();
-            
+
             c.setKeyname(k);
             c.setValue(v);
 

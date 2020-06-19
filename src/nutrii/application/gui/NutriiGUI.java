@@ -15,6 +15,9 @@ public class NutriiGUI extends javax.swing.JFrame {
     private MenuPanel menu;
     private MngRecordAddPnl addPanel;
     private MngRecordRemovePnl removePanel;
+    private CreateMeal cm;
+    private ViewMeals vm;
+    
     private int xMouse;
     private int yMouse;
 
@@ -23,9 +26,18 @@ public class NutriiGUI extends javax.swing.JFrame {
         menu = new MenuPanel();
         addPanel = new MngRecordAddPnl();
         removePanel = new MngRecordRemovePnl();
-
+        cm = new CreateMeal();
+        vm = new ViewMeals();
         this.add(menu);
         menu.setVisible(true);
+    }
+
+    public ViewMeals getVm() {
+        return vm;
+    }
+
+    public CreateMeal getCm() {
+        return cm;
     }
 
     public MngRecordAddPnl getAddPanel() {

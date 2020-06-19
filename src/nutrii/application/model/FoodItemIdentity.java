@@ -6,8 +6,18 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 
 /**
+ * This class generates a table that contains:
+ * Food Item ID
+ * Compound ID
+ * Value 
+ * 
+ * this can be considered as a "weak entity" as it relies on
+ * a fooditemID and a compoundId. 
+ * 
+ * This class can be queried to get a compound of a specific food Item
  * @author Ellaira
  */
+
 @Entity
 public class FoodItemIdentity implements Serializable {
 

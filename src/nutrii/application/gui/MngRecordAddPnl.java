@@ -10,9 +10,11 @@ import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.util.ArrayList;
 import java.util.Arrays;
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import javax.swing.KeyStroke;
+import javax.swing.SwingUtilities;
 import javax.swing.UIManager;
 import javax.swing.text.Keymap;
 
@@ -26,6 +28,8 @@ public class MngRecordAddPnl extends javax.swing.JPanel {
      * Creates new form AddConsumedPnl1
      */
     ArrayList<JTextField> textFields;
+    private int xMouse;
+    private int yMouse;
 
     public MngRecordAddPnl() {
         textFields = new ArrayList<>();
@@ -251,6 +255,16 @@ public class MngRecordAddPnl extends javax.swing.JPanel {
         AddItemToRecordTitleLbl.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         AddItemToRecordTitleLbl.setText("Add Item To Record");
         AddItemToRecordTitleLbl.setOpaque(true);
+        AddItemToRecordTitleLbl.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseDragged(java.awt.event.MouseEvent evt) {
+                AddItemToRecordTitleLblMouseDragged(evt);
+            }
+        });
+        AddItemToRecordTitleLbl.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                AddItemToRecordTitleLblMousePressed(evt);
+            }
+        });
 
         MRAP.setBackground(new java.awt.Color(102, 102, 102));
         MRAP.setOpaque(false);
@@ -268,7 +282,7 @@ public class MngRecordAddPnl extends javax.swing.JPanel {
         SelectRecordComboBox.setBorder(null);
         SelectRecordComboBox.setName("type"); // NOI18N
         MRAP.add(SelectRecordComboBox);
-        SelectRecordComboBox.setBounds(6, 36, 175, 22);
+        SelectRecordComboBox.setBounds(6, 36, 175, 20);
 
         CaloriesLbl.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         CaloriesLbl.setForeground(new java.awt.Color(255, 255, 255));
@@ -277,6 +291,7 @@ public class MngRecordAddPnl extends javax.swing.JPanel {
         CaloriesLbl.setBounds(6, 64, 100, 20);
 
         TotalFatTxtField.setForeground(new java.awt.Color(0, 0, 0));
+        TotalFatTxtField.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         TotalFatTxtField.setBorder(null);
         TotalFatTxtField.setName("Total Fat"); // NOI18N
         MRAP.add(TotalFatTxtField);
@@ -289,6 +304,7 @@ public class MngRecordAddPnl extends javax.swing.JPanel {
         ItemNamePnl.setBounds(308, 6, 296, 20);
 
         ItemNameTxtField.setForeground(new java.awt.Color(0, 0, 0));
+        ItemNameTxtField.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         ItemNameTxtField.setBorder(null);
         ItemNameTxtField.setName("foodName"); // NOI18N
         MRAP.add(ItemNameTxtField);
@@ -315,7 +331,7 @@ public class MngRecordAddPnl extends javax.swing.JPanel {
         VitaminALbl.setForeground(new java.awt.Color(255, 255, 255));
         VitaminALbl.setText("Vitamin A");
         MRAP.add(VitaminALbl);
-        VitaminALbl.setBounds(6, 258, 52, 16);
+        VitaminALbl.setBounds(6, 258, 130, 16);
 
         VitaminB2Lbl.setForeground(new java.awt.Color(255, 255, 255));
         VitaminB2Lbl.setText("Vitamin B2 (Riboflavin)");
@@ -457,6 +473,7 @@ public class MngRecordAddPnl extends javax.swing.JPanel {
         ProteinLbl.setBounds(6, 168, 174, 20);
 
         ProteinTxtField.setForeground(new java.awt.Color(0, 0, 0));
+        ProteinTxtField.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         ProteinTxtField.setBorder(null);
         ProteinTxtField.setName("Protein"); // NOI18N
         MRAP.add(ProteinTxtField);
@@ -469,6 +486,7 @@ public class MngRecordAddPnl extends javax.swing.JPanel {
         CholesterolLbl.setBounds(6, 114, 174, 20);
 
         CholesterolTxtField.setForeground(new java.awt.Color(0, 0, 0));
+        CholesterolTxtField.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         CholesterolTxtField.setBorder(null);
         CholesterolTxtField.setName("Cholesterol"); // NOI18N
         MRAP.add(CholesterolTxtField);
@@ -486,6 +504,7 @@ public class MngRecordAddPnl extends javax.swing.JPanel {
         TransFatLbl.setBounds(192, 131, 100, 16);
 
         CaloriesTxtField.setForeground(new java.awt.Color(0, 0, 0));
+        CaloriesTxtField.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         CaloriesTxtField.setBorder(null);
         CaloriesTxtField.setName("Calories"); // NOI18N
         MRAP.add(CaloriesTxtField);
@@ -509,24 +528,28 @@ public class MngRecordAddPnl extends javax.swing.JPanel {
         MonounsaturatedFatLbl.setBounds(192, 187, 114, 16);
 
         SaturatedFatTxtField.setForeground(new java.awt.Color(0, 0, 0));
+        SaturatedFatTxtField.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         SaturatedFatTxtField.setBorder(null);
         SaturatedFatTxtField.setName("Saturated Fat"); // NOI18N
         MRAP.add(SaturatedFatTxtField);
         SaturatedFatTxtField.setBounds(312, 100, 64, 16);
 
         TransFatTxtField.setForeground(new java.awt.Color(0, 0, 0));
+        TransFatTxtField.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         TransFatTxtField.setBorder(null);
         TransFatTxtField.setName("Trans Fat"); // NOI18N
         MRAP.add(TransFatTxtField);
         TransFatTxtField.setBounds(312, 128, 64, 16);
 
         PolyunsaturatedTxtField.setForeground(new java.awt.Color(0, 0, 0));
+        PolyunsaturatedTxtField.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         PolyunsaturatedTxtField.setBorder(null);
         PolyunsaturatedTxtField.setName("Polyunsaturated Fat"); // NOI18N
         MRAP.add(PolyunsaturatedTxtField);
         PolyunsaturatedTxtField.setBounds(312, 156, 64, 16);
 
         MonounsaturatedTxtField.setForeground(new java.awt.Color(0, 0, 0));
+        MonounsaturatedTxtField.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         MonounsaturatedTxtField.setBorder(null);
         MonounsaturatedTxtField.setName("Monounsaturated Fat"); // NOI18N
         MRAP.add(MonounsaturatedTxtField);
@@ -554,18 +577,21 @@ public class MngRecordAddPnl extends javax.swing.JPanel {
         AddedSugarsLbl.setBounds(394, 159, 110, 16);
 
         TotalCarbohydratesTxtField.setForeground(new java.awt.Color(0, 0, 0));
+        TotalCarbohydratesTxtField.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         TotalCarbohydratesTxtField.setBorder(null);
         TotalCarbohydratesTxtField.setName("Total Carbohydrate"); // NOI18N
         MRAP.add(TotalCarbohydratesTxtField);
         TotalCarbohydratesTxtField.setBounds(510, 76, 64, 16);
 
         DietaryFiberTxtField.setForeground(new java.awt.Color(0, 0, 0));
+        DietaryFiberTxtField.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         DietaryFiberTxtField.setBorder(null);
         DietaryFiberTxtField.setName("Dietary Fiber"); // NOI18N
         MRAP.add(DietaryFiberTxtField);
         DietaryFiberTxtField.setBounds(510, 100, 64, 16);
 
         SugarsTxtField.setForeground(new java.awt.Color(0, 0, 0));
+        SugarsTxtField.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         SugarsTxtField.setToolTipText("");
         SugarsTxtField.setBorder(null);
         SugarsTxtField.setName("Sugars"); // NOI18N
@@ -573,6 +599,7 @@ public class MngRecordAddPnl extends javax.swing.JPanel {
         SugarsTxtField.setBounds(510, 128, 64, 16);
 
         AddedSugarsTxtField.setForeground(new java.awt.Color(0, 0, 0));
+        AddedSugarsTxtField.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         AddedSugarsTxtField.setBorder(null);
         AddedSugarsTxtField.setName("Added Sugars"); // NOI18N
         MRAP.add(AddedSugarsTxtField);
@@ -757,174 +784,203 @@ public class MngRecordAddPnl extends javax.swing.JPanel {
         PercntageLbl27.setBounds(570, 588, 20, 16);
 
         VitaminATxtField.setForeground(new java.awt.Color(0, 0, 0));
+        VitaminATxtField.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         VitaminATxtField.setBorder(null);
         VitaminATxtField.setName("Vitamin A"); // NOI18N
         MRAP.add(VitaminATxtField);
         VitaminATxtField.setBounds(200, 258, 64, 16);
 
         VitaminB1TxtField.setForeground(new java.awt.Color(0, 0, 0));
+        VitaminB1TxtField.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         VitaminB1TxtField.setBorder(null);
         VitaminB1TxtField.setName("Vitamin B1 (Thiamine)"); // NOI18N
         MRAP.add(VitaminB1TxtField);
         VitaminB1TxtField.setBounds(200, 280, 64, 16);
 
         VitaminB2TxtField.setForeground(new java.awt.Color(0, 0, 0));
+        VitaminB2TxtField.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         VitaminB2TxtField.setBorder(null);
         VitaminB2TxtField.setName("Vitamin B2 (Riboflavin)"); // NOI18N
         MRAP.add(VitaminB2TxtField);
         VitaminB2TxtField.setBounds(200, 302, 64, 16);
 
         VitaminB3TxtField.setForeground(new java.awt.Color(0, 0, 0));
+        VitaminB3TxtField.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         VitaminB3TxtField.setBorder(null);
         VitaminB3TxtField.setName("Vitamin B3 (Niacin)"); // NOI18N
         MRAP.add(VitaminB3TxtField);
         VitaminB3TxtField.setBounds(200, 324, 64, 16);
 
         VitaminB5TxtField.setForeground(new java.awt.Color(0, 0, 0));
+        VitaminB5TxtField.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         VitaminB5TxtField.setBorder(null);
         VitaminB5TxtField.setName("Vitamin B5 (Pantothenic Acid)"); // NOI18N
         MRAP.add(VitaminB5TxtField);
         VitaminB5TxtField.setBounds(200, 346, 64, 16);
 
         VitaminB6TxtField.setForeground(new java.awt.Color(0, 0, 0));
+        VitaminB6TxtField.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         VitaminB6TxtField.setBorder(null);
         VitaminB6TxtField.setName("Vitamin B6 (Pyridoxine)"); // NOI18N
         MRAP.add(VitaminB6TxtField);
         VitaminB6TxtField.setBounds(200, 368, 64, 16);
 
         VitaminB7TxtField.setForeground(new java.awt.Color(0, 0, 0));
+        VitaminB7TxtField.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         VitaminB7TxtField.setBorder(null);
         VitaminB7TxtField.setName("Vitamin B7 (Biotin)"); // NOI18N
         MRAP.add(VitaminB7TxtField);
         VitaminB7TxtField.setBounds(200, 390, 64, 16);
 
         VitaminB9TxtField.setForeground(new java.awt.Color(0, 0, 0));
+        VitaminB9TxtField.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         VitaminB9TxtField.setBorder(null);
         VitaminB9TxtField.setName("Vitamin B9 (Folate)"); // NOI18N
         MRAP.add(VitaminB9TxtField);
         VitaminB9TxtField.setBounds(200, 412, 64, 16);
 
         VitaminB12TxtField.setForeground(new java.awt.Color(0, 0, 0));
+        VitaminB12TxtField.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         VitaminB12TxtField.setBorder(null);
         VitaminB12TxtField.setName("Vitamin B12 (Cobalamin)"); // NOI18N
         MRAP.add(VitaminB12TxtField);
         VitaminB12TxtField.setBounds(200, 434, 64, 16);
 
         VitaminCTxtField.setForeground(new java.awt.Color(0, 0, 0));
+        VitaminCTxtField.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         VitaminCTxtField.setBorder(null);
         VitaminCTxtField.setName("Vitamin C"); // NOI18N
         MRAP.add(VitaminCTxtField);
         VitaminCTxtField.setBounds(200, 456, 64, 16);
 
         VitaminDTxtField.setForeground(new java.awt.Color(0, 0, 0));
+        VitaminDTxtField.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         VitaminDTxtField.setBorder(null);
         VitaminDTxtField.setName("Vitamin D"); // NOI18N
         MRAP.add(VitaminDTxtField);
         VitaminDTxtField.setBounds(200, 478, 64, 16);
 
         VitaminETxtField.setForeground(new java.awt.Color(0, 0, 0));
+        VitaminETxtField.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         VitaminETxtField.setBorder(null);
         VitaminETxtField.setName("Vitamin E"); // NOI18N
         MRAP.add(VitaminETxtField);
         VitaminETxtField.setBounds(200, 500, 64, 16);
 
         VitaminKTxtField.setForeground(new java.awt.Color(0, 0, 0));
+        VitaminKTxtField.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         VitaminKTxtField.setBorder(null);
         VitaminKTxtField.setName("Vitamin K"); // NOI18N
         MRAP.add(VitaminKTxtField);
         VitaminKTxtField.setBounds(200, 522, 64, 16);
 
         MineralSodiumTxtField.setForeground(new java.awt.Color(0, 0, 0));
+        MineralSodiumTxtField.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         MineralSodiumTxtField.setBorder(null);
         MineralSodiumTxtField.setName("Sodium"); // NOI18N
         MRAP.add(MineralSodiumTxtField);
         MineralSodiumTxtField.setBounds(500, 258, 64, 16);
 
         MineralPotassiumTxtField.setForeground(new java.awt.Color(0, 0, 0));
+        MineralPotassiumTxtField.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         MineralPotassiumTxtField.setBorder(null);
         MineralPotassiumTxtField.setName("Potassium"); // NOI18N
         MRAP.add(MineralPotassiumTxtField);
         MineralPotassiumTxtField.setBounds(500, 280, 64, 16);
 
         MineralCalciumTxtField.setForeground(new java.awt.Color(0, 0, 0));
+        MineralCalciumTxtField.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         MineralCalciumTxtField.setBorder(null);
         MineralCalciumTxtField.setName("Calcium"); // NOI18N
         MRAP.add(MineralCalciumTxtField);
         MineralCalciumTxtField.setBounds(500, 302, 64, 16);
 
         MineralPhosphorusTxtField.setForeground(new java.awt.Color(0, 0, 0));
+        MineralPhosphorusTxtField.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         MineralPhosphorusTxtField.setBorder(null);
         MineralPhosphorusTxtField.setName("Phosphorus"); // NOI18N
         MRAP.add(MineralPhosphorusTxtField);
         MineralPhosphorusTxtField.setBounds(500, 324, 64, 16);
 
         MineralMagnesiumTxtField.setForeground(new java.awt.Color(0, 0, 0));
+        MineralMagnesiumTxtField.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         MineralMagnesiumTxtField.setBorder(null);
         MineralMagnesiumTxtField.setName("Magnesium"); // NOI18N
         MRAP.add(MineralMagnesiumTxtField);
         MineralMagnesiumTxtField.setBounds(500, 346, 64, 16);
 
         MineralSulfurTxtField.setForeground(new java.awt.Color(0, 0, 0));
+        MineralSulfurTxtField.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         MineralSulfurTxtField.setBorder(null);
         MineralSulfurTxtField.setName("Sulfur"); // NOI18N
         MRAP.add(MineralSulfurTxtField);
         MineralSulfurTxtField.setBounds(500, 368, 64, 16);
 
         MineralIronTxtField.setForeground(new java.awt.Color(0, 0, 0));
+        MineralIronTxtField.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         MineralIronTxtField.setBorder(null);
         MineralIronTxtField.setName("Iron"); // NOI18N
         MRAP.add(MineralIronTxtField);
         MineralIronTxtField.setBounds(500, 390, 64, 16);
 
         MineralChromiumTxtField.setForeground(new java.awt.Color(0, 0, 0));
+        MineralChromiumTxtField.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         MineralChromiumTxtField.setBorder(null);
         MineralChromiumTxtField.setName("Chromium"); // NOI18N
         MRAP.add(MineralChromiumTxtField);
         MineralChromiumTxtField.setBounds(500, 412, 64, 16);
 
         MineralCoboltTxtField.setForeground(new java.awt.Color(0, 0, 0));
+        MineralCoboltTxtField.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         MineralCoboltTxtField.setBorder(null);
         MineralCoboltTxtField.setName("Cobolt"); // NOI18N
         MRAP.add(MineralCoboltTxtField);
         MineralCoboltTxtField.setBounds(500, 434, 64, 16);
 
         MineralCopperTxtField.setForeground(new java.awt.Color(0, 0, 0));
+        MineralCopperTxtField.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         MineralCopperTxtField.setBorder(null);
         MineralCopperTxtField.setName("Copper"); // NOI18N
         MRAP.add(MineralCopperTxtField);
         MineralCopperTxtField.setBounds(500, 456, 64, 16);
 
         MineralZincTxtField.setForeground(new java.awt.Color(0, 0, 0));
+        MineralZincTxtField.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         MineralZincTxtField.setBorder(null);
         MineralZincTxtField.setName("Zinc"); // NOI18N
         MRAP.add(MineralZincTxtField);
         MineralZincTxtField.setBounds(500, 478, 64, 16);
 
         MineralManganeseTxtField.setForeground(new java.awt.Color(0, 0, 0));
+        MineralManganeseTxtField.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         MineralManganeseTxtField.setBorder(null);
         MineralManganeseTxtField.setName("Manganese"); // NOI18N
         MRAP.add(MineralManganeseTxtField);
         MineralManganeseTxtField.setBounds(500, 500, 64, 16);
 
         MineralMolybdenumTxtField.setForeground(new java.awt.Color(0, 0, 0));
+        MineralMolybdenumTxtField.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         MineralMolybdenumTxtField.setBorder(null);
         MineralMolybdenumTxtField.setName("Molybdenum"); // NOI18N
         MRAP.add(MineralMolybdenumTxtField);
         MineralMolybdenumTxtField.setBounds(500, 522, 64, 16);
 
         MineralIodineTxtField.setForeground(new java.awt.Color(0, 0, 0));
+        MineralIodineTxtField.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         MineralIodineTxtField.setBorder(null);
         MineralIodineTxtField.setName("Iodine"); // NOI18N
         MRAP.add(MineralIodineTxtField);
         MineralIodineTxtField.setBounds(500, 544, 64, 16);
 
         MineralSeleniumTxtField.setForeground(new java.awt.Color(0, 0, 0));
+        MineralSeleniumTxtField.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         MineralSeleniumTxtField.setBorder(null);
         MineralSeleniumTxtField.setName("Selenium"); // NOI18N
         MRAP.add(MineralSeleniumTxtField);
         MineralSeleniumTxtField.setBounds(500, 566, 64, 16);
 
         MineralFluorideTxtField.setForeground(new java.awt.Color(0, 0, 0));
+        MineralFluorideTxtField.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         MineralFluorideTxtField.setBorder(null);
         MineralFluorideTxtField.setName("Fluoride"); // NOI18N
         MRAP.add(MineralFluorideTxtField);
@@ -963,6 +1019,19 @@ public class MngRecordAddPnl extends javax.swing.JPanel {
                 .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
+
+    private void AddItemToRecordTitleLblMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_AddItemToRecordTitleLblMousePressed
+        xMouse = evt.getX();
+        yMouse = evt.getY();
+    }//GEN-LAST:event_AddItemToRecordTitleLblMousePressed
+
+    private void AddItemToRecordTitleLblMouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_AddItemToRecordTitleLblMouseDragged
+        JFrame parentFrame = (JFrame) SwingUtilities.getWindowAncestor(this);
+        int x = evt.getXOnScreen();
+        int y = evt.getYOnScreen();
+
+        parentFrame.setLocation(x - xMouse, y - yMouse);
+    }//GEN-LAST:event_AddItemToRecordTitleLblMouseDragged
 
     public void addBackBtnListener(ActionListener a) {
         backBtn.addActionListener(a);

@@ -1,6 +1,7 @@
 package nutrii.application;
 
 import nutrii.application.controllers.FoodItemController;
+import nutrii.application.controllers.MealController;
 import nutrii.application.controllers.UserController;
 import nutrii.application.gui.NutriiGUI;
 import nutrii.application.model.Nutrii;
@@ -27,13 +28,12 @@ public class NutriiApplication {
         
         UserController uController = new UserController(view, logIn, nutrii);
         FoodItemController fController = new FoodItemController(nutrii, view);
+        MealController mController = new MealController(nutrii, view);
         
-        //Splash splash = new Splash();
+        Splash splashImg = new Splash();
         
         logIn.setVisible(true);
 
-        //HibernateUtil.shutdown();
-       //  System.exit(0);
     }
 
     public static void initialize() {

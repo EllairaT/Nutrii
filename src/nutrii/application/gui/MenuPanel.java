@@ -4,7 +4,10 @@
  */
 package nutrii.application.gui;
 
+import java.awt.Color;
+import java.awt.SystemColor;
 import java.awt.event.ActionListener;
+import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.SwingUtilities;
 
@@ -40,7 +43,6 @@ public class MenuPanel extends javax.swing.JPanel {
         userOptions = new javax.swing.JPanel();
         userOptions.setVisible(false);
         accountBtn = new javax.swing.JButton();
-        usersBtn = new javax.swing.JButton();
         logOutBtn = new javax.swing.JButton();
         header = new javax.swing.JPanel();
         userMenu = new javax.swing.JLabel();
@@ -58,12 +60,9 @@ public class MenuPanel extends javax.swing.JPanel {
         removeFoodItemBtn = new javax.swing.JButton();
         UseFoodCalculatorPanel = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
-        jButton9 = new javax.swing.JButton();
+        newMealBtn = new javax.swing.JButton();
         ManageDietPanel = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
+        viewMealsbtn = new javax.swing.JButton();
         jLabel5 = new javax.swing.JLabel();
         headerLabel = new javax.swing.JLabel();
 
@@ -87,37 +86,42 @@ public class MenuPanel extends javax.swing.JPanel {
         userOptions.setEnabled(false);
         userOptions.setFocusable(false);
         userOptions.setOpaque(false);
-        userOptions.setLayout(new java.awt.GridLayout(3, 0));
+        userOptions.setLayout(new java.awt.GridLayout(2, 0));
 
         accountBtn.setBackground(new java.awt.Color(10, 36, 2));
         accountBtn.setForeground(new java.awt.Color(255, 255, 255));
         accountBtn.setText("ACCOUNT");
         accountBtn.setBorderPainted(false);
         accountBtn.setContentAreaFilled(false);
-        accountBtn.setFocusPainted(false);
         accountBtn.setOpaque(true);
+        accountBtn.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                accountBtnMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                accountBtnMouseExited(evt);
+            }
+        });
         userOptions.add(accountBtn);
-
-        usersBtn.setBackground(new java.awt.Color(10, 36, 2));
-        usersBtn.setForeground(new java.awt.Color(255, 255, 255));
-        usersBtn.setText("USERS");
-        usersBtn.setBorderPainted(false);
-        usersBtn.setContentAreaFilled(false);
-        usersBtn.setFocusPainted(false);
-        usersBtn.setOpaque(true);
-        userOptions.add(usersBtn);
 
         logOutBtn.setBackground(new java.awt.Color(10, 36, 2));
         logOutBtn.setForeground(new java.awt.Color(255, 255, 255));
         logOutBtn.setText("LOG OUT");
         logOutBtn.setBorderPainted(false);
         logOutBtn.setContentAreaFilled(false);
-        logOutBtn.setFocusPainted(false);
         logOutBtn.setOpaque(true);
+        logOutBtn.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                logOutBtnMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                logOutBtnMouseExited(evt);
+            }
+        });
         userOptions.add(logOutBtn);
 
         add(userOptions);
-        userOptions.setBounds(0, 80, 220, 250);
+        userOptions.setBounds(0, 80, 220, 140);
 
         header.setOpaque(false);
         header.setPreferredSize(new java.awt.Dimension(120, 50));
@@ -127,6 +131,12 @@ public class MenuPanel extends javax.swing.JPanel {
         userMenu.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 userMenuMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                userMenuMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                userMenuMouseExited(evt);
             }
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 userMenuMousePressed(evt);
@@ -204,7 +214,6 @@ public class MenuPanel extends javax.swing.JPanel {
         jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel3.setText("Add Item to Record");
         AddConsumedPanel.add(jLabel3);
         jLabel3.setBounds(0, 70, 382, 30);
 
@@ -212,8 +221,19 @@ public class MenuPanel extends javax.swing.JPanel {
         addFoodItemBtn.setFont(new java.awt.Font("Segoe UI", 3, 24)); // NOI18N
         addFoodItemBtn.setForeground(new java.awt.Color(255, 255, 255));
         addFoodItemBtn.setText("Add new Food or Drink ");
+        addFoodItemBtn.setBorder(null);
         addFoodItemBtn.setBorderPainted(false);
         addFoodItemBtn.setContentAreaFilled(false);
+        addFoodItemBtn.setFocusable(false);
+        addFoodItemBtn.setRequestFocusEnabled(false);
+        addFoodItemBtn.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                addFoodItemBtnMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                addFoodItemBtnMouseExited(evt);
+            }
+        });
         AddConsumedPanel.add(addFoodItemBtn);
         addFoodItemBtn.setBounds(22, 110, 370, 183);
 
@@ -226,7 +246,6 @@ public class MenuPanel extends javax.swing.JPanel {
         jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel4.setText("Remove Item From Record");
         ManageItemsPanel.add(jLabel4);
         jLabel4.setBounds(6, 63, 382, 30);
 
@@ -234,8 +253,19 @@ public class MenuPanel extends javax.swing.JPanel {
         removeFoodItemBtn.setFont(new java.awt.Font("Segoe UI", 3, 24)); // NOI18N
         removeFoodItemBtn.setForeground(new java.awt.Color(255, 255, 255));
         removeFoodItemBtn.setText("Remove Item from Record");
+        removeFoodItemBtn.setBorder(null);
         removeFoodItemBtn.setBorderPainted(false);
         removeFoodItemBtn.setContentAreaFilled(false);
+        removeFoodItemBtn.setFocusable(false);
+        removeFoodItemBtn.setRequestFocusEnabled(false);
+        removeFoodItemBtn.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                addFoodItemBtnMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                addFoodItemBtnMouseExited(evt);
+            }
+        });
         ManageItemsPanel.add(removeFoodItemBtn);
         removeFoodItemBtn.setBounds(10, 110, 370, 183);
 
@@ -248,79 +278,69 @@ public class MenuPanel extends javax.swing.JPanel {
         jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel2.setText("Use Food Calculator");
         UseFoodCalculatorPanel.add(jLabel2);
-        jLabel2.setBounds(10, 0, 369, 30);
+        jLabel2.setBounds(10, 0, 380, 30);
 
-        jButton9.setBackground(new java.awt.Color(100, 137, 108));
-        jButton9.setFont(new java.awt.Font("Segoe UI", 3, 24)); // NOI18N
-        jButton9.setForeground(new java.awt.Color(255, 255, 255));
-        jButton9.setText("Food Calculator");
-        jButton9.setBorderPainted(false);
-        jButton9.setContentAreaFilled(false);
-        jButton9.setDefaultCapable(false);
-        UseFoodCalculatorPanel.add(jButton9);
-        jButton9.setBounds(20, 70, 370, 190);
+        newMealBtn.setBackground(new java.awt.Color(100, 137, 108));
+        newMealBtn.setFont(new java.awt.Font("Segoe UI", 3, 24)); // NOI18N
+        newMealBtn.setForeground(new java.awt.Color(255, 255, 255));
+        newMealBtn.setText("Add New Meal");
+        newMealBtn.setBorder(null);
+        newMealBtn.setBorderPainted(false);
+        newMealBtn.setContentAreaFilled(false);
+        newMealBtn.setDefaultCapable(false);
+        newMealBtn.setFocusable(false);
+        newMealBtn.setRequestFocusEnabled(false);
+        newMealBtn.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                addFoodItemBtnMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                addFoodItemBtnMouseExited(evt);
+            }
+        });
+        UseFoodCalculatorPanel.add(newMealBtn);
+        newMealBtn.setBounds(20, 70, 370, 190);
 
         menuContainer.add(UseFoodCalculatorPanel);
 
         ManageDietPanel.setOpaque(false);
 
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("Manage Diet");
-
-        jButton1.setBackground(new java.awt.Color(100, 137, 108));
-        jButton1.setForeground(new java.awt.Color(255, 255, 255));
-        jButton1.setText("Create new Day");
-        jButton1.setBorder(null);
-        jButton1.setBorderPainted(false);
-        jButton1.setContentAreaFilled(false);
-        jButton1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-
-        jButton2.setBackground(new java.awt.Color(100, 137, 108));
-        jButton2.setForeground(new java.awt.Color(255, 255, 255));
-        jButton2.setText("View Days");
-        jButton2.setBorder(null);
-        jButton2.setBorderPainted(false);
-        jButton2.setContentAreaFilled(false);
-
-        jButton3.setBackground(new java.awt.Color(100, 137, 108));
-        jButton3.setForeground(new java.awt.Color(255, 255, 255));
-        jButton3.setText("Adjust Days");
-        jButton3.setBorder(null);
-        jButton3.setBorderPainted(false);
-        jButton3.setContentAreaFilled(false);
+        viewMealsbtn.setBackground(new java.awt.Color(100, 137, 108));
+        viewMealsbtn.setFont(new java.awt.Font("Segoe UI", 3, 24)); // NOI18N
+        viewMealsbtn.setForeground(new java.awt.Color(255, 255, 255));
+        viewMealsbtn.setText("View Meals");
+        viewMealsbtn.setAlignmentY(0.0F);
+        viewMealsbtn.setBorder(null);
+        viewMealsbtn.setBorderPainted(false);
+        viewMealsbtn.setContentAreaFilled(false);
+        viewMealsbtn.setFocusable(false);
+        viewMealsbtn.setMargin(new java.awt.Insets(0, 14, 0, 14));
+        viewMealsbtn.setRequestFocusEnabled(false);
+        viewMealsbtn.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                addFoodItemBtnMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                addFoodItemBtnMouseExited(evt);
+            }
+        });
 
         javax.swing.GroupLayout ManageDietPanelLayout = new javax.swing.GroupLayout(ManageDietPanel);
         ManageDietPanel.setLayout(ManageDietPanelLayout);
         ManageDietPanelLayout.setHorizontalGroup(
             ManageDietPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(ManageDietPanelLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 382, Short.MAX_VALUE)
-                .addContainerGap())
-            .addGroup(ManageDietPanelLayout.createSequentialGroup()
-                .addGap(91, 91, 91)
-                .addGroup(ManageDietPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 208, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(14, 14, 14)
+                .addComponent(viewMealsbtn, javax.swing.GroupLayout.PREFERRED_SIZE, 361, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(19, Short.MAX_VALUE))
         );
         ManageDietPanelLayout.setVerticalGroup(
             ManageDietPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(ManageDietPanelLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(91, 91, 91)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(113, Short.MAX_VALUE))
+                .addGap(71, 71, 71)
+                .addComponent(viewMealsbtn, javax.swing.GroupLayout.PREFERRED_SIZE, 184, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(105, Short.MAX_VALUE))
         );
 
         menuContainer.add(ManageDietPanel);
@@ -382,6 +402,10 @@ public class MenuPanel extends javax.swing.JPanel {
 
     }//GEN-LAST:event_userMenuMousePressed
 
+    public void addViewMealListener(ActionListener a){
+        viewMealsbtn.addActionListener(a);
+    }
+    
     public void adduserLabelListener(ActionListener a, String text) {
         userNameLbl.setText(text);
     }
@@ -399,6 +423,41 @@ public class MenuPanel extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_userMenuMouseClicked
 
+    private void logOutBtnMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_logOutBtnMouseEntered
+        logOutBtn.setBackground(new Color(0, 102, 102));
+    }//GEN-LAST:event_logOutBtnMouseEntered
+
+    private void logOutBtnMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_logOutBtnMouseExited
+        logOutBtn.setBackground(new Color(10, 36, 2));
+    }//GEN-LAST:event_logOutBtnMouseExited
+
+    private void accountBtnMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_accountBtnMouseEntered
+        accountBtn.setBackground(new Color(0, 102, 102));
+    }//GEN-LAST:event_accountBtnMouseEntered
+
+    private void accountBtnMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_accountBtnMouseExited
+        accountBtn.setBackground(new Color(10, 36, 2));
+    }//GEN-LAST:event_accountBtnMouseExited
+
+    private void userMenuMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_userMenuMouseEntered
+        userMenu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/nutrii/application/gui/images/user2.png")));
+    }//GEN-LAST:event_userMenuMouseEntered
+
+    private void userMenuMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_userMenuMouseExited
+        userMenu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/nutrii/application/gui/images/user.png")));
+    }//GEN-LAST:event_userMenuMouseExited
+
+    private void addFoodItemBtnMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addFoodItemBtnMouseEntered
+        JButton source = (JButton) evt.getSource();
+        source.setForeground(new Color(238, 255, 154 ));
+
+    }//GEN-LAST:event_addFoodItemBtnMouseEntered
+
+    private void addFoodItemBtnMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addFoodItemBtnMouseExited
+        JButton source = (JButton) evt.getSource();
+        source.setForeground(new Color(255,255,255));
+    }//GEN-LAST:event_addFoodItemBtnMouseExited
+
     public void addLogOutListener(ActionListener a) {
         logOutBtn.addActionListener(a);
     }
@@ -409,6 +468,10 @@ public class MenuPanel extends javax.swing.JPanel {
 
     public void removeFoodItemListener(ActionListener a) {
         removeFoodItemBtn.addActionListener(a);
+    }
+    
+    public void calculateFoodListener(ActionListener a){
+        newMealBtn.addActionListener(a);
     }
 
     private void showUserMenu() {
@@ -431,14 +494,9 @@ public class MenuPanel extends javax.swing.JPanel {
     private javax.swing.JPanel container;
     private javax.swing.JPanel header;
     private javax.swing.JLabel headerLabel;
-    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton10;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton8;
-    private javax.swing.JButton jButton9;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -447,10 +505,11 @@ public class MenuPanel extends javax.swing.JPanel {
     private javax.swing.JButton logOutBtn;
     private javax.swing.JPanel menuContainer;
     private javax.swing.JLabel minimiseBtn;
+    private javax.swing.JButton newMealBtn;
     private javax.swing.JButton removeFoodItemBtn;
     private javax.swing.JLabel userMenu;
     private javax.swing.JLabel userNameLbl;
     private javax.swing.JPanel userOptions;
-    private javax.swing.JButton usersBtn;
+    private javax.swing.JButton viewMealsbtn;
     // End of variables declaration//GEN-END:variables
 }

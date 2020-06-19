@@ -1,7 +1,9 @@
 package nutrii.application.services;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
+import nutrii.application.model.Compounds;
 import nutrii.application.model.User;
 import nutrii.application.other.HibernateUtil;
 import org.hibernate.Criteria;
@@ -34,9 +36,10 @@ public class UserService {
 
             if (u != null) {
                 System.out.println("Successfully logged in.");
+                //System.out.println(u.getName());
                 currentUser = u;
             } else {
-                System.err.println("Incorrect user details.");
+                throw new IllegalArgumentException();
             }
 
             tx.commit();
@@ -97,9 +100,14 @@ public class UserService {
 
     public List<User> browseAll(Class user) {
         Session session = HibernateUtil.getSessionFactory().openSession();
+        List<User> results = new ArrayList<>();
 
-        Criteria crit = session.createCriteria(user);
-        List<User> results = crit.list();
+        if (user != null) {
+            Criteria crit = session.createCriteria(user);
+            results = crit.list();
+        } else {
+            results = null;
+        }
         session.close();
         return results;
     }
@@ -138,6 +146,7 @@ public class UserService {
             }
             e.printStackTrace();
         }
+        session.close();
         return isSuccessful;
     }
 
@@ -146,8 +155,18 @@ public class UserService {
         Transaction tx = null;
         List<User> results = null;
         try {
+
+            if (uname != null) {
+                Criteria crit = session.createCriteria(User.class);
+                crit.add(Restrictions.ilike("name", "%" + uname + "%"));
+
+                results = crit.list();
+
+            } else {
+                results = null;
+            }
             Criteria crit = session.createCriteria(User.class);
-            crit.add(Restrictions.ilike("name", "%"+uname+"%"));
+            crit.add(Restrictions.ilike("name", "%" + uname + "%"));
 
             results = crit.list();
         } catch (Exception e) {
@@ -166,7 +185,7 @@ public class UserService {
             crit.add(Restrictions.eq("name", uname));
 
             result = (User) crit.uniqueResult();
-            if(result != null){
+            if (result != null) {
                 userExists = true;
             }
         } catch (Exception e) {
@@ -181,11 +200,15 @@ public class UserService {
 
         List<User> results = null;
         try {
-            Criteria crit = session.createCriteria(User.class);
-            crit.add(Restrictions.eq("Lifestyle", lifestyle));
+            if (lifestyle != null) {
+                Criteria crit = session.createCriteria(User.class);
+                crit.add(Restrictions.eq("Lifestyle", lifestyle));
 
-            results = crit.list();
+                results = crit.list();
 
+            } else {
+                results = null;
+            }
         } catch (Exception e) {
             throw e;
         }

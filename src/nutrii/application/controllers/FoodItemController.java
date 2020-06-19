@@ -20,7 +20,10 @@ import nutrii.application.services.CompoundService;
 import nutrii.application.services.FoodItemService;
 
 /**
- *
+ * FoodItem controller controls the interactions between 
+ * The adding/removing foods panel
+ * and models
+ * 
  * @author Ellaira
  */
 public class FoodItemController {
@@ -44,8 +47,11 @@ public class FoodItemController {
         addPanel.addBackBtnListener(new BackBtnListener());
         addPanel.textFieldListener(new TextListener());
         addPanel.addAddBtnListener(new TextListener());
+        
         view.getMenuPanel().removeFoodItemListener(new RemoveFoodItemListener());
         removePanel.addRecordListener(new RecordListener());
+        removePanel.addRemoveBtnListener(new RemoveListener());
+        removePanel.addBackBtnListener(new BackBtnListener());
     }
 
     private static class AddFoodItemListener implements ActionListener {
@@ -59,19 +65,22 @@ public class FoodItemController {
     }
 
     private static class BackBtnListener implements ActionListener {
-
         @Override
         public void actionPerformed(ActionEvent e) {
             addPanel.setVisible(false);
+            removePanel.setVisible(false);
+     
+            view.setSize(view.getPreferredSize());
             view.getMenuPanel().setVisible(true);
         }
     }
 
     private static class RemoveFoodItemListener implements ActionListener {
-
         @Override
         public void actionPerformed(ActionEvent e) {
             view.getMenuPanel().setVisible(false);
+            removePanel.clearItemComboBox();
+            removePanel.clearRecordComboBox();
             view.add(removePanel);
             view.setSize(removePanel.getSize());
             removePanel.setVisible(true);
@@ -86,9 +95,14 @@ public class FoodItemController {
             try {
                 int op = JOptionPane.showConfirmDialog(view, "Are you sure you want to save new item?", "Confirm", JOptionPane.OK_CANCEL_OPTION);
                 if (op == 0) {
+
                     if (addPanel.getItemName().isEmpty()) {
                         JOptionPane.showMessageDialog(view, "The food item must have a name!", "Warning", JOptionPane.WARNING_MESSAGE);
                     } else {
+
+                        if (fs.doesFoodItemExist(addPanel.getItemName())) {
+                            throw new IllegalArgumentException();
+                        }
 
                         FoodItem newItem = null;
                         String msg = "";
@@ -107,7 +121,7 @@ public class FoodItemController {
                             msg = addPanel.getItemName() + " added successfully!";
                         }
                         newItem.setFoodName(addPanel.getItemName());
-                        System.out.println(Arrays.asList(cmp));
+
                         fs.addFoodItem(newItem, cmp);
                         addPanel.setInitValues();
                         JOptionPane.showMessageDialog(view, msg, "Success!", JOptionPane.PLAIN_MESSAGE);
@@ -116,8 +130,11 @@ public class FoodItemController {
                 } else if (op == 2) {
                     addPanel.setInitValues();
                 }
+
             } catch (NumberFormatException ex) {
                 JOptionPane.showMessageDialog(view, "Invalid input.", "Warning", JOptionPane.WARNING_MESSAGE);
+            } catch (IllegalArgumentException ei) {
+                JOptionPane.showMessageDialog(view, "There is already an item with that name!", "Warning", JOptionPane.WARNING_MESSAGE);
             }
         }
     }
@@ -126,18 +143,48 @@ public class FoodItemController {
 
         @Override
         public void actionPerformed(ActionEvent e) {
-            
-            System.out.println(removePanel.getSelectRecordComboBox().getSelectedItem());
+            ///System.out.println(removePanel.getSelectRecordComboBox().getSelectedItem());
             int index = removePanel.getSelectRecordComboBox().getSelectedIndex();
             List<FoodItem> model = null;
-            if (index == 1) {
-                model = fs.searchByType(Food.class);
-            } else if (index == 2){
-                model = fs.searchByType(Drink.class);
+            if (index == 0) {
+                removePanel.clearItemComboBox();
+            } else {
+                if (index == 1) {
+                    model = fs.searchByType(Food.class);
+                } else if (index == 2) {
+                    model = fs.searchByType(Drink.class);
+                }
+                DefaultComboBoxModel newModel = new DefaultComboBoxModel(model.toArray());
+                removePanel.setItemModel(newModel);
             }
-            DefaultComboBoxModel newModel = new DefaultComboBoxModel(model.toArray());
-            removePanel.getSelectItemComboBox().setModel(newModel);
-        
+        }
+    }
+
+    private static class RemoveListener implements ActionListener {
+
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            FoodItem selectedFoodItem = (FoodItem) removePanel.getSelectItemComboBox().getSelectedItem();
+
+            if (selectedFoodItem != null) {
+                try {
+
+                    int op = JOptionPane.showConfirmDialog(removePanel, "Are you sure you want to delete "
+                            + selectedFoodItem.getFoodName()
+                            + "? ", "Just making sure...", JOptionPane.YES_NO_OPTION);
+                    if (op == 0) {
+                        fs.delFoodItem(selectedFoodItem);
+                        removePanel.clearRecordComboBox();
+                        removePanel.clearItemComboBox();
+                        JOptionPane.showMessageDialog(removePanel, selectedFoodItem.getFoodName() + " successfully deleted!");
+                    } else {
+                        return;
+                    }
+                } catch (Exception ex) {
+                    System.err.println(ex);
+                    JOptionPane.showMessageDialog(removePanel, "Something went wrong", "Oops", JOptionPane.WARNING_MESSAGE);
+                }
+            }
         }
     }
 }

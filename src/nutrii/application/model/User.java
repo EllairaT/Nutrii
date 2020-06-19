@@ -153,11 +153,6 @@ public abstract class User {
                 + calorieReq + "\nAccount created on: " + START_DATE;
     }
 
-    //format to write to file
-    public String toWrite() {
-        return name + "," + password + "," + gender + "," + DOB + "," + height + "," + weight + "," + START_DATE + "," + getClass().getCanonicalName();
-    }
-
     /**
      * calculates the total calories needed by the user
      *
